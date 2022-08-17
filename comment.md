@@ -51,7 +51,7 @@
 *********
 
     +2588 문제
-    * [백준 2588](https://www.acmicpc.net/problem/2588, "2588번 문제")
+    * [2588](https://www.acmicpc.net/problem/2588, "2588 link")
 
     ```
     add[i] = (a[0] * 100 * b[i]) + (a[1] * 10 * b[i]) + (a[2] * b[i]);
