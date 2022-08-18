@@ -1,23 +1,22 @@
 #include <stdio.h>
 
 int main () {
-    int year = 0;
-
-    scanf("%d", &year);
+    int H, M, clock = 0;
     
-    if(year % 4 == 0){              // 1단계
-        if(year % 100 == 0) {       // 2단계
-            if(year % 400 == 0){    // 3단계
-                printf("1");        // 최종 윤년
-            }
-            else
-                printf("0");        // 3단계 윤년 아님
+    scanf("%d %d", &H, &M);
+
+    if((0 <= H && H <= 23) && (0 <= M && M <= 59)){    
+        if(M >= 45){
+            printf("%d %d", H, M - 45);
         }
-        else
-            printf("1");            // 2단계 윤년
+        else {  // M < 45
+            if(H - 1 < 0)
+                printf("%d %d", H + 23, M + 15);
+            else
+                printf("%d %d", H - 1, M + 15);
+        }
     }
-    else 
-        printf("0");                // 1단계 윤년 아님
-        
+    else return 0;   // �Է� ����
+
    return 0;
 }
