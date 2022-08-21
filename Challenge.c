@@ -1,16 +1,22 @@
 #include <stdio.h>
 
 int main() {
-    char a[100];
-    
-    scanf("%s", &a[0]);
-    for(int i = 0; a[i] != 0; i++){
-        if(a[i] >= 'a' && a[i] <= 'z'){
-            a[i] = a[i] - 32;
-        }
-        else
-            a[i] = a[i] + 32;
+    int money, amount = 0;
+    int a, b, c = 0;
+    int result = 0;
+
+    scanf("%d", &money);
+    scanf("%d", &amount);
+
+    for(int i = 0; i < amount; i++){
+        scanf("%d %d", &a, &b);
+        result += a * b;
     }
-    printf("%s", a);
+
+    if(result == money)
+        printf("Yes");
+    else
+        printf("No");
+
     return 0;
 }
