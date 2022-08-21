@@ -1,22 +1,16 @@
 #include <stdio.h>
+#include <string.h>
 
-int main() {
-    int money, amount = 0;
-    int a, b, c = 0;
-    int result = 0;
+char text[100];
 
-    scanf("%d", &money);
-    scanf("%d", &amount);
-
-    for(int i = 0; i < amount; i++){
-        scanf("%d %d", &a, &b);
-        result += a * b;
+int main() {    
+    int i, len;
+    while(1){
+        scanf("%[^\n]", text);
+        len = strlen(text);
+        if(text[0] == '*' && text[1] == '*' && text[2] == '*' && len == 3) break;
+        for(i = len - 1; i >= 0; i--)
+            printf("%c", text[i]);
     }
-
-    if(result == money)
-        printf("Yes");
-    else
-        printf("No");
-
     return 0;
 }
