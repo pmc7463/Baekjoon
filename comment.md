@@ -156,3 +156,18 @@ if(arr > max) { //max = -1000001
         }    
 ```
 ********
+* 15596 정수 N개의 합
++ 함수를 이용해서 푸는 문제이다.
+  아래 코드를 참고
+```
+#include <stdio.h>
+
+long long sum(int *a, int n) {
+    long long re = 0;
+    
+    for(int i = 0; i < n; i++)
+        re += a[i];
+    return re;
+}
+```
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmrOgV%2Fbtrp66nbPkN%2F0qnVvtTNRMvok00QuQKZP1%2Fimg.png" width = "200" height = "400"/>
