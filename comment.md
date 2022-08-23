@@ -171,3 +171,16 @@ long long sum(int *a, int n) {
 }
 ```
 <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmrOgV%2Fbtrp66nbPkN%2F0qnVvtTNRMvok00QuQKZP1%2Fimg.png" width = "400" height = "400"/>
+********
+
+# 2022-08-23 수요일
+* 1110 더하기 사이클 문제
++ 나는 배열을 이용해서 접근 할려고 했으나 잘 안되서 다른사람들의 코드를 참고하였다.
+```
+do{
+        compare = (compare % 10) * 10 + (compare / 10 + compare % 10) % 10;
+        again++;
+    } while(compare != num);
+```
+<span style='background-color:#fff5b1'>다들 이런 공식을 어떻게 떠올리는거야? 대단하다</span>
+*******

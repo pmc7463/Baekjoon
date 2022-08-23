@@ -1,9 +1,18 @@
 #include <stdio.h>
 
-long long sum(int *a, int n) {
-    long long re = 0;
+int main() {
+    int num, compare, again = 0;
+
+    scanf("%d", &num);
+
+    compare = num;
+
+    do{
+        compare = (compare % 10) * 10 + (compare / 10 + compare % 10) % 10;
+        again++;
+    } while(compare != num);
     
-    for(int i = 0; i < n; i++)
-        re += a[i];
-    return re;
+    printf("%d", again);
+    
+    return 0;
 }
