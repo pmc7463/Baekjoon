@@ -206,7 +206,7 @@ if(arr[i] > max)
             max = arr[i];
 ```
 + double형으로 하니까 값이 나옴
-자료형 일치 시켜주기
+  자료형 일치 시켜주기
 ```
 sum[i] = (arr[i] / (double)max) * 100;
 ```

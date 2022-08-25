@@ -1,31 +1,25 @@
 #include <stdio.h>
 
 int main() {
-	int subject, max = 0;
-    int arr[1000];
-    double sum[1000] = {0, };
-    double average = 0;
-    double temp;
+	int problem, score, sum = 0;
+    char quiz[80];
 
-    scanf("%d", &subject);
+    scanf("%d", &problem);
 
-    for(int i = 0; i < subject; i++) {
-        scanf("%d", &arr[i]);
-
-        if(arr[i] > max)
-            max = arr[i];
+    for(int i = 0; i < problem; i++) {
+        scanf("%s", quiz);
+        sum = 0;
+        for(int j = 0; quiz[j] != '\0'; j++) {
+            score = 0;
+            while(quiz[j] == 'O') {
+                score++;
+                sum += score;
+                j++;
+            }
+            if(quiz[j] == '\0')
+                break;
+        }
+        printf("%d\n", sum);
     }
-
-    for(int i = 0; i < subject; i++) {
-
-        sum[i] = (arr[i] / (double)max) * 100;
-        
-        temp += sum[i];
-
-        average = temp / subject;
-    }
-
-    printf("%lf\n", average);
-
     return 0;
 }
