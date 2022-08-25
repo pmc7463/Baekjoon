@@ -211,3 +211,16 @@ if(arr[i] > max)
 sum[i] = (arr[i] / (double)max) * 100;
 ```
 *******
+* 8958 OX 퀴즈 문제
++ 배열의 끝을 조건으로 쓰는 방법
+```
+for(int j = 0; quiz[j] != '\0'; j++)
+```
+*******
+# 2022-08-26 Friday
+* 4344 '평균은 넘겠지' 문제
++ <span style="background-color: #fff5b1"> 평균을 구하는 함수형을 참고해서 문제를 풀었다. </span>
+```
+double avg(int scores[], int student);
+```
+*******

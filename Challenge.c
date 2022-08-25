@@ -1,25 +1,38 @@
 #include <stdio.h>
 
+double avg(int scores[], int student);
+
 int main() {
-	int problem, score, sum = 0;
-    char quiz[80];
+	int test, student = 0;
+	int scores[1001] = {0, };
+	double temp[1001] = {0, };
 
-    scanf("%d", &problem);
+	scanf("%d", &test);
+	
+	for(int i = 0; i < test; i++) {
+		scanf("%d", &student);
 
-    for(int i = 0; i < problem; i++) {
-        scanf("%s", quiz);
-        sum = 0;
-        for(int j = 0; quiz[j] != '\0'; j++) {
-            score = 0;
-            while(quiz[j] == 'O') {
-                score++;
-                sum += score;
-                j++;
-            }
-            if(quiz[j] == '\0')
-                break;
-        }
-        printf("%d\n", sum);
-    }
-    return 0;
+		for(int j = 0; j < student; j++) {
+			scanf("%d", &scores[j]);
+		}
+		temp[i] = avg(scores, student);
+	}
+	for(int k = 0; k < test; k++)
+		printf("%.3f%%\n", temp[k]);
+}
+
+double avg(int scores[], int student) {
+	double avgs;
+	int sum = 0, count = 0;
+
+	for(int i = 0; i < student; i++) {
+		sum += scores[i];
+	}
+	avgs = sum / student;
+
+	for(int j = 0; j < student; j++) {
+		if(avgs < scores[j])
+			count++;
+	}
+	return 100 * (double)count / student;
 }
