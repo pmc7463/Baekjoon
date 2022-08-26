@@ -1,38 +1,33 @@
 #include <stdio.h>
 
-double avg(int scores[], int student);
+int arr[10001];
 
-int main() {
-	int test, student = 0;
-	int scores[1001] = {0, };
-	double temp[1001] = {0, };
+int self_number(int i) {
+	int sum = 0;
 
-	scanf("%d", &test);
+	sum = i;
+
+	do {
+		sum = sum + (i % 10);
+		i = i / 10;
+	} while(i != 0);	// 몫이 0이 될 때까지 반복
 	
-	for(int i = 0; i < test; i++) {
-		scanf("%d", &student);
-
-		for(int j = 0; j < student; j++) {
-			scanf("%d", &scores[j]);
-		}
-		temp[i] = avg(scores, student);
-	}
-	for(int k = 0; k < test; k++)
-		printf("%.3f%%\n", temp[k]);
+	return sum;
 }
 
-double avg(int scores[], int student) {
-	double avgs;
-	int sum = 0, count = 0;
-
-	for(int i = 0; i < student; i++) {
-		sum += scores[i];
+int main() {
+	int i, j = 0, count;
+	for(i = 1; i <= 10000; i++)	// 10000보다 작거나 같은 셀프넘버를 찾기 위해서
+		arr[j++] = self_number(i);
+	
+	for(i = 1; i <= 10000; i++) {
+		count = 0;
+		for(j = 0; arr[j] != 0; j++) {
+			if(i == arr[j]) // 같은 값이 있을 때
+				count++;
+		}
+		if(count == 0)	// 끝까지 돌았는데 같은 값이 없을 때 count는 증가하지 않으므로 0일것					
+			printf("%d\n", i);
 	}
-	avgs = sum / student;
-
-	for(int j = 0; j < student; j++) {
-		if(avgs < scores[j])
-			count++;
-	}
-	return 100 * (double)count / student;
+	return 0;
 }
