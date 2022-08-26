@@ -243,3 +243,8 @@ char ASCII;
 	printf("%d", ASCII);
 ```
 *******
+* 1065 '한수' 문제
++ 각 자리수들이 등차수열을 이루는 수가 몇개인지 구하기
++ [한수 설명](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=occidere&logNo=220790000403)
++ 내용을 이해하는데 참고하였음
+*******
