@@ -235,3 +235,11 @@ do {
 	} while(i != 0);    // 몫이 0이 될 때까지 반복
 ```
 ********
+* 11654 'ASCII CODE' 문제
++ 참고하기
+```
+char ASCII;
+	scanf("%c", &ASCII);
+	printf("%d", ASCII);
+```
+*******
