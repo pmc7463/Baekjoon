@@ -2,28 +2,23 @@
 #include <string.h>
 
 int main() {
-	int i, j;
-	char alphabet[101];
-	char arr[26];
+	int problem, repetition, i, j, length;
+	char str[21] = {0, };
 
-	scanf("%s", &alphabet);
+	scanf("%d", &problem);
 
-	for(i = 0; i < 26; i++) {
-		arr[i] = -1;	// 없는 문자는 -1 저장 
-	}
-
-	for(i = 97; i<= 122; i++) {
-		for(j = 0; j < strlen(alphabet); j++) {
-			if(alphabet[j] == i) {
-				arr[alphabet[j] - 'a'] = j;	// i == 97 (a) 라면 alphabet[j] 는 97이 되고 'a'도 97이여서 빼주면 0이 된다
-											// 그럼으로 arr[0]에 문자형의 첫번째가 담기게 된다.
-				break;	// 같은 문자가 들어오면 뒤에 들어온 문자가 저장 되기 때문에 첫번째 만 받고 브레이크
+	if(problem >= 1 && problem <= 1000){
+		for(int i = 0; i < problem; i++) {
+			j = 0;
+			scanf("%d", &repetition);
+			scanf("%s", &str);
+			length = strlen(str);	// 'AAABBBCCC		' != 'AAABBBCCC' 와 다르다
+			for(int j = 0; j < length; j++) {	// 1문자 선택 >> 2문자 선택 >> n문자 선택
+				for(int k = 0; k < repetition; k++)	// 문자 하나하나 반복
+					printf("%c", str[j]);
 			}
+			printf("\n");
 		}
 	}
-	for(i = 0; i < 26; i++) {
-		printf("%d ",arr[i]);
-	}
-
 	return 0;
 }
