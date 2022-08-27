@@ -1,29 +1,20 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
-	int arr[3];
-	int N, han, count, temp;
+	char arr[100];
+	char temp[]={"0"};
+	int n , sum = 0;
 
-	scanf("%d", &N);
+	scanf("%d", &n);
+	scanf("%s", arr);
 
-	for (int i = 1; i <= N; i++){
-		if(i < 100)
-			han = i;
-		else if( i == 1000)
-			break;
-		else {
-			count = 0;
-			temp = i;
-			while(temp > 0) {
-				arr[count] = temp % 10;
-				temp /= 10;
-				count++;
-			}	
-			if(arr[0] - arr[1] == arr[1] - arr[2])
-				han++;
-		}
+	for (int i = 0; i < n; i++) {
+		temp[0] = arr[i];
+		sum += atoi(temp);
 	}
-	printf("%d", han);
+
+	printf("%d",sum);
 
 	return 0;
 }

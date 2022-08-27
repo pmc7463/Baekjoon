@@ -1,6 +1,17 @@
 # 백준
 *************
+# 2022-08-27 Saturday
+* 11720 '숫자의 합' 문제
++ 문자형을 정수형을 바꿔주는 atoi 함수를 알게 되었다.
++ %c에는 ' '를 사용하고 %s에는 " "를 사용한다.
+```
+int a, b;
+char a_str[20], b_str[20];
 
+a = atoi(a_str);
+b = atoi(b_str);
+```
+**********
 * 1065 '한수' 문제
 + 각 자리수들이 등차수열을 이루는 수가 몇개인지 구하기
 + [한수 설명](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=occidere&logNo=220790000403)
