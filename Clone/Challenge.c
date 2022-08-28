@@ -1,24 +1,36 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
-	int problem, repetition, i, j, length;
-	char str[21] = {0, };
+    int i = 0, max = 0, count = 0;
+    char alphabet[1000001];
+    int arr[26];
+    char capital;
+    
+    scanf("%s", alphabet);
 
-	scanf("%d", &problem);
+    for(int i = 0; i < 26; i++) 
+        arr[i] = 0;     // 배열 0으로 초기화 
+    
+    while(alphabet[i] != 0) {
+        if(alphabet[i] >= 97 && alphabet[i] <= 122)
+            alphabet[i] -= 32;  // 소문자일때 여기서 -32를 해서 대문자로 만들어주기  
+        ++arr[alphabet[i] - 65];    // 대문자
+        ++i;
+    }
 
-	if(problem >= 1 && problem <= 1000){
-		for(int i = 0; i < problem; i++) {
-			j = 0;
-			scanf("%d", &repetition);
-			scanf("%s", &str);
-			length = strlen(str);	// 'AAABBBCCC		' != 'AAABBBCCC' 와 다르다
-			for(int j = 0; j < length; j++) {	// 1문자 선택 >> 2문자 선택 >> n문자 선택
-				for(int k = 0; k < repetition; k++)	// 문자 하나하나 반복
-					printf("%c", str[j]);
-			}
-			printf("\n");
-		}
-	}
-	return 0;
+    for(int i = 0; i < 26; i++) {
+        if(max < arr[i]) 
+            max = arr[i];
+    }
+
+    for(int i = 0; i < 26; i++) {
+        if(max == arr[i]) {
+            ++count;
+            capital = 'A' + i;
+        }
+    }
+    if(count == 1)
+        printf("%c", capital);
+    else 
+        printf("?");
 }
