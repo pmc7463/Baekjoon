@@ -1,29 +1,32 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 int main() {
-	char str[1000002];
-	int length, count = 0;
+	char a[4], b[4];
+	char temp1[1], temp2[1];
+	int length, a_i, b_i;
 
-	fgets(str, sizeof(str), stdin);
+	scanf("%s", &a);
+	scanf("%s", &b);
+	
+	length = strlen(a);
 
-	str[strlen(str) - 1] = '\0';
+	temp1[0] = a[0];
+	a[0] = a[2];
+	a[2] = temp1[0];
 
-	length = strlen(str);
+	temp2[0] = b[0];
+	b[0] = b[2];
+	b[2] = temp2[0];
+	
+	a_i = atoi(a);
+	b_i = atoi(b);
 
-	if(length == 1) {
-		if(str[0] == ' ') {
-			printf("0");
-			return 0;
-		}
-	}
-
-	for(int i = 1; i < length - 1; i++) {
-		if(str[i] == ' ')
-			count++;
-	}
-
-	printf("%d", count + 1);
+	if(a_i > b_i)
+		printf("%d", a_i);
+	else 
+		printf("%d", b_i);
 
 	return 0;
 }
