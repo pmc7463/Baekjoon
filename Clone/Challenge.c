@@ -1,32 +1,23 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
 
 int main() {
-	char a[4], b[4];
-	char temp1[1], temp2[1];
-	int length, a_i, b_i;
+	char arr[16];
+	char str[][5] = {"ABC", "DEF", "GHI", "JKL","MNO", "PQRS", "TUV", "WXYZ"};
+	int time = 0, i = 0;
 
-	scanf("%s", &a);
-	scanf("%s", &b);
+	scanf("%s", arr);
 	
-	length = strlen(a);
+	while(arr[i]) {
+		for(int j = 0; j < 8; j++) {
+			char *ptr = strchr(str[j], arr[i]);
+			if(ptr != NULL)
+				time += j + 3;
+		}
+		i++;
+	}
 
-	temp1[0] = a[0];
-	a[0] = a[2];
-	a[2] = temp1[0];
-
-	temp2[0] = b[0];
-	b[0] = b[2];
-	b[2] = temp2[0];
-	
-	a_i = atoi(a);
-	b_i = atoi(b);
-
-	if(a_i > b_i)
-		printf("%d", a_i);
-	else 
-		printf("%d", b_i);
+	printf("%d", time);
 
 	return 0;
 }
