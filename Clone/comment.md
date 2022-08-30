@@ -3,7 +3,7 @@
 # 2022-08-29 Monday(1)
 * 5622 '다이얼' 문제
 + strchr 문자열 내에 일치하는 문자가 있는지 검사하는 함수입니다.
-<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile8.uf.tistory.com%2Fimage%2F9903603C5E0A25F30C6DD6" width = "700" height = "400"/>
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile8.uf.tistory.com%2Fimage%2F9903603C5E0A25F30C6DD6" width = "900" height = "400"/>
 **********
 
 # 2022-08-28 Sunday(3)

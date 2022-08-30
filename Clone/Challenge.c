@@ -2,22 +2,48 @@
 #include <string.h>
 
 int main() {
-	char arr[16];
-	char str[][5] = {"ABC", "DEF", "GHI", "JKL","MNO", "PQRS", "TUV", "WXYZ"};
-	int time = 0, i = 0;
+	char str[101];
+	int count = 0;
+	int length = 0;
 
-	scanf("%s", arr);
-	
-	while(arr[i]) {
-		for(int j = 0; j < 8; j++) {
-			char *ptr = strchr(str[j], arr[i]);
-			if(ptr != NULL)
-				time += j + 3;
+	scanf("%s", str);
+
+	length = strlen(str);
+	for(int i = 0; i < length; i++) {
+		if(str[i] == 'c') {
+			if(str[i + 1] == '=' || str[i + 1] == '-')
+				count++;
 		}
-		i++;
+		else if(str[i] == 'd') {
+			if(str[i + 1] == 'z') {
+				if(str[i + 2] == '='){
+					count++;
+				}
+			}
+			else if(str[i + 1] == '-')
+				count++;
+		}
+		else if(str[i] == 'l') {
+			if(str[i + 1] == 'j')
+				count++;
+		}
+		else if(str[i] == 'n') {
+			if(str[i + 1] == 'j')
+				count++;
+		}
+		else if(str[i] == 's') {
+			if(str[i + 1] == '=')
+				count++;
+		}
+		else if(str[i] == 'z') {
+			if(str[i + 1] == '='){
+				//if(str[i - 1] != 'd'){
+					count++;
+				//}
+			}
+		}
 	}
-
-	printf("%d", time);
-
+	printf("%d", length - count);
+	
 	return 0;
 }
