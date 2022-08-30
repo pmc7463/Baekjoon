@@ -1,5 +1,33 @@
 # 백준
 *************
+# 2022-08-30 Tuseday(2)
+* 1316 '그룹 단어 체커' 문제
++ 솔직히 못 풀었다. 그대로 카피함 ㅠㅠ 이런 조건 도저히 생각해내지 못함
+```
+if(alpabet[str[j] - 'a'] == 0 || j - alpabet[str[j] - 'a'] < 2) {
+				if(str[0] == str[j] && j - alpabet[str[j] - 'a'] > 1)
+					break;
+				alpabet[str[j]  - 'a'] = j;
+			}
+			// 알파벳이 연속되는지 확인
+			else if(j - alpabet[str[j] - 'a'] > 1)
+				break;
+			//알파벳이 연속되지 않았을 때 break
+			if(str[j] == '\0') {
+				count++;
+				break;
+			}
+```
+
+# 2022-08-30 Tuesday(1)
+* 2941 '크로아티아 알파벳' 문제
++ 나는 하나하나 조건을 다 주어서 풀었다.
+``` 
+else if(str[i] == 'd')
+			if(str[i + 1] == 'z') 
+				if(str[i + 2] == '=')
+					count++;
+```
 # 2022-08-29 Monday(1)
 * 5622 '다이얼' 문제
 + strchr 문자열 내에 일치하는 문자가 있는지 검사하는 함수입니다.
