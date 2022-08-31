@@ -1,13 +1,17 @@
 #include <stdio.h>
 
-int main() {
-	int a = 0, b = 0;
+int fibonacci(int n) {
+	if(n == 0) return 0;
+	else if(n == 1) return 1;
+	return fibonacci(n - 1) + fibonacci(n - 2);
+}
 
-	scanf("%d", &a);
-	scanf("%d", &b);
+int main() {
+	int num;
 	
-	if(a > 0 && a < 10 && b > 0 && b < 10)
-		printf("%d", a + b);
+	scanf("%d", &num);
+
+	printf("%d\n", fibonacci(num));
 	
 	return 0;
 }
