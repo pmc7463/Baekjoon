@@ -1,17 +1,18 @@
 #include <stdio.h>
 
-int factorial(int n) {
-	if(n == 0) return 1;
-	else if(n == 1) return 1;
-	return n * factorial(n - 1);
-}
-
 int main() {
-	int num;
+	int a, b, c, x = 1;
 	
-	scanf("%d", &num);
+	scanf("%d %d %d", &a, &b, &c);
+	
+	if(b >= c) {
+		printf("-1");
+		return 0;
+	}
 
-	printf("%d\n", factorial(num));
+	x = a / (c - b) + 1;	// a + b * x < c * x 정리한거
+
+	printf("%d", x);
 	
 	return 0;
 }
