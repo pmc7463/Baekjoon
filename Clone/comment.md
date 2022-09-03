@@ -1,22 +1,38 @@
 # 백준
 *************
+# 2022-09-04 Sunday(1)
+* 2869 '달팽이는 올라가고 싶다' 문제
++ 처음에는 반복문으로 하였으나 처리 속도가 느려서 나누기 방법을 참고하여 풀었다.
+```
+	day = climb - down;
+
+	almost = height - climb;	// 이 거리까지 오면 다음날 달팽이는 도착
+
+	if (almost % day)	// almost의 거리까지 가는데 걸리는 시간을 구할때 정수값이 안나오면 하루 더 추가
+		howmany = (almost / day) + 1;
+	else
+		howmany = almost / day;
+
+	dday = howmany + 1;	// 정상에 도달할려면 하루가 더 걸린다.
+```
+*******
 # 2022-09-03 Saturday(2)
 * 1193 '분수찾기' 문제
 + 수학적 사고력이 너무 떨어지는것 같다.
 + [코드설명](https://abcdefgh123123.tistory.com/186)
 ```
 if (k % 2 != 0) {   //홀수일때
-		a = k * (k + 1) / 2;
-		printf("%d", a - input + 1);
-		printf("/");
-		printf("%d", k - (a - input)); 
-	}
+    a = k * (k + 1) / 2;
+    printf("%d", a - input + 1);
+    printf("/");
+    printf("%d", k - (a - input)); 
+}
 else {          //짝수일때
     a = k * (k + 1) / 2;
     printf("%d", k - (a - input));
     printf("/");
     printf("%d", a - input + 1);
-	}
+}
 ```
 *******
 # 2022-09-03 Saturday(1)
