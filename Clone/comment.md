@@ -1,9 +1,27 @@
 # 백준
 *************
+# 2022-09-03 Saturday(2)
+* 1193 '분수찾기' 문제
++ 수학적 사고력이 너무 떨어지는것 같다.
++ [코드설명](https://abcdefgh123123.tistory.com/186)
+```
+if (k % 2 != 0) {   //홀수일때
+		a = k * (k + 1) / 2;
+		printf("%d", a - input + 1);
+		printf("/");
+		printf("%d", k - (a - input)); 
+	}
+else {          //짝수일때
+    a = k * (k + 1) / 2;
+    printf("%d", k - (a - input));
+    printf("/");
+    printf("%d", a - input + 1);
+	}
+```
+*******
 # 2022-09-03 Saturday(1)
 * 2292 '벌집' 문제
 + 6의 배수를 확인하고, 집 1개는 따로 처리해줘야한다.
-<img src="D:\bee house.JPG width = "900" height = "400"/>
 *******
 # 2022-09-02 Friday(1)
 * 1712 '손익분기점' 문제

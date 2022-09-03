@@ -1,23 +1,29 @@
 #include <stdio.h>
 
 int main() {
-	int house, min = 2, max = 5, count = 2;
-	
-	scanf("%d", &house);
+	int input;
+	int k = 1, a = 0;
 
-	if(house == 1) {
-		printf("1");
-		return 0;
-	}
-	
-	while(1) {
-		if(house >= min && max + min >= house) {
-			printf("%d", count);
+	scanf("%d", &input);
+
+	while (1) {
+		if((k - 1) * k / 2 < input && input <= k * (k + 1) / 2) {
 			break;
 		}
-		min = min + max + 1;
-		max += 6;
-		count++;
+		k++;
+	}
+
+	if (k % 2 != 0) {
+		a = k * (k + 1) / 2;
+		printf("%d", a - input + 1);
+		printf("/");
+		printf("%d", k - (a - input)); 
+	}
+	else {
+		a = k * (k + 1) / 2;
+		printf("%d", k - (a - input));
+		printf("/");
+		printf("%d", a - input + 1);
 	}
 
 	return 0;
