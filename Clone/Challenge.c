@@ -1,18 +1,24 @@
 #include <stdio.h>
 
 int main() {
-	int a, b, c, x = 1;
+	int house, min = 2, max = 5, count = 2;
 	
-	scanf("%d %d %d", &a, &b, &c);
-	
-	if(b >= c) {
-		printf("-1");
+	scanf("%d", &house);
+
+	if(house == 1) {
+		printf("1");
 		return 0;
 	}
-
-	x = a / (c - b) + 1;	// a + b * x < c * x 정리한거
-
-	printf("%d", x);
 	
+	while(1) {
+		if(house >= min && max + min >= house) {
+			printf("%d", count);
+			break;
+		}
+		min = min + max + 1;
+		max += 6;
+		count++;
+	}
+
 	return 0;
 }
