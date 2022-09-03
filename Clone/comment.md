@@ -3,7 +3,7 @@
 # 2022-09-03 Saturday(1)
 * 2292 '벌집' 문제
 + 6의 배수를 확인하고, 집 1개는 따로 처리해줘야한다.
-<img src="D:\bee house.JPS width = "900" height = "400"/>
+<img src="D:\bee house.JPG width = "900" height = "400"/>
 *******
 # 2022-09-02 Friday(1)
 * 1712 '손익분기점' 문제
