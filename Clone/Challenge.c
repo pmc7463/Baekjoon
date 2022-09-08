@@ -1,27 +1,32 @@
 #include <stdio.h>
 
 int main() {
-	int input, i, j, num, flags;
-	int count = 0;
+	int M, N, i, j, min, flags;
+	int sum = 0;
 
+	scanf("%d", &M);
+	scanf("%d", &N);
 
-	scanf("%d", &input);
-
-	for (i = 0; i < input; i++) {
-		scanf("%d", &num);
-
+	for (i = M; i < N; i++) {
 		flags = 0;
 
-		if (num == 1) 
+		if (i == 1) 
 			continue;
-		for (j = 2; j < num; j++)
-			if (num % j == 0)
+		for (j = 2; j < i; j++)
+			if (i % j == 0)
 				flags = 1;
 				
-			if (flags == 0)
-				count++;
+		if (flags == 0) {
+			if (sum == 0)
+				min = i;	// 최초 소수 저장 그 이후로는 실행 X
+			sum += i;
+		}
 	}
-	printf("%d", count);
+
+	if (sum == 0)
+		printf("-1\n");
+	else
+		printf("%d\n%d\n", sum, min);
 
 	return 0;
 }
