@@ -1,13 +1,13 @@
 #include <stdio.h>
 
 int main() {
-	int M, N, i, j, min, flags;
+	int M, N, i, j, min = 0, flags = 0;
 	int sum = 0;
 
 	scanf("%d", &M);
 	scanf("%d", &N);
 
-	for (i = M; i < N; i++) {
+	for (i = M; i <= N; i++) {
 		flags = 0;
 
 		if (i == 1) 
