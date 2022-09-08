@@ -1,32 +1,30 @@
 #include <stdio.h>
 
 int main() {
-	int M, N, i, j, min = 0, flags = 0;
-	int sum = 0;
+	int number[8] = {0};
+	int count1 = 0, count2 = 0;
+	int temp1[] = {1,2,3,4,5,6,7,8};
+	int temp2[] = {8,7,6,5,4,3,2,1};
 
-	scanf("%d", &M);
-	scanf("%d", &N);
-
-	for (i = M; i <= N; i++) {
-		flags = 0;
-
-		if (i == 1) 
-			continue;
-		for (j = 2; j < i; j++)
-			if (i % j == 0)
-				flags = 1;
-				
-		if (flags == 0) {
-			if (sum == 0)
-				min = i;	// 최초 소수 저장 그 이후로는 실행 X
-			sum += i;
-		}
+	for (int i = 0; i < 8; i++) {
+		scanf("%d", &number[i]);
+		if (number[i] < 0 || number[i] > 8)
+			return 0;
 	}
 
-	if (sum == 0)
-		printf("-1\n");
-	else
-		printf("%d\n%d\n", sum, min);
+	for (int i = 0; i < 8; i++) {
+		if (temp1[i] == number[i])
+			count1++;
+		if (temp2[i] == number[i])
+			count2++;
+	}
 
+	if (count1 == 8) 
+		printf("ascending");
+	else if (count2 == 8)
+		printf("descending");
+	else
+		printf("mixed");
+	
 	return 0;
 }
