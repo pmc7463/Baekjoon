@@ -1,5 +1,28 @@
 ## 백준
 *************
+# 2022-09-14 Wednesday(1)
+* 25305 '커트라인' 문제
++ 삽입정렬 내림차순으로 해서 문제를 풀었다.
++ 배열 크기 선언을 malloc를 해서 풀었다.
+```
+void insertSort(int num,int *arr) {
+    int i, j, key;
+
+    for (i = 1; i < num; i++) {
+        key = arr[i];
+
+        for (j = i - 1; j >= 0 && arr[j] < key; j--) {
+            arr[j + 1] = arr[j];    // 한 칸 뒤로 이동
+        }
+        arr[j + 1] = key;   //알맞은 위치에 key삽입
+    }
+}
+```
+```
+int *arr;
+arr = (int *)malloc(sizeof(int)*N); // 그 길이에 맞춘 배열 생성
+```
+***
 # 2022-09-13 Tuesday(1)
 * 4948 '베르트랑 공준' 문제
 + 앞에 풀었던 1929 소수 구하기 비슷했다.
