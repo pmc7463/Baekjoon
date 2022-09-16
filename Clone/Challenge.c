@@ -1,33 +1,34 @@
 #include <stdio.h>
+#include <stdlib.h> // qsort 함수가 선언된 헤더 파일
+
+//int num[1000000];
+
+int compare(const void *a, const void *b) { // 오름차순 비교 구현
+    int num1 = *(int *)a;   // void 포인터를 int 포인터로 변환한 뒤 역참조 하여 값을 가져옴
+    int num2 = *(int *)b;
+
+    if (num1 < num2)    
+        return -1;
+    if (num1 > num2)
+        return 1;
+    return 0;       // a와 b가 같을 때는 0 반환
+}
 
 int main(void) {
-    int T, N, i, j;
-    int arr[10001] = {0,};
+    int n, i;
+    int *num;   //배열 크기 구하기
 
-    for (i = 2; i < 10001 / i; i++) {
-        if (!arr[i]) {
-            for (j = i * i; j < 10001; j += i)
-                if (j % i == 0)
-                    arr[j] = 1;            
-        }
-    }
+    scanf("%d", &n);
 
-    scanf("%d", &T);
+    num = (int *)malloc(sizeof(int)*n); // 배열 크기 구하기
 
-    while (T--) {
-        scanf("%d", &N);
+    for (i = 0; i < n; i++)
+        scanf("%d", &num[i]);
+    
+    qsort(num, n, sizeof(int), compare);
+    // 정렬할 배열, 요소 개수, 요소크기, 비교 함수를 넣어줌
+    for (i = 0; i < n; i++)
+        printf("%d\n", num[i]);
 
-        for (i = N / 2; i > 1; i--) {
-            if (arr[i] == 1)
-                continue;
-            for (j = N / 2; j <= N; j++) {
-                if (arr[j] == 1)
-                    continue;
-                if (i + j == N) 
-                    goto OUT;
-            }
-        }
-        OUT: printf("%d %d\n", i , j); 
-    }
     return 0;
 }

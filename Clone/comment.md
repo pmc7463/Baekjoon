@@ -1,5 +1,32 @@
 ## 백준
 *************
+# 2022-09-16 Friday(1)
+* 2751 '수 정렬하기2' 문제
++ O(nlogn)문제여서 퀵정렬을 가지고 문제를 풀었다.
++ 이번 문제는 처음보는 코드가 많았다.
+```
+int compare(const void *a, const void *b) { // 오름차순 비교 구현
+    int num1 = *(int *)a;   // void 포인터를 int 포인터로 변환한 뒤 역참조 하여 값을 가져옴
+    int num2 = *(int *)b;
+
+    if (num1 < num2)    
+        return -1;
+    if (num1 > num2)
+        return 1;
+    return 0;       // a와 b가 같을 때는 0 반환
+}
+```
++ 퀵정렬 함수가 stdlib.h 헤더파일에 있음
+```
+qsort(num, n, sizeof(int), compare);
+// 정렬할 배열, 요소 개수, 요소크기, 비교 함수를 넣어줌
+```
++ 배열 크기 구하기 이제는 어디에서 사용해야할지 알것 같다.
+```
+int *num;   //배열 크기 구하기
+num = (int *)malloc(sizeof(int)*n); // 배열 크기 구하기
+```
+***
 # 2022-09-15 Thursday(1)
 * 9020 '골드바흐의 추측' 문제
 + 할수있을것 같으면서 못하겠다
