@@ -1,24 +1,62 @@
 #include <stdio.h>
-#define MAX 10001
+#include <string.h>
 
-int main(void) {
-    int N, i, j, num;
-    int counting[MAX];
+int stack[10000];
+int stack_size = 0;
+
+void push(int push_data) {
+    stack[stack_size] = push_data;
+    stack_size += 1;
+}
+
+int empty() {
+    if (stack_size == 0) {
+        return 1;
+    }
+    return 0;
+}
+
+int pop() {
+    if (empty()) {
+        return -1;
+    }
+    stack_size -= 1;
+    return stack[stack_size];
+}
+
+int top() {
+    if (empty()) {
+        return -1;
+    }
+    return stack[stack_size - 1];
+}
+
+int main() {
+    int i;
+    int N = 0;
+    int push_data = 0;
+    char command[5] = {0,};
 
     scanf("%d", &N);
 
-    for (i = 0; i < MAX; i++) {
-        counting[i] = 0;
-    }
-    
     for (i = 0; i < N; i++) {
-        scanf("%d", &num);
-        counting[num]++;
-    }
+        scanf("%s", &command);
 
-    for (i = 0; i < MAX; i++) {
-        for (j = 0; j < counting[i]; j++) {
-            printf("%d\n", i);
+        if (!strcmp(command, "push")) {
+            scanf("%d", &push_data);
+            push(push_data);
+        }
+        else if (!strcmp(command, "pop")) {
+            printf("%d\n", pop());
+        }
+        else if (!strcmp(command, "empty")) {
+            printf("%d\n", empty());
+        }
+        else if (!strcmp(command, "size")) {
+            printf("%d\n", stack_size);
+        }
+        else if (!strcmp(command, "top")) {
+            printf("%d\n", top());
         }
     }
     return 0;

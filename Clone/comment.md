@@ -1,5 +1,33 @@
 ## 백준
 *************
+# 2022-09-17 Saturday(1)
+* 10828 '스택' 문제
++ 자료구조 시간에 배웠던 스택을 구현할려니 기억이 나지 않았다.
++ 자주 쓸 것 같으니 기억해두자
+```
+void push(int push_data) {
+    stack[stack_size] = push_data;
+    stack_size += 1;
+}
+
+int pop() {
+    if (empty()) {
+        return -1;
+    }
+    stack_size -= 1;
+    return stack[stack_size];
+}
+
+if (!strcmp(command, "push")) {
+    scanf("%d", &push_data);
+    push(push_data);
+}
+
+else if (!strcmp(command, "pop")) {
+    printf("%d\n", pop());
+}      
+```
+***
 # 2022-09-16 Friday(2)
 * 10989 '수 정렬하기3' 문제
 + 메모리 제한이 8MB 이므로 카운팅 정렬(==계수정렬) 사용해서 문제를 풀 수 있었다.
