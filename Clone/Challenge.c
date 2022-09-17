@@ -1,63 +1,91 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+#include <math.h>
 
-int stack[10000];
-int stack_size = 0;
+int compare(const void* first, const void* second) {
+    int* a = (int*)first;
+    int* b = (int*)second;
 
-void push(int push_data) {
-    stack[stack_size] = push_data;
-    stack_size += 1;
-}
-
-int empty() {
-    if (stack_size == 0) {
+    if (*a < *b)
+        return -1;
+    else if (*a > *b)
         return 1;
-    }
-    return 0;
+    else
+        return 0;
 }
 
-int pop() {
-    if (empty()) {
-        return -1;
+int arith(int list[], int n) {
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += (list[i]);
     }
-    stack_size -= 1;
-    return stack[stack_size];
+    return round(sum / n);
 }
 
-int top() {
-    if (empty()) {
-        return -1;
+int median(int list[], int n) {
+    if (n == 1)
+        return list[0];
+    else  
+        return list[(n + 1) / 2 - 1];
+}
+
+int Mode(int list[], int n) {
+    int arr[8001] = {0,};
+    int i, idx, max = 0, count = 0;
+
+    for (i = 0; i < n; i++) {
+        idx = list[i] + 4000;
+        arr[idx] += 1;
+
+        if (arr[idx] > max)
+            max = arr[idx];
     }
-    return stack[stack_size - 1];
+
+    for (i = 0, idx = 0; i < 8001; i++) {
+        if (arr[i] == 0)
+            continue;
+        if (arr[i] == max) {
+            if (count == 0) {
+                idx = i;
+                count += 1;
+            }
+            else if (count == 1) {
+                idx = i;
+                break;
+            }
+        }
+    }
+    return idx - 4000;
+}
+
+int range(int list[], int n) {
+    int max = list[n - 1];
+    int min = list[0];
+    
+    return max - min;
 }
 
 int main() {
-    int i;
-    int N = 0;
-    int push_data = 0;
-    char command[5] = {0,};
+    int i, n;
+    int* list;
 
-    scanf("%d", &N);
+    scanf("%d", &n);
 
-    for (i = 0; i < N; i++) {
-        scanf("%s", &command);
+    list = (int*)calloc(n, sizeof(int));
 
-        if (!strcmp(command, "push")) {
-            scanf("%d", &push_data);
-            push(push_data);
-        }
-        else if (!strcmp(command, "pop")) {
-            printf("%d\n", pop());
-        }
-        else if (!strcmp(command, "empty")) {
-            printf("%d\n", empty());
-        }
-        else if (!strcmp(command, "size")) {
-            printf("%d\n", stack_size);
-        }
-        else if (!strcmp(command, "top")) {
-            printf("%d\n", top());
-        }
+    for (i = 0; i < n; i++) {
+        scanf(" %d", &list[i]);
     }
+
+    qsort(list, n, sizeof(list[0]), compare);
+
+    printf("%d\n", arith(list, n));
+    printf("%d\n", median(list, n));
+    printf("%d\n", Mode(list, n));
+    printf("%d\n", range(list, n));
+
+    free(list);
+
     return 0;
 }
