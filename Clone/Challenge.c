@@ -1,22 +1,23 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
-    char N[11] = {0,};  // 최대가 1,000,000,000이므로, 문자열의 크기를 11로 잡았다.
-    int temp;
+    long x, y, z;
 
-    gets(N);    //입력을 공백 없이 한줄로 받기 위해서 사용
+    while (1) {
+        long num1, num2, num3;
 
-    for (int i = 0; i < strlen(N) - 1; i++) {
-        for (int j = i; j < strlen(N); j++) {
-            if (N[i] < N[j]) {  // 내림차순
-                temp = N[i];
-                N[i] = N[j];
-                N[j] = temp;
-            }
-        }
+        scanf("%ld %ld %ld", &x, &y, &z);
+
+        if (x == 0 && y == 0 && z == 0)
+            break;
+
+        num1 = x * x, num2 = y * y, num3 = z * z;
+
+        if (num1 + num2 == num3 || num1 + num3 == num2 || num2 + num3 == num1)
+            printf("right\n");
+        else
+            printf("wrong\n");
+        
     }
-    puts(N);    //정렬된 수 출력
-
     return 0;
 }
