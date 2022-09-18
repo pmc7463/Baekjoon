@@ -1,37 +1,22 @@
 #include <stdio.h>
-#include <stdlib.h>
-
-int width(int x, int w) {
-    int x1;
-
-    x1 = w - x;    
-
-    if (x1 >= x)
-        return x;
-    else
-        return x1;
-}
-
-int height(int y, int h) {
-    int y1;
-
-    y1 = h - y;
-
-    if(y1 >= y)
-        return y;
-    else
-        return y1;
-}
+#include <string.h>
 
 int main() {
-    int x, y, w, h;
+    char N[11] = {0,};  // 최대가 1,000,000,000이므로, 문자열의 크기를 11로 잡았다.
+    int temp;
 
-    scanf("%d %d %d %d", &x, &y, &w, &h);
+    gets(N);    //입력을 공백 없이 한줄로 받기 위해서 사용
 
-    if (width(x, w) > height(y, h))
-        printf("%d\n", height(y, h));
-    else
-        printf("%d\n", width(x, w));
+    for (int i = 0; i < strlen(N) - 1; i++) {
+        for (int j = i; j < strlen(N); j++) {
+            if (N[i] < N[j]) {  // 내림차순
+                temp = N[i];
+                N[i] = N[j];
+                N[j] = temp;
+            }
+        }
+    }
+    puts(N);    //정렬된 수 출력
 
     return 0;
 }
