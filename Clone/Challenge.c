@@ -1,23 +1,29 @@
 #include <stdio.h>
 
-int main() {
-    long x, y, z;
+int factorial(int num) {
+    int result = 1;
 
-    while (1) {
-        long num1, num2, num3;
-
-        scanf("%ld %ld %ld", &x, &y, &z);
-
-        if (x == 0 && y == 0 && z == 0)
-            break;
-
-        num1 = x * x, num2 = y * y, num3 = z * z;
-
-        if (num1 + num2 == num3 || num1 + num3 == num2 || num2 + num3 == num1)
-            printf("right\n");
-        else
-            printf("wrong\n");
-        
+    for (int i = 1; i <= num; i++) {
+        result = result * i;
     }
+
+    return result;
+}
+
+int main() {
+    int N, K;
+    int A, B, C;
+    int result;
+
+    scanf("%d", &N);
+    scanf("%d", &K);
+
+    A = factorial(N);
+    B = factorial(K);
+    C = factorial(N - K);
+
+    result = A / (B * C);
+    printf("%d\n", result);
+    
     return 0;
 }

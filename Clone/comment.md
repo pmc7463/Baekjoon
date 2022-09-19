@@ -1,5 +1,22 @@
 ## 백준
 *************
+# 2022-09-19 Monday(1)
+* 11050 '이항계수'
++ 이항계수가 기억이 나지 않아 공식을 참고 하였다.
++ 팩토리얼 함수가 핵심이였다.
+<img src="https://postfiles.pstatic.net/MjAyMjA0MTVfMTcy/MDAxNjUwMDI4MzQxOTYz.hF-q8a0NxDnBn3e_eekMN4LoNzUajSmNzzyIe7PzDZIg.cpZBLZQV_Kh2erR7gDCBvc5q15u6ZjI7RHQ1oW-287Ag.PNG.jhp1276/image.png?type=w966" width = "500" height = "200"/>
+```
+int factorial(int num) {
+    int result = 1;
+
+    for (int i = 1; i <= num; i++) {
+        result = result * i;
+    }
+
+    return result;
+}
+```
+***
 # 2022-09-18 Sunday(2)
 * 4153 '직각삼각형' 문제
 + 처음에는 int를 사용했는데 입력값이 너무 커서 오버플로우가 발생하여 자료형을 long로 해주었다.
