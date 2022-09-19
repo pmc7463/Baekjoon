@@ -4,7 +4,8 @@
 * 11050 '이항계수'
 + 이항계수가 기억이 나지 않아 공식을 참고 하였다.
 + 팩토리얼 함수가 핵심이였다.
-<img src="https://postfiles.pstatic.net/MjAyMjA0MTVfMTcy/MDAxNjUwMDI4MzQxOTYz.hF-q8a0NxDnBn3e_eekMN4LoNzUajSmNzzyIe7PzDZIg.cpZBLZQV_Kh2erR7gDCBvc5q15u6ZjI7RHQ1oW-287Ag.PNG.jhp1276/image.png?type=w966" width = "500" height = "200"/>
+<img src="https://postfiles.pstatic.net/MjAyMjA0MTVfMTcy/MDAxNjUwMDI4MzQxOTYz.hF-q8a0NxDnBn3e_eekMN4LoNzUajSmNzzyIe7PzDZIg.cpZBLZQV_Kh2erR7gDCBvc5q15u6ZjI7RHQ1oW-287Ag.PNG.jhp1276/image.png?type=w966" width = "800" height = "200"/>
+
 ```
 int factorial(int num) {
     int result = 1;
