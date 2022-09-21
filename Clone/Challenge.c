@@ -1,41 +1,44 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#define SIZE 100000
 
-typedef struct {
-    int x;
-    int y; 
-} coord;
+char result[SIZE * 2];
+int stack[SIZE];
+int top = -1;
 
-int compare(const void *a, const void *b) {
-    coord A = *(coord *)a;  //coord형의 A로 입력받은 a를 사용할 수 있게 한다.
-    coord B = *(coord *)b;
-    if (A.x > B.x)  // 구조체의 x를 끌고와서 사용한다. 오름차순 정렬 
-        return 1;
-    else if (A.x == B.x) {   // x좌표가 같다면,
-        if (A.y > B.y)  // y좌표를 비교한다. 오름차순 정렬
-            return 1;
-        else
-            return -1;  
-    }
-    return -1;
-}
-
-int main () {
-    int n, i = 0;
+int main() {
+    int n, num = 1, i, idx = 0, result_idx = 0;
     scanf("%d", &n);
+    
+    int* arr = (int*)malloc(sizeof(int)*n);
+    for (i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+    
+    while(1) {
+        if (top == -1 || stack[top] < arr[idx]) {
+            stack[++top] = num++;
+            result[result_idx++] = '+';
+        }
 
-    coord arr[n];   // 구조체형으로 배열을 선언한다.
-    while (i < n) {
-        scanf("%d %d", &arr[i].x, &arr[i].y);
-        // 구조체 배열로 arr[0]의 x값, y값 각각 설정 하면선 간다.
-        i++;
-    }
+        else if (stack[top] == arr[idx]) {
+            top--;
+            result[result_idx++] = '-';
+            idx++;
+        }
+        else {
+            printf("NO");
+            free(arr);
+            return 0;
+        }
 
-    qsort(arr, n, sizeof(coord), compare);
-    i = 0;
-    while (i < n) {
-        printf("%d %d\n", arr[i].x, arr[i].y);
-        i++;
+        if (result_idx == n * 2)
+            break;
     }
+    for (i = 0; i < result_idx; i++)
+        printf("%c\n", result[i]);
+
+    free(arr);
+
     return 0;
 }
