@@ -1,44 +1,43 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 
-typedef struct
-{
-    int x;
-    int y;
-} coord;    // coord형의 구조체 서언
+typedef struct {
+    char str[51];
+    int len;
+} Str;
 
 int compare(const void *a, const void *b) {
-    coord A = *(coord *)a;
-    coord B = *(coord *)b;
+    Str s1 = *(Str*)a;
+    Str s2 = *(Str*)b;
 
-    if (A.y > B.y)  // 구조체의 y를 끌고와서 사용한다. 오름차순 정렬 
+    if (s1.len < s2.len)
+        return -1;
+    else if (s1.len > s2.len) 
         return 1;
-    else if (A.y == B.y) {
-        if (A.x > B.x) 
-            return 1;
-        else
-            return -1;
-    }
-    return -1;
+    return strcmp(s1.str, s2.str);
 }
 
 int main() {
-    int n, i = 0;
-    
+    int n, i;
+    int min = 0, max = 0;
+
     scanf("%d", &n);
 
-    coord arr[n];
+    Str s[n];
 
-    while (i < n) {
-        scanf("%d %d", &arr[i].x, &arr[i].y);
-        // 구조체배열로 arr[0]의 x값 , y값 각각 설정하면서 간다.
-        i++;
+    for (i = 0; i < n; i++) {
+        scanf("%s", s[i].str);
+        s[i].len = strlen(s[i].str);
     }
-    qsort(arr, n, sizeof(coord), compare);
-    i = 0;
-    while (i < n) {
-        printf("%d %d\n", arr[i].x, arr[i].y);
-        i++;
+
+    qsort(s, n, sizeof(Str), compare);
+
+    puts(s[0].str);
+
+    for (i = 1; i < n; i++) {
+        if (strcmp(s[i - 1].str, s[i].str))
+            puts(s[i].str);
     }
     return 0;
 }
