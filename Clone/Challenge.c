@@ -1,34 +1,32 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+
+typedef struct {
+    char name[101];
+    int age;
+} Member;
 
 int main() {
-    int n, i, j, count;
-    int left, right;
-    char arr[51];
+    int N, i, j, min, max;
 
-    scanf("%d", &n);
-    for (i = 0; i < n; i++) {
-        count = 1;
-        left = 0;
-        right = 0;
+    scanf("%d", &N);
 
-        scanf("%s", arr);
+    Member m[N];
 
-        for (j = 0; j < strlen(arr); j++) {
-            if (arr[j] == '(')
-                left++;
-            if (arr[j] == ')')
-                right++;
-            if (right > left) {
-                count = 0;
-                break;
-            }
-        }
-        if (count == 1 && left == right)
-            printf("YES\n");
-        else
-            printf("NO\n");
+    for (i = 0; i < N; i++) {
+        scanf("%d %s", &m[i].age, &m[i].name);
+
+        if (!i) // 처음 시작
+            max = min = m[i].age;
+        else if (min > m[i].age)    // 기존에 있던 나이보다 더 나이가 적을때
+            min = m[i].age;
+        else if (max < m[i].age)    // 기존에 있던 나이보다 더 나이가 많을때
+            max = m[i].age;
     }
+    for (i = min; i <= max; i++)
+        for (j = 0; j < N; j++)
+            if (m[j].age == i)
+                printf("%d %s\n", m[j].age, m[j].name);
+
     return 0;
 }
-
