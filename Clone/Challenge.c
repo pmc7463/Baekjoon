@@ -1,32 +1,43 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-typedef struct {
-    char name[101];
-    int age;
-} Member;
+#define minFinder(a , b) a < b ? a : b
 
 int main() {
-    int N, i, j, min, max;
+    char board[50][50];
+    int N, M, i, j, width, height;
+    int min = 80;
+    int black = 0, white = 0;
 
-    scanf("%d", &N);
+    scanf("%d %d", &N, &M);
 
-    Member m[N];
-
-    for (i = 0; i < N; i++) {
-        scanf("%d %s", &m[i].age, &m[i].name);
-
-        if (!i) // 처음 시작
-            max = min = m[i].age;
-        else if (min > m[i].age)    // 기존에 있던 나이보다 더 나이가 적을때
-            min = m[i].age;
-        else if (max < m[i].age)    // 기존에 있던 나이보다 더 나이가 많을때
-            max = m[i].age;
+    for (i = 0; i < N; i++)
+        scanf("%s", &board[i]);
+    
+    for (i = 0; i < N - 7; i++) {
+        for (j = 0; j < M - 7; j++) {
+            black = 0;
+            white = 0;
+            for (width = i; width < i + 8; width++) {
+                for (height = j; height < j + 8; height++) {
+                    if ((width + height) % 2 == 0) {    // 짝수 일때 
+                        if (board[width][height] == 'B')
+                            white++;    // 짝수칸이 검은색이면 흰색 카운터
+                        else
+                            black++;    // 짝수칸이 흰색이면 검은색 카운터 
+                    }
+                    else {  // 홀수 일때
+                        if (board[width][height] == 'B')    
+                            black++;    // 홀수칸이 검은색이면 검은색 카운터
+                        else
+                            white++;    // 홀수칸이 흰색이면 흰색 카운터
+                    }
+                }
+            }
+            min = minFinder(min, black);
+            min = minFinder(min, white);
+        }
     }
-    for (i = min; i <= max; i++)
-        for (j = 0; j < N; j++)
-            if (m[j].age == i)
-                printf("%d %s\n", m[j].age, m[j].name);
+    printf("%d\n", min);
 
     return 0;
 }
