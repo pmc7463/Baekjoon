@@ -1,43 +1,51 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-#define minFinder(a , b) a < b ? a : b
+int compare(const void* a, const void* b) {
+    return *(int*)a - *(int*)b;
+}
+
+int unique(int* arr, int size) {
+    int i, j = 0;
+    for (i = 1; i < size; i++) {
+        if (arr[j] == arr[i])
+            continue;
+        arr[++j] = arr[i];
+    }
+    return ++j;
+}
+
+int binarySearch(int* arr, int size, int key) {
+    int left = 0, right = size - 1, mid;
+    while (left <= right) {
+        mid = (left + right) / 2;
+        if (arr[mid] < key) left = mid + 1;
+        else if (arr[mid] > key) right = mid - 1;
+        else return mid;
+    }
+}
 
 int main() {
-    char board[50][50];
-    int N, M, i, j, width, height;
-    int min = 80;
-    int black = 0, white = 0;
+    int n;
+    scanf("%d", &n);
 
-    scanf("%d %d", &N, &M);
+    int* arr = (int*)calloc(n, sizeof(int));
+    int* sort = (int*)calloc(n, sizeof(int));
 
-    for (i = 0; i < N; i++)
-        scanf("%s", &board[i]);
-    
-    for (i = 0; i < N - 7; i++) {
-        for (j = 0; j < M - 7; j++) {
-            black = 0;
-            white = 0;
-            for (width = i; width < i + 8; width++) {
-                for (height = j; height < j + 8; height++) {
-                    if ((width + height) % 2 == 0) {    // Â¦¼ö ÀÏ¶§ 
-                        if (board[width][height] == 'B')
-                            white++;    // Â¦¼öÄ­ÀÌ °ËÀº»öÀÌ¸é Èò»ö Ä«¿îÅÍ
-                        else
-                            black++;    // Â¦¼öÄ­ÀÌ Èò»öÀÌ¸é °ËÀº»ö Ä«¿îÅÍ 
-                    }
-                    else {  // È¦¼ö ÀÏ¶§
-                        if (board[width][height] == 'B')    
-                            black++;    // È¦¼öÄ­ÀÌ °ËÀº»öÀÌ¸é °ËÀº»ö Ä«¿îÅÍ
-                        else
-                            white++;    // È¦¼öÄ­ÀÌ Èò»öÀÌ¸é Èò»ö Ä«¿îÅÍ
-                    }
-                }
-            }
-            min = minFinder(min, black);
-            min = minFinder(min, white);
-        }
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+        sort[i] = arr[i];
     }
-    printf("%d\n", min);
+
+    qsort(sort, n, sizeof(int), compare);
+
+    int cnt = unique(sort, n);
+    for (int i = 0; i < n; i++) {
+        int tmp = binarySearch(sort, cnt, arr[i]);
+        printf("%d ", tmp);
+    }
+    free(arr);
+    free(sort);
 
     return 0;
 }
