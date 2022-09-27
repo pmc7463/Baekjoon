@@ -1,51 +1,39 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
-int compare(const void* a, const void* b) {
-    return *(int*)a - *(int*)b;
+int counter;
+
+int cnt() {
+    counter += 1;
+    return counter;
 }
 
-int unique(int* arr, int size) {
-    int i, j = 0;
-    for (i = 1; i < size; i++) {
-        if (arr[j] == arr[i])
-            continue;
-        arr[++j] = arr[i];
+int recursion(const char* s, int l, int r) {
+    if (l >= r)
+        return 1;
+    else if (s[l] != s[r])
+        return 0;
+    else {
+        cnt();
+        return recursion(s, l + 1, r - 1); 
     }
-    return ++j;
 }
 
-int binarySearch(int* arr, int size, int key) {
-    int left = 0, right = size - 1, mid;
-    while (left <= right) {
-        mid = (left + right) / 2;
-        if (arr[mid] < key) left = mid + 1;
-        else if (arr[mid] > key) right = mid - 1;
-        else return mid;
-    }
+int isPalindrome(const char *s) {
+    return recursion(s, 0, strlen(s) - 1);
 }
 
 int main() {
-    int n;
+    int n, i;
+    char arr[1001] = {0,};
     scanf("%d", &n);
 
-    int* arr = (int*)calloc(n, sizeof(int));
-    int* sort = (int*)calloc(n, sizeof(int));
-
-    for (int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
-        sort[i] = arr[i];
+    for (i = 0; i < n; i++) {
+        scanf("%s", &arr);
+        printf("%d ", isPalindrome(arr));
+        printf("%d\n", cnt());
+        counter = 0;
     }
-
-    qsort(sort, n, sizeof(int), compare);
-
-    int cnt = unique(sort, n);
-    for (int i = 0; i < n; i++) {
-        int tmp = binarySearch(sort, cnt, arr[i]);
-        printf("%d ", tmp);
-    }
-    free(arr);
-    free(sort);
 
     return 0;
 }
