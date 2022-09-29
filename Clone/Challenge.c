@@ -1,14 +1,28 @@
 #include <stdio.h>
 
 int main() {
-    int a, b, c;
-
-    do {
-        scanf("%d %d", &a, &b);
-        if (a == 0 && b == 0)
-            break;
-        c = a > b? printf("Yes\n") : printf("No\n");
-    } while (a > 0 && b > 0);
-
+    
+    printf("     /~\\\n");
+    printf("    ( oo|\n");
+    printf("    _\\=/_\n");
+    printf("   /  _  \\\n");
+    printf("  //|/.\\|\\\\\n");
+    printf(" ||  \\ /  ||\n");
+    printf("============\n");
+    printf("|          |\n");
+    printf("|          |\n");  
+    printf("|          |\n");
     return 0;
 }
+/*
+     /~\
+    ( oo|
+    _\=/_
+   /  _  \
+  //|/.\|\\
+ ||  \ /  ||
+============
+|          |
+|          |
+|          |
+*/
