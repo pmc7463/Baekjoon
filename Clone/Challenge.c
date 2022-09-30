@@ -1,28 +1,16 @@
 #include <stdio.h>
 
 int main() {
-    
-    printf("     /~\\\n");
-    printf("    ( oo|\n");
-    printf("    _\\=/_\n");
-    printf("   /  _  \\\n");
-    printf("  //|/.\\|\\\\\n");
-    printf(" ||  \\ /  ||\n");
-    printf("============\n");
-    printf("|          |\n");
-    printf("|          |\n");  
-    printf("|          |\n");
+    int i, j, n;
+
+    scanf("%d", &n);
+
+    for (i = n; i > 0; i--) {
+        for (j = i; j > 0; j--) {
+            printf("*");
+        }
+        printf("\n");
+    }
+
     return 0;
 }
-/*
-     /~\
-    ( oo|
-    _\=/_
-   /  _  \
-  //|/.\|\\
- ||  \ /  ||
-============
-|          |
-|          |
-|          |
-*/
