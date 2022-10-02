@@ -1,34 +1,22 @@
 #include <stdio.h>
 
-int GCM(int a, int b) {
-    if (a >= b) {
-        while (1) {
-            if (a % b == 0) 
-                return b;
-            else
-                return GCM(a %= b, b);
-        }
-    }
-    else {
-        while (1) {
-            if (b % a == 0)
-                return a;
-            else
-                return GCM(a, b %= a);
-        }
-    }
+int compare(int a, int b, int c, int d) {
+    int sum = 0;
+    sum = a + b + c + d;
+    return sum;
 }
 
 int main() {
-    int a, b;
-    int LCM;
-    scanf("%d %d", &a, &b);
+    int a1, a2, a3, a4;
+    int b1, b2, b3, b4;
 
-    printf("%d\n",GCM(a, b));
+    scanf("%d %d %d %d", &a1, &a2, &a3, &a4);
+    scanf("%d %d %d %d", &b1, &b2, &b3, &b4);
 
-    LCM = a * b / GCM(a, b);
-
-    printf("%d\n", LCM);
-
+    if (compare(a1, a2, a3, a4) >= compare(b1, b2, b3, b4))
+        printf("%d\n", compare(a1, a2, a3, a4));
+    else
+        printf("%d\n", compare(b1, b2, b3, b4));
+        
     return 0;
 }
