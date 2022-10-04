@@ -1,16 +1,10 @@
 #include <stdio.h>
-#include <string.h>
-char a[1000003] = {'0', '0'};
 
 int main() {
-    scanf("%s", a + 2);
+    
+    printf(".  .   .\n");
+    printf("|  | _ | _. _ ._ _  _\n");
+    printf("|/\\|(/.|(_.(_)[ | )(/.\n");
 
-    int alen = strlen(a);
-    int k = 0;
-
-    for (int i = alen % 3; i < alen; i = i + 3) {
-        printf("%d", (a[i] - '0') * 4 + (a[i + 1] - '0') * 2 + (a[i + 2] - '0'));
-    }
-        
     return 0;
 }
