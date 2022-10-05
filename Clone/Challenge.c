@@ -2,9 +2,7 @@
 
 int main() {
     
-    printf(".  .   .\n");
-    printf("|  | _ | _. _ ._ _  _\n");
-    printf("|/\\|(/.|(_.(_)[ | )(/.\n");
+    printf("The world says hello!\n");
 
     return 0;
 }
