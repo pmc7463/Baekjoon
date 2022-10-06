@@ -1,23 +1,18 @@
 #include <stdio.h>
 
 int main() {
-    
-    int arr[4] = {0,};
-    int sum;
+    int N;
+    scanf("%d", &N);
 
-    for (int i = 0; i < 5; i++) {
-        scanf("%d", &arr[i]);
-        if (arr[i] < 40)
-            arr[i] = 40;
+    for (int i = N; i > 0; i--) {
+        for (int k = N - i; k > 0; k--) {
+            printf(" ");
+        }
+
+        for (int j = i; j > 0; j--) {
+            printf("*");
+        }
+        printf("\n");
     }
-
-    for (int i = 0; i < 5; i++) {
-        sum += arr[i];
-    }
-
-    sum /= 5;
-
-    printf("%d", sum);
-    
     return 0;
 }
