@@ -1,5 +1,24 @@
 ## 백준
 *************
+# 2022-10-07 Friday(1)
+* 2743 '단어 길이 재기' 문제
++ 문자열의 길이를 정수를 바꾸는 함수가 기억이 나지 않았다.
+```
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char arr[101];
+    int len;
+
+    scanf("%s", &arr);
+    
+    printf("%d", strlen(arr));
+    
+    return 0;
+}
+```
+***
 # 2022-10-06 Thursday(1)
 * 2441 '별 찍기 -4' 문제
 + 수업시간에 못 풀었던 별찍기를 풀었다.

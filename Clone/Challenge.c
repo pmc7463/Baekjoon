@@ -1,18 +1,13 @@
 #include <stdio.h>
+#include <string.h>
 
 int main() {
-    int N;
-    scanf("%d", &N);
+    char arr[101];
+    int len;
 
-    for (int i = N; i > 0; i--) {
-        for (int k = N - i; k > 0; k--) {
-            printf(" ");
-        }
-
-        for (int j = i; j > 0; j--) {
-            printf("*");
-        }
-        printf("\n");
-    }
+    scanf("%s", &arr);
+    
+    printf("%d", strlen(arr));
+    
     return 0;
 }
