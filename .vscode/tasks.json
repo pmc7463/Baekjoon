@@ -4,7 +4,7 @@
 		{
 			"type": "cppbuild",
 			"label": "C/C++: gcc.exe 활성 파일 빌드",
-			"command": "C:\\msys64\\mingw64\\bin\\gcc.exe",
+			"command": "C:\\MinGW\\bin\\gcc.exe",
 			"args": [
 				"-fdiagnostics-color=always",
 				"-g",
@@ -22,12 +22,12 @@
 				"kind": "test",
 				"isDefault": true
 			},
-			"detail": "컴파일러: C:\\msys64\\mingw64\\bin\\gcc.exe"
+			"detail": "컴파일러: C:\\MinGW\\bin\\gcc.exe"
 		},
 		{
 			"type": "cppbuild",
 			"label": "C/C++: gcc.exe 활성 파일 빌드",
-			"command": "C:\\msys64\\mingw64\\bin\\gcc.exe",
+			"command": "C:\\MinGW\\bin\\gcc.exe",
 			"args": [
 				"-fdiagnostics-color=always",
 				"-g",
@@ -42,7 +42,7 @@
 				"$gcc"
 			],
 			"group": "build",
-			"detail": "컴파일러: C:\\msys64\\mingw64\\bin\\gcc.exe"
+			"detail": "컴파일러: C:\\MinGW\\bin\\gcc.exe"
 		}
 	]
 }
