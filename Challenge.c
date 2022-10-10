@@ -1,13 +1,15 @@
 #include <stdio.h>
 
 int main() {
-    int input = 0, sum = 0;
+    int one = 0, two, three;
 
-    for (int i = 0; i < 5; i++) {
-        scanf("%d", &input);
-        sum += input;
-    }
-    printf("%d\n", sum);
+    scanf("%d %d", &three, &two);
+
+    one = two - three;
+
+    one += two;
+
+    printf("%d\n", one);
 
     return 0;
 }
