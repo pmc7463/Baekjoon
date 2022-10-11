@@ -1,5 +1,37 @@
 ## 백준
 *************
+# 2022-10-11 Tuesday(1)
+* 2442 '별 찍기 - 5' 문제
++ 정답을 맞췄는데도 이게 왜 되지? 라는 말을 했다.
+
++ 첫번째 (내가 한 방법)
+```
+    for (int i = 1; i <= input; i++) {
+        for (int k = input - i; k > 0; k--) {
+            printf(" ");
+        }
+
+        for (int j = 0; j < i; j++) {
+            printf("*");
+        }
+
+        for (int p = 1; p < i; p++) {   // j의 별이 끝나면 p의 별 시작, 첫번째는 실행 하면 안됨
+            printf("*");
+        }
+        printf("\n");
+    }
+```
++ 두번째
+```
+    for (int i = 1; i <= input - i; i++) {
+        for (int j = input - i; j > 0; j--) 
+            printf(" ");
+        for (int k = 0; k < 2 * i - 1; k++)
+            printf("*");
+        printf("\n");
+    }
+```
+***
 # 2022-10-10 Monday(1)
 * 6749 'Next in line' 문제
 + 등차 수열에 관한 문제이다.

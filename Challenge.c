@@ -1,15 +1,24 @@
 #include <stdio.h>
 
 int main() {
-    int one = 0, two, three;
+    int input;
 
-    scanf("%d %d", &three, &two);
+    scanf("%d", &input);
 
-    one = two - three;
+    for (int i = 1; i <= input; i++) {
+        for (int k = input - i; k > 0; k--) {
+            printf(" ");
+        }
 
-    one += two;
+        for (int j = 0; j < i; j++) {
+            printf("*");
+        }
 
-    printf("%d\n", one);
+        for (int p = 1; p < i; p++) {   // j의 별이 끝나면 p의 별 시작, 첫번째는 실행 하면 안됨
+            printf("*");
+        }
+        printf("\n");
+    }
 
     return 0;
 }
