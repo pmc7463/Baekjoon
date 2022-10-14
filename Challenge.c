@@ -1,13 +1,34 @@
 #include <stdio.h>
 
 int main() {
-    int B1,B2,E1,E2, airplane;
+    int a, b, c;
+    int max = 0;
 
-    scanf("%d %d %d %d", &B1, &B2, &E1, &E2);
+    scanf("%d %d %d", &a, &b, &c);
 
-    airplane = B1 * B2 + E1 * E2;
+    if ((a < b) && (a < c)) {
+        if (b < c) {
+            printf("%d %d %d\n", a, b, c);
+        }
+        else
+            printf("%d %d %d\n", a, c, b);
+    }
 
-    printf("%d\n", airplane);
+    if ((b < a) && (b < c)) {
+        if (a < c) {
+            printf("%d %d %d\n", b, a, c);
+        }
+        else
+            printf("%d %d %d\n", b, c, a);
+    }
+    
+    if ((c < a) && (c < b)) {
+        if (a < b) {
+            printf("%d %d %d\n", c, a, b);
+        }
+        else
+            printf("%d %d %d\n", c, b, a);
+    }
 
     return 0;
 }
