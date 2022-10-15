@@ -1,20 +1,22 @@
 #include <stdio.h>
 
 int main(void) {
-    char name[11] = {0,};
-    int age, weight;
+    int goblin, height1, height2, height3;
 
-    while (1) {
-        scanf("%s %d %d", &name, &age, &weight);
+    scanf("%d", &goblin);
 
-        if (name[0] == '#' && age == 0 && weight == 0) 
-            return 0;
-        else {
-            if (age > 17 || weight >= 80)
-                printf("%s Senior\n", name);
-            else
-                printf("%s Junior\n", name);
-        }
+    for (int i = 0; i < goblin; i++) {
+        scanf("%d %d %d", &height1, &height2, &height3);
+        if (i == 0)
+            printf("Gnomes:\n");
+        
+        if ((height1 < height2) && (height2 < height3))
+            printf("Ordered\n");
+        else if ((height3 < height2) && (height2 < height1))
+            printf("Ordered\n");
+        else
+            printf("Unordered\n");
     }
+
     return 0;
 }
