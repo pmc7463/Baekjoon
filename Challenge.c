@@ -1,20 +1,20 @@
 #include <stdio.h>
-#include <ctype.h>  // 문자의 종류를 알아내는 라이브러리
 
 int main(void) {
-    char arr[257];
-    
+    char name[11] = {0,};
+    int age, weight;
+
     while (1) {
-        int count = 0;
-        fgets(arr, sizeof(arr), stdin);
-            if (arr[0] == '#')
-                return 0;
-            for (int i = 0; arr[i] != '\0'; i++) {
-                if (tolower(arr[i]) == 'a' || tolower(arr[i]) == 'e' || tolower(arr[i]) == 'i' || 
-                tolower(arr[i]) == 'o' || tolower(arr[i]) == 'u')
-                    count++;
-            }
-            printf("%d\n", count);
+        scanf("%s %d %d", &name, &age, &weight);
+
+        if (name[0] == '#' && age == 0 && weight == 0) 
+            return 0;
+        else {
+            if (age > 17 || weight >= 80)
+                printf("%s Senior\n", name);
+            else
+                printf("%s Junior\n", name);
+        }
     }
     return 0;
 }
