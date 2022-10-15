@@ -1,5 +1,34 @@
 ## 백준
 *************
+# 2022-10-15 Saturday(1)
+* 1264 '모음의 개수' 문제
++ ctype.h 파일은 문자의 종류를 알아내는 라이브러리다
++ tolower를 사용해서 입력된 문자를 대문자로 바꿔 준다.
++ fgets(arr, sizeof(arr), srtlen) 을 사용해서 문자를 받았다.
++ fgets 함수는 FILE 구조체를 사용하여 파일 입출력 스트림에서 문자열을 가져오는 함수이다.
+```
+#include <stdio.h>
+#include <ctype.h>  // 문자의 종류를 알아내는 라이브러리
+
+int main(void) {
+    char arr[257];
+    
+    while (1) {
+        int count = 0;
+        fgets(arr, sizeof(arr), stdin);
+            if (arr[0] == '#')
+                return 0;
+            for (int i = 0; arr[i] != '\0'; i++) {
+                if (tolower(arr[i]) == 'a' || tolower(arr[i]) == 'e' || tolower(arr[i]) == 'i' || 
+                tolower(arr[i]) == 'o' || tolower(arr[i]) == 'u')
+                    count++;
+            }
+            printf("%d\n", count);
+    }
+    return 0;
+}
+```
+***
 # 2022-10-14 Friday(1)
 * 2752 '세 수 정렬' 문제
 + 주먹구구식으로 풀었는데 이렇게 반복 안하고 풀 수 있는 방법이 떠오르지 않는다.
