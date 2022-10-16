@@ -1,5 +1,18 @@
 ## 백준
 *************
+# 2022-10-16 Sunday(1)
+* 5543 '싱글날드' 문제
++ 함수를 만들어 보았다.
++ 삼항 연산자를 사용해 세 수의 비교를 하였다.
+```
+int hamburger (int a, int b, int c) {
+    int min;
+    min = ((a < b) && (a < c))? a: ((b < a) && (b < c))? b: c;
+
+    return min;
+}
+```
+***
 # 2022-10-15 Saturday(3)
 * 4589 'Gnome Sequencing' 문제
 + 영어 능력이 부족하다보니 이해를 하지 못했다.
