@@ -1,5 +1,25 @@
 ## 백준
 *************
+# 2022-10-17 Monday(1)
+* 2420 '사파리월드' 문제
++ 수의 범위가 커서 long long int를 사용했다.
++ long long int의 절댓값을 구하기 위해서 llabs()함수를 사용했다.
++ llabs()함수를 쓰기 위해서 #include <stdlib.h> 헤더파일이 있어야한다.
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+    long long int a ,b;
+
+    scanf("%lld %lld", &a, &b);
+
+    printf("%lld\n", llabs(a - b));
+
+    return 0;
+}
+```
+***
 # 2022-10-16 Sunday(1)
 * 5543 '싱글날드' 문제
 + 함수를 만들어 보았다.
