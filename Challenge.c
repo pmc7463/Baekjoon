@@ -1,12 +1,15 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
-int main(void) {
-    long long int a ,b;
+int main() {
+	int input;
+	char arr[1001] = {'\0', };
 
-    scanf("%lld %lld", &a, &b);
+	scanf("%d", &input);
 
-    printf("%lld\n", llabs(a - b));
-
-    return 0;
+	for (int i = 0; i < input; i++) {
+		scanf("%s", &arr);
+        printf("%c%c\n", arr[0], arr[strlen(arr) - 1]);
+	}
+	return 0;
 }
