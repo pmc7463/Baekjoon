@@ -1,15 +1,11 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
-	int input;
-	char arr[1001] = {'\0', };
+	float  input;
 
-	scanf("%d", &input);
+    scanf("%f", &input);
 
-	for (int i = 0; i < input; i++) {
-		scanf("%s", &arr);
-        printf("%c%c\n", arr[0], arr[strlen(arr) - 1]);
-	}
+    printf("%.10f\n%.10f\n", 100 / input, 100 / (100 - input));
+
 	return 0;
 }
