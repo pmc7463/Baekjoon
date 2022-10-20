@@ -1,11 +1,12 @@
 #include <stdio.h>
 
 int main() {
-	float  input;
+    int input;
+    char Hangl[input];
+    int temp;
+    //scanf("%d", &input);
 
-    scanf("%f", &input);
-
-    printf("%.10f\n%.10f\n", 100 / input, 100 / (100 - input));
-
-	return 0;
+    printf("%d",'a');
+    
+    return 0;
 }
