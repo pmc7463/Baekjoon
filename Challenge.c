@@ -1,12 +1,11 @@
 #include <stdio.h>
 
 int main() {
-    int input;
-    char Hangl[input];
-    int temp;
-    //scanf("%d", &input);
+    int a , b;
+    scanf("%d %d", &a, &b);
+    printf("%d\n", a + b);
+    printf("%d\n", a - b);
+    printf("%d\n", a * b);
 
-    printf("%d",'a');
-    
     return 0;
 }
