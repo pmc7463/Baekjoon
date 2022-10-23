@@ -1,26 +1,19 @@
 #include <stdio.h>
 
-int gcd(int x, int y) {
-    int temp;
-
-    while (y > 0) {
-        temp = x;
-        x = y;
-        y = temp % y;
-    }
-    return x;
-}
-
-int main() {
-    int a , b;
+int main(void)
+{
     int input;
 
     scanf("%d", &input);
 
-    for (int i = 0; i < input; i++) {
-        scanf("%d %d", &a, &b);
-
-        printf("%d\n", (a * b) / gcd(a, b));
+    for (int i = input; i > 0; i--)
+    {
+        for (int j = input - i; j > 0 ; j--)
+            printf(" ");
+        for (int k = 2 * i - 1; k > 0; k--)
+            printf("*");
+        printf("\n");
     }
+
     return 0;
 }
