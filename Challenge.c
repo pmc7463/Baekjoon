@@ -2,18 +2,22 @@
 
 int main(void)
 {
-    int input;
+    char arr[4] = "";   // arr 전부 0으로 초기화
+    int count = 0;
+    int i = 0;
+    int temp;
+    gets(arr);
 
-    scanf("%d", &input);
-
-    for (int i = input; i > 0; i--)
-    {
-        for (int j = input - i; j > 0 ; j--)
-            printf(" ");
-        for (int k = 2 * i - 1; k > 0; k--)
-            printf("*");
-        printf("\n");
+    while (arr[i++] > 0)
+        count++;
+    
+    for (i = 0; i < count / 2; i++) {
+        temp = arr[i];
+        arr[i] = arr[count - i - 1];
+        arr[count - i - 1] = temp;
     }
 
+    printf("%s", arr);
+    
     return 0;
 }

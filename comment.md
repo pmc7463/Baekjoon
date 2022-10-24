@@ -1,5 +1,27 @@
 ## 백준
 *************
+# 2022-10-24 Monday(1)
+* 8545 'Zadanie próbne' 문제
++ 문자뒤집기 문제이다.
++ 나는 반복문을 써서 뒤집었는데 틀렸다.
++ 다른 사람들은 임시저장을 통해서 뒤집었다.
+```
+    char arr[4] = "";   // arr 전부 0으로 초기화
+    int count = 0;
+    int i = 0;
+    int temp;
+    gets(arr);
+
+    while (arr[i++] > 0)
+        count++;
+    
+    for (i = 0; i < count / 2; i++) {
+        temp = arr[i];
+        arr[i] = arr[count - i - 1];
+        arr[count - i - 1] = temp;
+    }
+```
+***
 # 2022-10-23 Sunday(1)
 + 별 문제는 할 때마다 헷갈린다.
 + 이런 문제를 미리 메모장으로 풀어봐서 다행이다.
