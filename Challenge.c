@@ -2,16 +2,11 @@
 
 int main(void)
 {
-    char str;
-    int arr[27] = {0,};
-    while (scanf("%c", &str) != EOF) {
-        if (97 <= str && str <= 122)
-            arr[str - 97]++;
-        else
-            break;
-    }
+    int input;
 
-    for (int i = 0; i < 26; i++) 
-        printf("%d ", arr[i]);
+    scanf("%X", &input);
+
+    printf("%d\n", input);
+
     return 0;
 }
