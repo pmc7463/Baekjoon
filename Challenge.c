@@ -2,18 +2,18 @@
 
 int main(void)
 {
-    int time[5] = {0,};
-    int sum = 0;
-    int clock;
+    int input;
+    int brain, zombie;
 
-    for (int i = 0; i < 4; i++) {
-        scanf("%d", &time[i]);
-        sum += time[i];
+    scanf("%d", &input);
+
+    for (int i = 0; i < input; i++) {
+        scanf("%d %d", &brain, &zombie);
+        if(brain >= zombie)
+            printf("MMM BRAINS\n");
+        else
+            printf("NO BRAINS\n");
     }
-    
-    clock = sum / 60;
-    sum %= 60;
 
-    printf("%d\n%d\n", clock, sum);
     return 0;
 }
