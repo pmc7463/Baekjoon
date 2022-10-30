@@ -1,45 +1,26 @@
-# include <stdio.h>
+#include <stdio.h>
 
-int dp[501][501];
+int main(void){
+    int i, j, k, input;
 
-int Max (int a, int b) {
-    return a > b? a: b;
-}
+    scanf("%d", &input);
 
-int main() {
-    int i, j, n;
-    int max = -1;
-
-    scanf("%d", &n);
-    
-    i = 1;
-
-    while (i <= n) {
-        j = 1;
-        while (j <= i) {
-            scanf("%d", &dp[i][j]);
-            j++;
-        }
-        i++;
+    for (i = input; i > 0; i--) {
+        for (j = 1; j <= input - i; j++)
+            printf(" ");
+        for (k = (i*2)-1; k > 0; k--)
+            printf("*");
+        printf("\n");
     }
 
-    i = 1;
-    while (i <= n) {
-        j = 1;
-        while (j <= i) {
-            if (j == 1)
-                dp[i][j] = dp[i][j] + dp[i-1][j];
-            else if (j == i) 
-                dp[i][j] = dp[i][j] + dp[i-1][j-1];
-            else
-                dp[i][j] = dp[i][j] + Max(dp[i-1][j-1], dp[i-1][j]);
-            if (max < dp[i][j])
-                max = dp[i][j];
-            j++;
-        }
-        i++;
+
+    for (i = 2; i <= input; i++) {
+        for (j = input; j - i> 0; j--)
+            printf(" ");
+        for (k = 1; k <= (i*2)-1; k++)
+            printf("*");
+        printf("\n");
     }
-    printf("%d\n", max);
 
     return 0;
 }
