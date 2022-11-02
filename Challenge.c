@@ -1,16 +1,19 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(void)
 {
-    int M, F;
+    char str[501];
 
     while (1) {
-        scanf("%d %d", &M, &F);
-        
-        if ((M != 0) && (F != 0)) 
-            printf("%d\n", M + F);
-        else
+        gets(str);
+        if (str[0] == 'E' && str[1] == 'N' && str[2] == 'D')
             break;
+        
+        for (int i = strlen(str) - 1; i >= 0; i--)
+            printf("%c", str[i]);
+        printf("\n");
     }
+    
     return 0;
 }
