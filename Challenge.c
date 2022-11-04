@@ -2,16 +2,28 @@
 
 int main(void)
 {
-    int M, F;
+    int n;
 
-    while (1)
-    {
-        scanf("%d %d", &M, &F);
+    scanf("%d", &n);
 
-        if ((M != 0) && (F != 0))
-            printf("%d\n", M + F);
-        else
-            break;
+    for (int i = 1; i <= n; i++) {
+        for (int j = n - i; j > 0; j--) {
+            printf(" ");
+        }
+        for (int k = 0; k < 2*i-1; k++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+
+    for (int i = n - 1; i > 0; i--) {
+        for (int j = 0; j < n - i; j++) {
+            printf(" ");
+        }
+        for (int k = 0; k < 2*i-1; k++) {
+            printf("*");
+        }
+        printf("\n");
     }
     return 0;
 }
