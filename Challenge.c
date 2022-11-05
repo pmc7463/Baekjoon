@@ -2,28 +2,13 @@
 
 int main(void)
 {
-    int n;
+    int R1, R2, average;
 
-    scanf("%d", &n);
+    scanf("%d %d", &R1, &average);
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = n - i; j > 0; j--) {
-            printf(" ");
-        }
-        for (int k = 0; k < 2*i-1; k++) {
-            printf("*");
-        }
-        printf("\n");
-    }
+    R2 = average * 2 - R1;
 
-    for (int i = n - 1; i > 0; i--) {
-        for (int j = 0; j < n - i; j++) {
-            printf(" ");
-        }
-        for (int k = 0; k < 2*i-1; k++) {
-            printf("*");
-        }
-        printf("\n");
-    }
+    printf("%d\n", R2);
+    
     return 0;
 }
