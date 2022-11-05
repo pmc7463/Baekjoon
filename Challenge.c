@@ -2,13 +2,21 @@
 
 int main(void)
 {
-    int R1, R2, average;
+    int day, counter = 0;
+    int car[5] = {0};
 
-    scanf("%d %d", &R1, &average);
+    scanf("%d", &day);
 
-    R2 = average * 2 - R1;
+    for (int i = 0; i < 5; i++) {
+        scanf("%d", &car[i]);
+    }
 
-    printf("%d\n", R2);
-    
+    for (int i = 0; i < 5; i++) {
+        if(car[i] == day)
+            counter++;
+    }
+
+    printf("%d\n", counter);
+
     return 0;
 }
