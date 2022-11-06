@@ -1,22 +1,42 @@
 #include <stdio.h>
 
+int cooking(int x) {
+    return x / 60;
+}
+
 int main(void)
 {
-    int day, counter = 0;
-    int car[5] = {0};
+    int hour, minute, second, cook;
+    int time1, time2;
+    scanf("%d %d %d", &hour, &minute, &second);
+    scanf("%d", &cook);
 
-    scanf("%d", &day);
+    second += cook % 60;
 
-    for (int i = 0; i < 5; i++) {
-        scanf("%d", &car[i]);
+    time1 = cooking(cook);
+
+    if (time1 >= 60) {
+        hour += cooking(time1);
+        minute += time1 % 60;
+    }
+    else 
+        minute += time1;
+    
+    if (second >= 60) {
+        minute += cooking(second);
+        second %= 60;
     }
 
-    for (int i = 0; i < 5; i++) {
-        if(car[i] == day)
-            counter++;
+    if (minute >= 60) {
+        hour += cooking(minute);
+        minute %= 60;
     }
 
-    printf("%d\n", counter);
+    if (hour >= 24) {
+        hour %= 24;
+    }
+
+    printf("%d %d %d\n", hour, minute, second);
 
     return 0;
 }

@@ -1,5 +1,31 @@
 ## 백준
 *************
+# 2022-11-06 Sunday(1)
+* 2530 '인공지능 시계' 문제
++ 현재 시간 + 추가시간 구하는 문제
++ 코드가 너무 지저분한것 같다. 분명 줄일수있을것 같은데
+```
+    second += cook % 60;
+    time1 = cook / 60;
+    if (time1 >= 60) {
+        hour += time / 60;
+        minute += time1 % 60;
+    }
+    else 
+        minute += time1;
+
+    if (second >= 60) {
+        minute += second / 60;
+        second %= 60;
+    }
+    if (minute >= 60) {
+        hour += minute / 60;
+        minute %= 60;
+    }
+    if (hour >= 24)
+        hour %= 24;
+```
+***
 # 2022-11-05 Saturday(2)
 * 10797 '10부제' 문제
 + 배열에 값을 저장해서 찾고자 하는 숫자가 몇번 나오는지 묻는 문제이다.
