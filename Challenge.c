@@ -1,42 +1,29 @@
 #include <stdio.h>
 
-int cooking(int x) {
-    return x / 60;
-}
-
-int main(void)
-{
-    int hour, minute, second, cook;
-    int time1, time2;
-    scanf("%d %d %d", &hour, &minute, &second);
-    scanf("%d", &cook);
-
-    second += cook % 60;
-
-    time1 = cooking(cook);
-
-    if (time1 >= 60) {
-        hour += cooking(time1);
-        minute += time1 % 60;
-    }
-    else 
-        minute += time1;
+int main(void) {
+    int num;
+    char star = '*';
     
-    if (second >= 60) {
-        minute += cooking(second);
-        second %= 60;
+    scanf("%d", &num);
+    
+    if (num == 1) {
+        printf("int a;\n");
+        printf("int *ptr = &a;\n");
     }
-
-    if (minute >= 60) {
-        hour += cooking(minute);
-        minute %= 60;
-    }
-
-    if (hour >= 24) {
-        hour %= 24;
-    }
-
-    printf("%d %d %d\n", hour, minute, second);
-
+    else {
+        printf("int a;\n");
+        printf("int *ptr = &a;\n");
+        for (int i = 0; i < num - 1; i++)
+            if (i == 0) {
+                printf("int **ptr2 = &ptr;\n");
+            }
+            else {
+                printf("int ");
+                for (int j = 0; j < i + 2; j++) {
+                    printf("%c", star);
+                }
+                printf("ptr%d = &ptr%d;\n", i + 2, i + 1);
+            }
+        }
     return 0;
 }
