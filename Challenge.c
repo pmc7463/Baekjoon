@@ -1,29 +1,19 @@
 #include <stdio.h>
 
 int main(void) {
-    int num;
-    char star = '*';
-    
-    scanf("%d", &num);
-    
-    if (num == 1) {
-        printf("int a;\n");
-        printf("int *ptr = &a;\n");
-    }
-    else {
-        printf("int a;\n");
-        printf("int *ptr = &a;\n");
-        for (int i = 0; i < num - 1; i++)
-            if (i == 0) {
-                printf("int **ptr2 = &ptr;\n");
-            }
-            else {
-                printf("int ");
-                for (int j = 0; j < i + 2; j++) {
-                    printf("%c", star);
-                }
-                printf("ptr%d = &ptr%d;\n", i + 2, i + 1);
-            }
-        }
+    int num, snacks, child, parents;
+    int sum = 0;
+    scanf("%d %d %d", &snacks, &num, &child);
+
+    parents = snacks * num - child;
+
+    if (parents < 0) 
+        parents = -parents;
+
+    if (snacks * num < child)
+        printf("0\n");
+    else
+        printf("%d\n", parents);
+
     return 0;
 }
