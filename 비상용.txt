@@ -1,20 +1,25 @@
 비상용
-https://www.acmicpc.net/problem/5717
+https://www.acmicpc.net/problem/5532
+[problem 5532] Vacation Homework
 
 #include <stdio.h>
 
-int main(void)
-{
-    int M, F;
+int main(void) {
+    int vacation, Koeran, Math, Kpage, Mpage, counter, temp1, temp2;
 
-    while (1) {
-        scanf("%d %d", &M, &F);
-        
-        if ((M != 0) && (F != 0)) 
-            printf("%d\n", M + F);
-        else
+    scanf("%d %d %d %d %d", &vacation, &Koeran, &Math, &Kpage, &Mpage);
+
+    for (int i = 1; ;i++) {
+        temp1 = Kpage * i;
+        temp2 = Mpage * i;
+
+        if (Koeran <= temp1 && Math <= temp2) {
+            counter = i;
             break;
+        }
     }
+    printf("%d\n", vacation - counter);
+
     return 0;
 }
 ------------------------------------------------------
