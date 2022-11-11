@@ -1,20 +1,21 @@
 #include <stdio.h>
 
 int main(void) {
-    int vacation, Koeran, Math, Kpage, Mpage, counter, temp1, temp2;
+    int a, b, c;
 
-    scanf("%d %d %d %d %d", &vacation, &Koeran, &Math, &Kpage, &Mpage);
+    scanf("%d %d %d", &a, &b, &c);
 
-    for (int i = 1; ;i++) {
-        temp1 = Kpage * i;
-        temp2 = Mpage * i;
-
-        if (Koeran <= temp1 && Math <= temp2) {
-            counter = i;
-            break;
-        }
+    if (a + b + c != 180)
+        printf("Error\n");
+    else {
+        if (a == 60 && b == 60 && c == 60)
+            printf("Equilateral\n");
+        else {
+            if (a != b && a != c && b != c)
+                printf("Scalene\n");
+            else
+                printf("Isosceles\n");
+        } 
     }
-    printf("%d\n", vacation - counter);
-
     return 0;
 }
