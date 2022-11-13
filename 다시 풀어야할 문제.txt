@@ -1,0 +1,36 @@
+https://www.acmicpc.net/problem/20660
+
+#include <stdio.h>
+
+int main(void) {
+    int material, hate[100], pizza;
+    int tempMaterial[100], tempHate[100][100];
+    int i, j;
+    int flag = 0, counter = 0;
+    scanf("%d", &material);
+
+    for (i = 0; i < material; i++) 
+        scanf("%d", &hate[i]);
+    
+    scanf("%d", &pizza);
+
+    for(i = 0; i < pizza; i++) {
+        scanf("%d", &tempMaterial[i]);
+            for (j = 0; j < tempMaterial[i]; j++)
+                scanf("%d", &tempHate[i][j]);
+    }
+    
+    for (i = 0; i < pizza; i++) {
+        flag = 0;
+        for (j = 0; j < tempMaterial[i]; j++) {
+            if (hate[j] == tempHate[i][j])
+                if(flag < 1)
+                    flag++;
+        }
+        if (flag == 1)
+            counter++;
+    }
+    printf("%d\n", pizza - counter);
+
+    return 0;
+}

@@ -1,24 +1,18 @@
 비상용
-https://www.acmicpc.net/problem/5532
-[problem 5532] Vacation Homework
+https://www.acmicpc.net/problem/15680
+[problem 15680] Yonsei University
 
 #include <stdio.h>
 
 int main(void) {
-    int vacation, Koeran, Math, Kpage, Mpage, counter, temp1, temp2;
+    int N;
 
-    scanf("%d %d %d %d %d", &vacation, &Koeran, &Math, &Kpage, &Mpage);
+    scanf("%d", &N);
 
-    for (int i = 1; ;i++) {
-        temp1 = Kpage * i;
-        temp2 = Mpage * i;
-
-        if (Koeran <= temp1 && Math <= temp2) {
-            counter = i;
-            break;
-        }
-    }
-    printf("%d\n", vacation - counter);
+    if (N == 0)
+        printf("YONSEI\n");
+    else if (N == 1)
+        printf("Leading the Way to the Future\n");
 
     return 0;
 }
