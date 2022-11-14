@@ -1,15 +1,15 @@
 #include <stdio.h>
-#include <string.h>
 
 int main(void) {
-    char arr[101];
-    int counter = 0;
-    scanf("%s", arr);
+    int apple[2], orange[2];
 
-    for (int i = 0; i < strlen(arr); i++) {
-        printf("%c", arr[i]);
-        if ((i + 1)  % 10 == 0)
-            printf("\n");
-    }
+    scanf("%d %d", &apple[0], &orange[0]);
+    scanf("%d %d", &apple[1], &orange[1]);
+
+    if (apple[0] + orange[1] >= apple[1] + orange[0])
+        printf("%d\n", apple[1] + orange[0]);
+    else
+        printf("%d\n", apple[0] + orange[1]);
+
     return 0;
 }
