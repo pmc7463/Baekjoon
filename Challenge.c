@@ -1,15 +1,15 @@
 #include <stdio.h>
 
-int main(void) {
-    int apple[2], orange[2];
+int main(void)
+{
+    int N;
 
-    scanf("%d %d", &apple[0], &orange[0]);
-    scanf("%d %d", &apple[1], &orange[1]);
+    scanf("%d", &N);
 
-    if (apple[0] + orange[1] >= apple[1] + orange[0])
-        printf("%d\n", apple[1] + orange[0]);
-    else
-        printf("%d\n", apple[0] + orange[1]);
+    if (N == 0)
+        printf("YONSEI\n");
+    else if (N == 1)
+        printf("Leading the Way to the Future\n");
 
     return 0;
 }
