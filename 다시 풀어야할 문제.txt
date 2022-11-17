@@ -34,3 +34,32 @@ int main(void) {
 
     return 0;
 }
+
+https://www.acmicpc.net/problem/2576
+#include <stdio.h>
+
+
+int main(void)
+{
+    int arr[7];
+    int sum = 0, min[7], temp;
+    for (int i = 0; i < 7; i++) {
+        scanf("%d", &arr[i]);
+        if (arr[i]%2 != 0) {
+            sum += arr[i];
+            min[7] = arr[i];
+        }
+    }
+
+    temp = min[0];
+
+    for (int i = 1; i < sizeof(min); i++) {
+        if (temp > min[i])
+            temp = min[i];
+    }
+
+    printf("%d\n", sum);
+    printf("%d\n", temp);
+
+    return 0;
+}

@@ -1,14 +1,10 @@
 #include <stdio.h>
 
-int main(void)
-{
-    int T, a, b;
+int main() {
+    char a;
 
-    scanf("%d", &T);
+    while(scanf("%c", &a) != EOF)
+        printf("%c", a);
 
-    for (int i = 0; i < T; i++) {
-        scanf("%d,%d", &a, &b);
-        printf("%d\n", a+b);
-    }
     return 0;
 }
