@@ -1,6 +1,25 @@
 ## 백준
 *************
-#2022-11-18 Friday(1)
+# 2022-11-19 Saturday(1)
+* 10699 '오늘 날짜' 문제
++ 처음 출력 보는 형식이다. 기억하고 있어야겠다.
+```
+#include <stdio.h>
+#include <time.h>
+
+int main()
+{
+    struct tm *t;
+    time_t timer;
+    timer = time(NULL);
+    t = localtime(&timer);
+
+    printf("%d-%02d-%02d", t->tm_year + 1900, t->tm_mon + 1, t->tm_mday);
+    return 0;
+}
+```
+***
+# 2022-11-18 Friday(1)
 * 11718 '그대로 출력하기 1' 문제
 + 어제 풀었던 문제와 똑같은 코드이다.
 ***
