@@ -1,14 +1,24 @@
 #include <stdio.h>
 
 int main() {
-    int N, M;
-    scanf ("%d %d", &N, &M);
+    int month, day;
 
-    if(N == M) {
-        printf("1\n");
+    scanf ("%d", &month);
+    scanf ("%d", &day);
+
+    if (month == 2) {
+        if (day == 18)
+            printf("Special\n");
+        else if (day > 18)
+            printf("After\n");
+        else
+            printf("Before\n");
     }
+
+    else if (month > 2)
+        printf("After\n");
     else
-        printf("0\n");
-        
+        printf("Before\n");
+
     return 0;
 }
