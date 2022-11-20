@@ -1,13 +1,14 @@
 #include <stdio.h>
-#include <time.h>
 
-int main()
-{
-    struct tm *t;
-    time_t timer;
-    timer = time(NULL);
-    t = localtime(&timer);
+int main() {
+    int N, M;
+    scanf ("%d %d", &N, &M);
 
-    printf("%d-%02d-%02d", t->tm_year + 1900, t->tm_mon + 1, t->tm_mday);
+    if(N == M) {
+        printf("1\n");
+    }
+    else
+        printf("0\n");
+        
     return 0;
 }
