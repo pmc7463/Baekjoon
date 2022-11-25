@@ -1,26 +1,30 @@
 #include <stdio.h>
 
 int main() {
-    int N, M, MAX = 0, sum = 0;
-    int arr[100];
+    int student[28], absent[30], arr[2], k = 0;
 
-    scanf("%d %d", &N, &M);
-
-    for (int i = 0; i < N; i++) {
-        scanf("%d", &arr[i]);
+    for (int i = 1; i <= 30; i++) {
+        absent[i] = i;
     }
 
-    for (int i = 0; i < N; i++) {
-        for (int j = i + 1; j < N; j++) {
-            for (int k = j + 1; k < N; k++) {
-                sum = arr[i] + arr[j] + arr[k];
-                if (sum > MAX && sum <= M)
-                    MAX = sum;
-            }
+    for (int i = 0; i < 28; i++) {
+        scanf("%d", &student[i]);
+    }
+
+    for (int j = 1; j <= 30; j++) {
+        for (int i = 0; i < 28; i++) {
+            if (j == student[i])
+                absent[j] = 0;
         }
     }
 
-    printf("%d\n", MAX);
+    for (int i = 1; i <= 30; i++) {
+        if (absent[i] != 0) {
+            arr[k] = i;
+            k++;
+        }
+    }
 
+    printf("%d\n%d", arr[0], arr[1]);
     return 0;
 }
