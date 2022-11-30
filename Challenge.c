@@ -1,36 +1,17 @@
 #include <stdio.h>
+#include <string.h>
 
 int main() {
-    int a[4], b[2];
-    int temp, bmax, sum= 0;
+    char str[101];
+    int cnt = 0;
 
-    for (int i = 0; i < 4; i++) {
-        scanf("%d", &a[i]);
-    }
-    for (int i = 0; i < 2; i++) {
-        scanf("%d", &b[i]);
-    }
+    scanf("%s", &str);
 
-    for (int i = 0; i < 4; i++) {
-        for (int j = i + 1; j < 4; j++) {
-            if (a[i] < a[j]) {
-                temp = a[i];
-                a[i] = a[j];
-                a[j] = temp;
-            }
-        }
+    for (int i = 0; i < strlen(str); i++) {
+        if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u')
+            cnt++;
     }
 
-    if (b[0] >= b[1])
-        bmax = b[0];
-    else
-        bmax = b[1];
-
-    for (int i = 0; i < 3; i++) {
-        sum += a[i];
-    }
-
-    printf("%d\n", sum + bmax);
-
+    printf("%d\n", cnt);
     return 0;
 }
