@@ -1,18 +1,38 @@
 #include <stdio.h>
 
-int main() {
-    int row, col;
-    char str[15];
+int main(void)
+{
+    int n, i, j, k;
 
-    scanf("%d %d", &row, &col);
+    scanf("%d", &n);
 
-    for ( int i = 0; i < row; i++ ) {
-        scanf("%s", str);
-        for (int j = col-1; j >= 0; j-- ) {
-            printf("%c", str[j]);
+    for ( i = 1; i <= n; i++ ) {
+        for ( j = 0 ; j < i; j++ ) {
+            printf("*");
+        }
+        for ( k = 2 * n - 2 * i; k > 0; k-- ) {
+            printf(" ");
+        }
+        for ( j = 0; j < i; j++ ) {
+            printf("*");
         }
         printf("\n");
     }
+
+    for ( i = n-1; i > 0; i-- ) {
+        for ( j = i ; j > 0; j-- ) {
+            printf("*");
+        }
+        for ( k = 0; k < 2 * n - 2 * i; k++ ) {
+            printf(" ");
+        }
+        for ( j = i; j > 0; j-- ) {
+            printf("*");
+        }
+        printf("\n");
+    }
+
+
 
     return 0;
 }
