@@ -1,16 +1,16 @@
 ## 백준
 *************
 # 2022-12-03 Saturday(1)
-* 2445 '별 찍기 -8' 문제
-    \*        \*
-    \*\*      \*\*
-    \*\*\*    \*\*\*
-    \*\*\*\*  \*\*\*\*
-    \*\*\*\*\*\*\*\*\*\*
-    \*\*\*\*  \*\*\*\*
-    \*\*\*    \*\*\*
-    \*\*      \*\*
-    \*        \*
+* 2445 '별 찍기 -8' 문제  
+    \*&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \*  
+    \*\*&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \*\*  
+    \*\*\*&nbsp; &nbsp; &nbsp; &nbsp; \*\*\*  
+    \*\*\*\*&nbsp; &nbsp; \*\*\*\*  
+    \*\*\*\*\*\*\*\*\*\*  
+    \*\*\*\*&nbsp; &nbsp; \*\*\*\*  
+    \*\*\*&nbsp; &nbsp; &nbsp; &nbsp; \*\*\*  
+    \*\*&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \*\*  
+    \*&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \*
 + 조금씩 그려보면서 풀었다.
 ***
 # 2022-12-02 Friday(1)
