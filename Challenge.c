@@ -2,34 +2,22 @@
 
 int main(void)
 {
-    int n, i, j, k;
+    int school[3];
+    int s, k, h, sum;
+    
+    scanf("%d %d %d", &s, &k, &h);
 
-    scanf("%d", &n);
+    sum = s + k + h;
 
-    for ( i = 1; i <= n; i++ ) {
-        for ( j = 0 ; j < i; j++ ) {
-            printf("*");
-        }
-        for ( k = 2 * n - 2 * i; k > 0; k-- ) {
-            printf(" ");
-        }
-        for ( j = 0; j < i; j++ ) {
-            printf("*");
-        }
-        printf("\n");
-    }
-
-    for ( i = n-1; i > 0; i-- ) {
-        for ( j = i ; j > 0; j-- ) {
-            printf("*");
-        }
-        for ( k = 0; k < 2 * n - 2 * i; k++ ) {
-            printf(" ");
-        }
-        for ( j = i; j > 0; j-- ) {
-            printf("*");
-        }
-        printf("\n");
+    if (sum >= 100)
+        printf("OK\n");
+    else {
+        if (s < k && s < h)
+            printf("Soongsil\n");
+        else if (k < s && k < h)
+            printf("Korea\n");
+        else
+            printf("Hanyang\n");
     }
 
     return 0;
