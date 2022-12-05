@@ -1,3 +1,51 @@
+https://www.acmicpc.net/problem/2231
+
+#include <stdio.h>
+
+int main(void)
+{
+    int num, counter = 0, range, start, temp, temp2, sum2 = 0;
+    int sum[counter];
+
+    scanf("%d", &num);
+    
+    temp = num;
+
+    while(temp != 0) {
+        temp /= 10;
+        counter++;
+    }
+
+    range = 9 * counter;
+    start = num - range;
+    temp2 = start;
+
+
+    for (int k = start; k < num; k++) {
+        temp2 = k;
+        for (int i = 0; i < counter; i++) {
+            sum[i] = temp2 % 10;    //
+            temp2 /= 10;            //
+            sum2 += sum[i];
+
+            if (k + sum2 == num) {      //
+                printf("%d\n", start);      //
+                break;
+            }
+            else
+                printf("0\n");
+        }
+
+        
+
+    }
+    printf("range : %d\n", range);
+    printf("start : %d\n", start);
+    printf("sum2 : %d\n", sum2);
+    return 0;
+}
+
+
 https://www.acmicpc.net/problem/20660
 
 #include <stdio.h>

@@ -2,23 +2,12 @@
 
 int main(void)
 {
-    int school[3];
-    int s, k, h, sum;
-    
-    scanf("%d %d %d", &s, &k, &h);
+    int clothes;
 
-    sum = s + k + h;
+    scanf("%d", &clothes);
 
-    if (sum >= 100)
-        printf("OK\n");
-    else {
-        if (s < k && s < h)
-            printf("Soongsil\n");
-        else if (k < s && k < h)
-            printf("Korea\n");
-        else
-            printf("Hanyang\n");
-    }
+    if (1 <= clothes && clothes <= 2017)
+        printf("%d\n", clothes * (clothes - 1));
 
     return 0;
 }
