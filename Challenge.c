@@ -1,31 +1,36 @@
 #include <stdio.h>
 
 int main() {
-    int yut = 0, sum = 0;
+    int finger, choice;
+
+    scanf("%d", &choice);
+
+    finger = choice % 8;
+
+    switch (finger)
+    {
+    case 1:
+        printf("1\n");
+        break;
     
-    for (int j = 0; j < 3; j++) {
-        sum = 0;
-        for (int i = 0; i < 4; i++) {
-            scanf("%d ", &yut);
-            if (yut == 0) {
-                sum++;
-            }
-        }
-        if (sum == 1) {
-            printf("A\n");
-        }
-        else if (sum == 2) {
-            printf("B\n");
-        }
-        else if (sum == 3) {
-            printf("C\n");
-        }
-        else if (sum == 4) {
-            printf("D\n");
-        }
-        else if (sum == 0) {
-            printf("E\n");
-        }
+    case 2:
+    case 0:
+        printf("2\n");
+        break;
+
+    case 3:
+    case 7:
+        printf("3\n");
+        break;
+    
+    case 4:
+    case 6:
+        printf("4\n");
+        break;
+
+    default:
+        printf("5\n");
+        break;
     }
     return 0;
 }
