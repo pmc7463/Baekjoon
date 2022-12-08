@@ -1,36 +1,12 @@
 #include <stdio.h>
+#define PI 3.141592
 
 int main() {
-    int finger, choice;
+    int rectangle, circle;
 
-    scanf("%d", &choice);
+    scanf("%d %d", &rectangle, &circle);
 
-    finger = choice % 8;
+    printf("%0.6f\n", (double)rectangle * 2 + circle * 2 * PI);
 
-    switch (finger)
-    {
-    case 1:
-        printf("1\n");
-        break;
-    
-    case 2:
-    case 0:
-        printf("2\n");
-        break;
-
-    case 3:
-    case 7:
-        printf("3\n");
-        break;
-    
-    case 4:
-    case 6:
-        printf("4\n");
-        break;
-
-    default:
-        printf("5\n");
-        break;
-    }
     return 0;
 }
