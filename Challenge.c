@@ -1,12 +1,26 @@
 #include <stdio.h>
-#define PI 3.141592
 
-int main() {
-    int rectangle, circle;
+int find_ds(int n) {
+    int ds = n;
+    for (int i = 0; n != 0; i++) {
+        ds += n % 10;
+        n /= 10;
+    }
+    return ds;
+}
 
-    scanf("%d %d", &rectangle, &circle);
+int main(void)
+{
+    int num;
+    scanf("%d", &num);
 
-    printf("%0.6f\n", (double)rectangle * 2 + circle * 2 * PI);
-
+    for (int i = 1; i <= num; i++) {
+        if (find_ds(i) == num) {
+            printf("%d\n", i);
+            break;
+        }
+        if (i == num)
+            printf("0\n");
+    }
     return 0;
 }
