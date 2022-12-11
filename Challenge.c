@@ -1,26 +1,23 @@
 #include <stdio.h>
 
-int find_ds(int n) {
-    int ds = n;
-    for (int i = 0; n != 0; i++) {
-        ds += n % 10;
-        n /= 10;
-    }
-    return ds;
-}
-
 int main(void)
 {
-    int num;
+    int num, a = 0, b = 1, c;
     scanf("%d", &num);
 
-    for (int i = 1; i <= num; i++) {
-        if (find_ds(i) == num) {
-            printf("%d\n", i);
-            break;
-        }
-        if (i == num)
+    if (num < 2) {
+        if (num == 0)
             printf("0\n");
+        else
+            printf("1\n");
+    }
+    else {
+        for (int i = 0; i < num - 1; i++) {
+            c = b + a;
+            a = b;
+            b = c;
+        }
+        printf("%d\n", c);
     }
     return 0;
 }
