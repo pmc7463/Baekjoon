@@ -2,22 +2,15 @@
 
 int main(void)
 {
-    int num, a = 0, b = 1, c;
-    scanf("%d", &num);
+    int kill, assist, death;
 
-    if (num < 2) {
-        if (num == 0)
-            printf("0\n");
-        else
-            printf("1\n");
+    scanf("%d/%d/%d", &kill, &death, &assist);
+
+    if (kill + assist < death || death == 0) {
+        printf("hasu\n");
     }
-    else {
-        for (int i = 0; i < num - 1; i++) {
-            c = b + a;
-            a = b;
-            b = c;
-        }
-        printf("%d\n", c);
-    }
+    else
+        printf("gosu\n");
+
     return 0;
 }
