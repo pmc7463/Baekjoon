@@ -1,14 +1,27 @@
 #include <stdio.h>
 
-int main(){
-    int n;
-    scanf("%d", &n);
-    long long arr[91] = {0, 1};
+int main(void)
+{
+	int max = 0 , sum = 0, line;
+	int score[5][4];
+	
+    for(int i = 0; i < 5; i++){
+		for(int j = 0; j < 4; j++){
+			scanf("%d", &score[i][j]);
+		}
+	}
 
-    for (int i = 2; i <= n; i++)
-        arr[i] = arr[i - 1] + arr[i - 2];
-
-    printf("%lld", arr[n]);
-
-    return 0;
+	for(int i = 0; i < 5; i++){
+		for(int j = 0; j < 4; j++){
+			sum += score[i][j];
+		}
+        
+		if(max < sum){
+			max = sum;
+			line = i + 1;
+		}
+		sum = 0;
+	}
+	printf("%d %d", line, max);
+	return 0; 
 }
