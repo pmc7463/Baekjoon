@@ -1,25 +1,27 @@
 #include <stdio.h>
-#include <stdlib.h>
-
-int main(void)
+int main()
 {
-	int num, sum, min, input;
-	scanf("%d", &num);
-
-	for (int i = 0; i < num; i++) {
-		sum = 0;
-		min = 101;
-
-		for (int j = 0; j < 7; j++) {
-			scanf("%d", &input);
-			if (input % 2 == 0) {
-				sum += input;
-
-				if (min > input)
-					min = input;
-			}
-		}
-		printf("%d %d\n", sum, min);
-	}
-	return 0; 
+    int s[5];
+    int result = 0;
+    for (int a = 0; a < 5; a++)
+    {
+        scanf("%d", &s[a]);
+    }
+    for (int a=1;; a++)
+    {
+        for (int b = 0; b < 5; b++)
+        {
+            if (a%s[b] == 0)
+                result++;
+        }
+        if (result >= 3)
+        {
+            printf("%d\n", a);
+            break;
+        }
+        else
+            result = 0;
+    }
+    return 0;
 }
+ 
