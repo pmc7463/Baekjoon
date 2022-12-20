@@ -1,25 +1,21 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main(void)
 {
-	int num, sum, min, input;
-	scanf("%d", &num);
+	int arr[3];
+	int max1 = 0, max2 = 0;
 
-	for (int i = 0; i < num; i++) {
-		sum = 0;
-		min = 101;
-
-		for (int j = 0; j < 7; j++) {
-			scanf("%d", &input);
-			if (input % 2 == 0) {
-				sum += input;
-
-				if (min > input)
-					min = input;
-			}
-		}
-		printf("%d %d\n", sum, min);
+	for (int i = 0; i < 3; i++) {
+		scanf("%d", &arr[i]);
 	}
+
+	max1 = (arr[0] * (double)arr[1]) / arr[2];
+	max2 = (arr[0] / (double)arr[1]) * arr[2];
+
+	if (max1 >= max2)
+		printf("%d\n", max1);
+	else
+		printf("%d\n", max2);
+	
 	return 0; 
 }
