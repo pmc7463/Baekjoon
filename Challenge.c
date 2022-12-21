@@ -1,21 +1,27 @@
 #include <stdio.h>
-
-int main(void)
-{
-	int arr[3];
-	int max1 = 0, max2 = 0;
-
-	for (int i = 0; i < 3; i++) {
-		scanf("%d", &arr[i]);
+​
+int main() {
+	int n;
+	scanf("%d", &n);
+	int i, j;
+	for (i = 1; i <= n; i++) {
+		for (j = 1; j <= n - i; j++) {
+			printf(" ");
+		}
+		for (j = 1; j <= i; j++) {
+			printf("*");
+		}
+		printf("\n");
 	}
-
-	max1 = (arr[0] * (double)arr[1]) / arr[2];
-	max2 = (arr[0] / (double)arr[1]) * arr[2];
-
-	if (max1 >= max2)
-		printf("%d\n", max1);
-	else
-		printf("%d\n", max2);
 	
-	return 0; 
+	for (i = n - 1; i > 0; i--) {
+		for (j = 1; j <= n - i; j++) {
+			printf(" ");
+		}
+		for (j = 1; j <= i; j++) {
+			printf("*");
+		}
+		printf("\n");
+	}
+	return 0;
 }
