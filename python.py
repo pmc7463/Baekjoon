@@ -1,14 +1,28 @@
-i=a=0
-o='+'
-while True:
-    t=input()
-    if t=='=':break
-    if i%2==0:
-        t=int(t)
-        if o=='+':a+=t
-        if o=='-':a-=t
-        if o=='*':a*=t
-        if o=='/':a//=t
-    else:o=t
-    i+=1
-print(a)
+import sys
+input=sys.stdin.readline
+
+N, L = map(int, input().split())
+
+Num = str(L)
+
+res = []
+temp = 1
+
+while True :
+    if len(res) == N : break
+    
+    sign = 0
+    
+    tempNum = str(temp)
+    
+    for i in range(len(tempNum)) :
+        if tempNum[i] == Num :
+            sign = 1
+            break
+    
+    if sign == 0 :
+        res.append(temp)
+    
+    temp += 1
+    
+print(max(res))
