@@ -1,28 +1,18 @@
-import sys
-input=sys.stdin.readline
+from math import sqrt
 
-N, L = map(int, input().split())
+num = int(input())
 
-Num = str(L)
-
-res = []
-temp = 1
-
-while True :
-    if len(res) == N : break
+for i in range(num) :
+    secret = input()
     
-    sign = 0
+    save = int(sqrt(len(secret)))
     
-    tempNum = str(temp)
+    origin = ''
     
-    for i in range(len(tempNum)) :
-        if tempNum[i] == Num :
-            sign = 1
-            break
-    
-    if sign == 0 :
-        res.append(temp)
-    
-    temp += 1
-    
-print(max(res))
+    for j in range (save-1, -1, -1):
+        for k in range(0, len(secret), save) :
+            word = secret[k : k + save]
+            origin += word[j]
+            
+    print(origin)
+            
