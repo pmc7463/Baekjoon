@@ -1,18 +1,33 @@
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
 int main() {
-    int temp = 0, max = 0, input[4], output[4];
+    char word[21];
 
-    for(int i = 0; i < 4; i++) {
-        scanf("%d %d", &output[i], &input[i]);
+    int sum = 0, temp = 0, i = 0, cnt = 0;
+
+    scanf("%s", word);
+
+    while (word[i]) {
+        if (isupper(word[i]))
+            temp = word[i] - 38;
+        else if (islower(word[i]))
+            temp = 1 + word[i] - 97;
+        sum += temp;
+        i++;
     }
 
-    for (int i = 0; i < 4; i++) {
-        temp = temp + input[i] - output[i];
-        if (temp > max) {
-            max = temp;
+    for (int i = 2; i < sum; i++) {
+        if (sum % i == 0){
+            cnt++;
         }
     }
-    printf("%d\n", max);
+
+    if (cnt == 0)
+        printf("It is a prime word.\n");
+    else
+        printf("It is not a prime word.\n");
+
     return 0;
 }
