@@ -1,33 +1,30 @@
 #include <stdio.h>
-#include <string.h>
-#include <ctype.h>
+#include <math.h>
 
-int main() {
-    char word[21];
+int main(void)
+{
+	int input;
+	int x1,y1,r1,x2,y2,r2;
+	double distance, subtract;
 
-    int sum = 0, temp = 0, i = 0, cnt = 0;
+	scanf("%d", &input);
 
-    scanf("%s", word);
+	for (int i = 0; i < input; i++) {
+		scanf("%d %d %d %d %d %d", &x1, &y1, &r1, &x2, &y2, &r2);
 
-    while (word[i]) {
-        if (isupper(word[i]))
-            temp = word[i] - 38;
-        else if (islower(word[i]))
-            temp = 1 + word[i] - 97;
-        sum += temp;
-        i++;
-    }
+		distance = sqrt((pow(x2-x1, 2)) + (pow(y2-y1,2)));
+		
+		subtract = r1 > r2 ? r1 - r2 : r2 - r1;
+		
+		if (distance == 0 && r1 == r2)
+			printf("-1\n");
 
-    for (int i = 2; i < sum; i++) {
-        if (sum % i == 0){
-            cnt++;
-        }
-    }
-
-    if (cnt == 0)
-        printf("It is a prime word.\n");
-    else
-        printf("It is not a prime word.\n");
-
-    return 0;
+		else if (distance == r1 + r2 || distance == subtract)
+			printf("1\n");
+		else if (distance < r1 + r2 && (subtract < distance))
+			printf("2\n");
+		else
+			printf("0\n");
+	}
+	return 0; 
 }
