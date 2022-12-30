@@ -1,24 +1,42 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
-int main(void)
-{
-	int height = 10;
-	char bowl[51];
+int main(void) {
+	char num1[8], num2[8];
+	int min, max;
 
-	scanf("%s", bowl);
+	scanf("%s %s", num1, num2);
 
-	for (int i = 0; i < strlen(bowl); i++) {
-		if (bowl[i] == '(' && bowl[i+1] == '(' )
-			height += 5;
-		else if (bowl[i] == '(' && bowl[i+1] == ')' )
-			height += 10;
-		else if (bowl[i] == ')' && bowl[i+1] == ')' )
-			height += 5;
-		else if (bowl[i] == ')' && bowl[i+1] == '(' )
-			height += 10;
+	for (int i = 0; i < strlen(num1); i++) {
+		if (num1[i] == '6') {
+			num1[i] = '5';
+		}
 	}
 
-	printf("%d\n", height);
+	for (int i = 0; i < strlen(num2); i++) {
+		if (num2[i] == '6') {
+			num2[i] = '5';
+		}
+	}
+
+	min = atoi(num1) + atoi(num2);
+
+	for (int i = 0; i < strlen(num1); i++) {
+		if (num1[i] == '5') {
+			num1[i] = '6';
+		}
+	}
+
+	for (int i = 0; i < strlen(num2); i++) {
+		if (num2[i] == '5') {
+			num2[i] = '6';
+		}
+	}
+
+	max = atoi(num1) + atoi(num2);
+
+	printf("%d %d\n", min, max);
+
 	return 0; 
 }
