@@ -1,21 +1,17 @@
-#include <stdio.h>
-
-int main(void) {
-	int num1, num2;
-	long long max = 0, min = 1000001;
-
-	scanf("%d", &num1);
-
-	for (int i = 0; i < num1; i++) {
-		scanf("%d", &num2);
-
-		if (num2 > max)
-			max = num2;
-		if (num2 < min)
-			min = num2;
+#include<stdio.h>
+int main(void)
+{
+	int k,n,m,dam;
+	scanf("%d", &k);
+	for(int z=0; z<k; z++)
+	{
+		dam=1;
+		scanf("%d %d", &n, &m);
+		for(int i=0; i<n; i++)
+		{
+			dam*=m-i; 
+			dam/=1+i;
+		}
+		printf("%d\n", dam);
 	}
-
-	printf("%lld\n", max * min);
-
-	return 0; 
 }
