@@ -1,12 +1,17 @@
-def hanoi_tower(n, start, end) :
-    if n == 1 :
-        print(start ,end)
-        return
-
-    hanoi_tower(n-1, start, 6-start-end)    # 1단계
-    print(start, end) # 2단계
-    hanoi_tower(n-1, 6-start-end, end)      # 3단계
-
-n = int(input())
-print(2**n-1)
-hanoi_tower(n,1,3)
+y1, m1, d1 = map(int, input().split())
+y2, m2, d2 = map(int, input().split())
+man_old = 0
+if m1 < m2:
+    man_old = y2-y1
+elif m1 == m2:
+    if d1 <= d2:
+        man_old = y2-y1
+    else:
+        man_old = y2-y1-1
+else:
+    man_old = y2-y1-1
+count_old = y2-y1+1
+year_old = y2-y1
+print(man_old)
+print(count_old)
+print(year_old)
