@@ -1,10 +1,16 @@
-dp = [[0 for _ in range(3)] for _ in range(1516)]
-dp[1][1] = 1
-for i in range(2, 1516):
-    dp[i][0] = dp[i-1][1] + dp[i-1][2]
-    dp[i][1] = dp[i-1][0] + dp[i-1][2]
-    dp[i][2] = dp[i-1][0] + dp[i-1][1]
+arr_A, arr_B = [], []
 
-    for j in range(3):
-        dp[i][j] %= 1000000007
-print(dp[int(input())][0])
+n, m = map(int, input().split())
+
+for row in range(n):
+    row = list(map(int, input().split()))
+    arr_A.append(row)
+
+for row in range(n):
+    row = list(map(int, input().split()))
+    arr_B.append(row)
+
+for row in range(n):
+    for col in range(m):
+        print(arr_A[row][col] + arr_B[row][col], end = ' ')
+    print()
