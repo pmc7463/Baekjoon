@@ -1,17 +1,10 @@
-y1, m1, d1 = map(int, input().split())
-y2, m2, d2 = map(int, input().split())
-man_old = 0
-if m1 < m2:
-    man_old = y2-y1
-elif m1 == m2:
-    if d1 <= d2:
-        man_old = y2-y1
-    else:
-        man_old = y2-y1-1
-else:
-    man_old = y2-y1-1
-count_old = y2-y1+1
-year_old = y2-y1
-print(man_old)
-print(count_old)
-print(year_old)
+dp = [[0 for _ in range(3)] for _ in range(1516)]
+dp[1][1] = 1
+for i in range(2, 1516):
+    dp[i][0] = dp[i-1][1] + dp[i-1][2]
+    dp[i][1] = dp[i-1][0] + dp[i-1][2]
+    dp[i][2] = dp[i-1][0] + dp[i-1][1]
+
+    for j in range(3):
+        dp[i][j] %= 1000000007
+print(dp[int(input())][0])
