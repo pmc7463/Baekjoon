@@ -1,28 +1,29 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
-	char white[9][9];
-	int cnt = 0;
+	int num, repetiton;
+	char alphabet;
 
-	for (int i = 0; i < 8; i++) {
-		scanf("%s", white[i]);
-	}
+	scanf("%d", &repetiton);
 
-	for (int i = 0; i < 8; i++) {
-		for (int j = 0; j < 8; j++) {
-			if ((i + j) % 2 == 0 && white[i][j] == 'F')
-				cnt++;
+	for (int k = 0; k < repetiton; k++) {
+		scanf("%d %c", &num, &alphabet);
+		
+		for (int i = 1; i <= num; i++) {
+			for (int j = 1; j <= i; j++) {
+				if (alphabet > 'Z') {
+					alphabet -= 26;
+					printf("%c", alphabet);
+				}
+				else
+					printf("%c", alphabet);
+			}
+			alphabet++;
+			printf("\n");
 		}
+		printf("\n");
 	}
-
-	// for (int i = 0; i < 8; i++) {
-	// 	for (int j = 0; j < 8; j++) {
-	// 		printf("%c", white[i][j]);
-	// 	}
-	// 	printf("\n");
-	// }
-
-	printf("%d", cnt);
 
 	return 0;
 }
