@@ -1,6 +1,14 @@
 # Baekjoon
 ## 백준 도전 中  
 *************
+# 2023-01-08 Sunday(1)
+* 13458 '시험 감독' 문제
++ 시험장 * 학생수 = 1조 이므로 int 범위를 벗어난다. 그렇기에 long long을 사용해야 한다.
++ #include <math.h> 라이브러리 중에 ceil(올림)을 사용해야한다.
++ supervisor += ceil(student[i] * 1.0 / lookB) 이번 문제에 가장 중요한 식은것 같다.
++ 처음에 내가 풀었던 문제는 나누기와 범위때문에 시간초과로 틀렸다고 나왔다.
++ [코드참고](https://wisdom-990629.tistory.com/entry/C-%EB%B0%B1%EC%A4%80-13458%EB%B2%88-%EC%8B%9C%ED%97%98-%EA%B0%90%EB%8F%85)
+***
 # 2023-01-07 Saturday(1)
 * 5356 'Triangles' 문제
 + 입력 5 A <br/>

@@ -1,29 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
-int main() {
-	int num, repetiton;
-	char alphabet;
+int main(void) {
+	int repetion, lookA, lookB;
+	long long supervisor = 0;
 
-	scanf("%d", &repetiton);
+	scanf("%d", &repetion);
 
-	for (int k = 0; k < repetiton; k++) {
-		scanf("%d %c", &num, &alphabet);
-		
-		for (int i = 1; i <= num; i++) {
-			for (int j = 1; j <= i; j++) {
-				if (alphabet > 'Z') {
-					alphabet -= 26;
-					printf("%c", alphabet);
-				}
-				else
-					printf("%c", alphabet);
-			}
-			alphabet++;
-			printf("\n");
-		}
-		printf("\n");
+	int* student = malloc(sizeof(int) * repetion);
+
+	for (int i = 0; i < repetion; i++) {
+		scanf("%d", &student[i]);
 	}
+
+	scanf("%d %d", &lookA, &lookB);
+
+	for (int i = 0; i < repetion; i++) {
+		supervisor += 1;
+		student[i] -= lookA;
+
+		if (student[i] > 0) {
+			supervisor += ceil(student[i] * 1.0 / lookB);
+		}
+	}
+
+	printf("%lld\n", supervisor);
+
+	free(student);
 
 	return 0;
 }
