@@ -1,33 +1,20 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
 
 int main(void) {
-	int repetion, lookA, lookB;
-	long long supervisor = 0;
+	int repetion, variable, degree, temp = 0;
 
 	scanf("%d", &repetion);
 
-	int* student = malloc(sizeof(int) * repetion);
-
-	for (int i = 0; i < repetion; i++) {
-		scanf("%d", &student[i]);
-	}
-
-	scanf("%d %d", &lookA, &lookB);
-
-	for (int i = 0; i < repetion; i++) {
-		supervisor += 1;
-		student[i] -= lookA;
-
-		if (student[i] > 0) {
-			supervisor += ceil(student[i] * 1.0 / lookB);
+	for (int j = 0; j < repetion; j++) {
+		scanf("%d %d", &variable, &degree);
+		temp = variable;
+		for (int i = 1; i < degree; i++) {
+			temp = variable * temp % 10;
 		}
+		if (temp % 10 == 0)
+			printf("10\n");
+		else
+			printf("%d\n", temp % 10);
 	}
-
-	printf("%lld\n", supervisor);
-
-	free(student);
-
 	return 0;
 }
