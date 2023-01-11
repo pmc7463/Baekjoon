@@ -1,21 +1,20 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
-	char str[100];
-	int result = 1;
-	
-	scanf("%s", str);
+	int testcase, cnt = 0, tea[5];
 
-	for (int i = 0; i < strlen(str) / 2; i++) {
-		if (str[i] != str[strlen(str) - 1 - i])
-			result = 0;
+	scanf("%d", &testcase);
+
+	for (int i = 0; i < 5; i++) {
+		scanf("%d", &tea[i]);
 	}
 
-	if (result == 1)
-		printf("1");
-	else
-		printf("0");
+	for (int i = 0; i < 5; i++) {
+		if (testcase == tea[i])
+			cnt++;
+	}
 
+	printf("%d\n", cnt);
+	
 	return 0;
 }
