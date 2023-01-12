@@ -1,20 +1,11 @@
 #include <stdio.h>
 
 int main() {
-	int testcase, cnt = 0, tea[5];
+	int chocolate, width, height;
 
-	scanf("%d", &testcase);
+	scanf("%d %d", &width, &height);
 
-	for (int i = 0; i < 5; i++) {
-		scanf("%d", &tea[i]);
-	}
+	printf("%d\n", width * height - 1);
 
-	for (int i = 0; i < 5; i++) {
-		if (testcase == tea[i])
-			cnt++;
-	}
-
-	printf("%d\n", cnt);
-	
 	return 0;
 }
