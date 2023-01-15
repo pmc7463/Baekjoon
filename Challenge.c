@@ -1,43 +1,39 @@
 #include <stdio.h>
 
 int main() {
-	int row, col, tempRow, tempCol;
-    char guard[50][50] = {0};
+	int arr[8]  = {0}, arrTemp[8] = {0}, order[8] = {0};
+    int temp, sum = 0;
+    int length = sizeof(arr) / sizeof(int);
 
-    scanf("%d %d", &row, &col);
-    getchar();
-
-    tempRow = row;
-    tempCol = col;
-
-    for (int i = 0; i < row; i++) {
-        for (int j = 0; j < col; j++) 
-            guard[i][j] = getchar();
-        getchar();
+    for (int i = 0; i < length; i++) {
+        scanf("%d", &arr[i]);
+        arrTemp[i] = arr[i];
     }
 
-    for (int i = 0; i < row; i++) {
-        for (int j = 0; j < col; j++) {
-            if (guard[i][j] == 'X') {
-                tempRow--;
-                break;
-            }   
-        }
-    }
-
-    for (int i = 0; i < col; i++) {
-        for (int j = 0; j < row; j++) {
-            if (guard[j][i] == 'X') {
-                tempCol--;
-                break;
+    for (int i = 0; i < length - 1; i++) {
+        for (int j = 0; j < length - 1; j++) {
+            if (arr[j+1] > arr[j]) {
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
             }
         }
+        
     }
 
-    if (tempRow > tempCol)
-        printf("%d\n", tempRow);
-    else
-        printf("%d\n", tempCol);
+    for (int i = 0; i < 5; i++) {
+        sum += arr[i];
+        for (int j = 0; j < length; j++) {
+            if (arr[i] == arrTemp[j]) 
+                order[j] = j + 1;
+        }
+    }
+    printf("%d\n", sum);
+
+    for (int i = 0; i < length; i++) {
+        if (order[i] != 0)
+            printf("%d ",order[i]);
+    }
 
     return 0;
 }
