@@ -1,28 +1,21 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
-    char strNumber[100000] = "";
-    int palindrome = 1;
+    int time, A300 = 300, B60 = 60, C10 = 10;
 
-    while (1) {
-        scanf("%s", &strNumber);
+    scanf("%d", &time);
 
-        if (strNumber[0] != '0') {
-            for (int i = 0; i < strlen(strNumber)/2; i++) {
-                if (strNumber[i] != strNumber[strlen(strNumber) - 1 - i]) {
-                    palindrome = 0;
-                }
-            }
-            if (palindrome == 1)
-                printf("yes\n");
-            else {
-                printf("no\n");
-                palindrome = 1;
-            }
-        }
-        else
-            break;
+    if (time % 10 != 0) 
+        printf("-1\n");
+    else {
+        A300 = time / 300;
+        time %= 300;
+        B60 = time / 60;
+        time %= 60;
+        C10 = time / 10;
+        time %= 10;
+
+        printf("%d %d %d\n", A300, B60, C10);
     }
     return 0;
 }
