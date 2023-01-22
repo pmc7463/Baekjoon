@@ -1,27 +1,17 @@
-#include <stdio.h>
+#include<stdio.h>
 
-int main(){
-    int input, backNumber = 0;
+int main() {
+	int i, testCase, round;
 
-    scanf("%d", &input);
+    scanf("%d", &testCase);
 
-    if (input == 1010)  // 10 + 10
-        printf("20\n");
-    
-    else if (input % 10 == 0) { // a + 10
-        input /= 100;
-        printf("%d", 10 + input);
+    for (int r = 0; r < testCase; r++) {
+        scanf("%d", &round);
+
+        for (i = 1; i*i <= round; i++);
+
+        printf("%d\n", i-1);
+        
     }
-    
-    else {
-        backNumber += input % 10;
-        input /= 10;
-
-        if (input == 10) // 10 + backNumber
-            printf("%d\n", 10 + backNumber);
-        else    // input + backNumber
-            printf("%d\n", input + backNumber);
-    }
-
     return 0;
 }
