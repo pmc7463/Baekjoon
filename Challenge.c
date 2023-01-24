@@ -1,27 +1,67 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
-int main() {
-	int testCase, money, cnt = 0;
-    int* coin;
+#define SIZE 10000
 
-    scanf("%d %d", &testCase, &money);
+int queue[SIZE]; // 1
+int front = 0;
+int rear = 0;
 
-    coin = (int*)malloc(sizeof(int) * testCase);
+void pushq(int);
+void popq();
 
-    for (int i = 0; i < testCase; i++) {
-        scanf("%d", &coin[i]);
+int main(void) {
+    char a[10]; // 2
+    int total, num;
+    scanf("%d", &total); // 3
+    for (int i = 0; i < total; i++) {
+        scanf("%s", a);
+        if (!strcmp(a, "push")) {   // 4-1
+            scanf("%d", &num); // 4-1-1
+            pushq(num);        // 4-1-2
+        }
+        else if (!strcmp(a, "pop")) {   // 4-2
+            popq(); // 4-2-1
+        }
+        else if (!strcmp(a, "size")) {  // 4-3
+            printf("%d\n", rear - front); // 4-3-1
+        }
+        else if (!strcmp(a, "empty")) { // 4-4
+            if (front == rear) {    // 4-4-1
+                printf("1\n");
+            }
+            else {
+                printf("0\n");
+            }
+        }
+        else if (!strcmp(a, "front")) { // 4-5
+            if (front == rear) {    // 4-5-1
+                printf("-1\n");
+            }
+            else {
+                printf("%d\n", queue[front]);
+            }
+        }
+        else if (!strcmp(a, "back")) {  // 4-6
+            if (front == rear) {    // 4-6-1
+                printf("-1\n");
+            }
+            else {
+                printf("%d\n", queue[rear - 1]);
+            }
+        }
     }
-
-    while (money != 0) {
-        cnt = cnt + (money / coin[testCase - 1]);
-        money = money % coin[testCase - 1];
-        testCase--;
+}
+void pushq(int num) {
+    queue[rear] = num;
+    rear++;
+}
+void popq() {
+    if (front == rear) {
+        printf("-1\n");
     }
-    
-    printf("%d\n", cnt);
-
-    free(coin);
-
-    return 0;
+    else {
+        printf("%d\n", queue[front]);
+        front++;
+    }
 }
