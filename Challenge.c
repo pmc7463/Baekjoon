@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAX_SIZE 3
+#define MAX_SIZE 8
 int sorted[MAX_SIZE]; // 추가적인 공간이 필요
 
     // i: 정렬된 왼쪽 리스트에 대한 인덱스
