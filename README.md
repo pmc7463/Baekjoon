@@ -1,6 +1,17 @@
 # Baekjoon
 ## 백준 도전 中  
 *************
+# 2023-01-26 Thusday(1)
+* 2164 '카트2' 문제
++ 자료구조를 어떻게 구현 하는지 모르겠다.
++ 코드를 참고하니 원형큐를 사용해서 풀었다.
++ [코드참고](https://blog.naver.com/kim-nan-hee/221901814483)
+<br/>
+<br/>
+<img src="https://postfiles.pstatic.net/MjAyMDA0MTBfMTY4/MDAxNTg2NTI5MTg1MjE0.jBKAchNoepH2M-195Z8jwksNxSN7ezzxk1g307kHG44g.2Hu4BIg2-qvibE7eD-OFQQjBgY4FulD1-xRS69eBSFQg.PNG.kim-nan-hee/%EA%B7%B8%EB%A6%BC1.png?type=w773" width = "800" height = "200"/>
+<br/>
+<br/>
+***
 # 2023-01-25 Wednesday(1)
 * 2587 '대표값2' 문제
 + 5개의 숫자가 주워질때 1.평균값, 2. 중간값 구하는 문제이다.
