@@ -1,24 +1,14 @@
-from collections import deque
-import sys
+testCase = int(input())
 
-t = int(input())
+for _ in range(testCase):
+    mars = list(map(str, input().split()))  # 문자열을 각 토근으로 쪼개서 받겠다.
+    answer = eval(mars[0])      # eval(expression)는 매개변수로 받은 expression(사칙연산 식)같은거을 문자열로 받어서 실행하는 함수이다.
+    for i in range(len(mars)):
+        if mars[i] == "@":
+            answer *= 3
+        elif mars[i] == "%":
+            answer += 5
+        elif mars[i] == "#":
+            answer -= 7
 
-for i in range(t):
-    n, m = map(int, input().split())
-    queue = deque(list(map(int, sys.stdin.readline().split())))
-    count = 0
-    while queue:
-        best = max(queue)  #현재의 최댓값이 가장 먼저 배출되므로 최댓값을 저장
-        front = queue.popleft() # 큐의 front를 뽑았으므로
-        m -= 1 # 내 위치가 한 칸 당겨진다.
-
-        if best == front: # 뽑은 숫자가 제일 큰 숫자일 때
-            count += 1 # 하나가 영원히 배출되므로 순번 하나 추가
-            if m < 0: # m이 0이라는 것은 뽑은 숫자가 내 숫자라는 뜻.
-                print(count)
-                break
-
-        else:   # 뽑은 숫자가 제일 큰 숫자가 아니면
-            queue.append(front) # 제일 뒤로 밀려나게 됨
-            if m < 0 :  # 제일 앞에서 뽑히면
-                m = len(queue) - 1 # 제일 뒤로 이동
+    print("%0.2f" %answer)  # %s는 문자열을 서식에 맞추어 출력해준다. (문자열만 해당됨)
