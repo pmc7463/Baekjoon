@@ -1,13 +1,11 @@
-arr = []
+N = input()
+F = int(input())
 
-N, K = map(int, input().split())
-cnt = 0
-for i in range(1, N + 1):   # 시작 부터 0으로 나눌 수 없으니까 1부터 시작해서 배열 끝 + 1까지
-    if N % i == 0:
-        arr.append(i)   # i값을 덧 붙여준다.
-    cnt += 1
+Sli = int(N[:-2] + '00')    # 끝에서 두자리 슬라이싱
 
-if K > len(arr):
-    print(0)
-else:
-    print(arr[K - 1])
+while True:
+    if Sli % F == 0:
+        break
+    Sli += 1
+
+print(str(Sli)[:-2])
