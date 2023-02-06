@@ -1,11 +1,6 @@
-N = input()
-F = int(input())
+total = int(input())
 
-Sli = int(N[:-2] + '00')    # 끝에서 두자리 슬라이싱
+for _ in range(9):
+    total -= int(input())
 
-while True:
-    if Sli % F == 0:
-        break
-    Sli += 1
-
-print(str(Sli)[:-2])
+print(total)
