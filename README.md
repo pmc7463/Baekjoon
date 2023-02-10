@@ -1,6 +1,25 @@
 # Baekjoon
 ## 백준 도전 中  
 *************
+# 2023-02-10 Friday(1)
+* 9093 '단어 뒤집기' 문제
++ 전체 문장을 뒤집는 문제가 아니고 공백을 두고 각 단어를 다 뒤집어야한다.
++ I am happy today
++ I ma yppah yadot
+
+* input() vs sys.stdlin.readline()
++ 차이점 1
+    + input()은 파라미티로 prompt message를 반든다. (prompt message는 사용자의 명령을 받아들을 준비가 되었음을 나타내는 메시지입니다.)
+    + sys.stdlin.readline()는 prompt message를 파라미터로 받지 않는다.
+
++ 차이점 2
+    + input()은 입력값 맨 끝의 개행 문제를 삭제한 후 리턴한다.
+    + sys.stdin.readline()은 맨 끝의 개행 문자를 포함한다.
+    + 따라서 문자열을 저장하는 경우 rstrip()을 추가한다.
+
++ 요약
+    + input()은 prompt message를 출력하고, 개행 문자를 삭제한 후 리턴하기 때문에 sys.stdin.readline()에 비해 느리다.
+***
 # 2023-02-09 Thursday(1)
 * 2566 '최댓값' 문제
 + 9행 9열이 있을 때 가장 큰 값을 찾고, 어디있는지 위치를 출력하는 문제이다.
