@@ -1,7 +1,7 @@
-star = int(input())
+number = []
 
-for i in range(1, star + 1):
-    if (i == 1 or i == star):
-        print(" " * (star - i) + "*" * (2*i-1))
-    else:
-        print(" " * (star - i) + "*" + " " * (2 * (i - 1) - 1) + "*")
+number = list(map(str, input(). split()))
+
+#print(number[0]+number[1])
+#print(number[2]+number[3])
+print(int(number[0]+number[1]) + int(number[2]+number[3]))
