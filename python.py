@@ -1,10 +1,18 @@
-plus, minus = map(int, input().split())
+password = input()
+answer = ''
 
-if plus-minus < 0 or (plus-minus) % 2 != 0:
-    print(-1)
+for i in password:
+    if 'a' <= i and i <= 'z':
+        i = ord(i) + 13
+        if i > 122:
+            i -= 26
+        answer += chr(i)
+    elif 'A' <= i and i <= 'Z':
+        i = ord(i) + 13
+        if i > 90:
+            i -= 26
+        answer += chr(i)
+    else:
+        answer += i
 
-else:
-    PpM = (plus + minus) // 2
-    PpMmp = plus - PpM
-
-    print(max(PpM,PpMmp), min(PpM,PpMmp))
+print(answer)
