@@ -1,12 +1,8 @@
-import sys
+grade1, grade2 = map(int, input().split())
 
-tap = int(sys.stdin.readline())
-
-plug = 0
-
-for i in range(1, tap + 1):
-    plug += int(sys.stdin.readline())
-    if i > 1:
-        plug -= 1
-
-print(plug)
+if grade2 <= 2:
+    print("NEWBIE!")
+elif grade2 > 2 and grade2 <= grade1:
+    print("OLDBIE!")
+else:
+    print("TLE!")
