@@ -1,8 +1,4 @@
-grade1, grade2 = map(int, input().split())
+text = int(input())
 
-if grade2 <= 2:
-    print("NEWBIE!")
-elif grade2 > 2 and grade2 <= grade1:
-    print("OLDBIE!")
-else:
-    print("TLE!")
+for i in range(text):
+    print(str(i+1)+". "+input())
