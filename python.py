@@ -1,16 +1,8 @@
-import sys
-K, N = map(int, input().split())
-lan = [int(sys.stdin.readline()) for _ in range(K)]
-start, end = 1, max(lan) #이분탐색 처음과 끝위치
+woman, man, intern = map(int, input(). split())
+cnt = 0
+while woman >= 2 and man >= 1 and woman + man >= intern + 3: # 2명 , 1명 팀 만들 수 있고, 인턴쉽도 보낼 수 있는 수 일때
+    woman -= 2
+    man -= 1
+    cnt += 1
 
-while start <= end: #적절한 랜선의 길이를 찾는 알고리즘
-    mid = (start + end) // 2 #중간 위치
-    lines = 0 #랜선 수
-    for i in lan:
-        lines += i // mid #분할 된 랜선 수
-        
-    if lines >= N: #랜선의 개수가 분기점
-        start = mid + 1
-    else:
-        end = mid - 1
-print(end)
+print(cnt)
