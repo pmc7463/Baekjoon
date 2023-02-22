@@ -1,16 +1,5 @@
-problem = int(input())
+num = int(input(), 8)   # 입력을 8진수로 받기
 
-score = 0
-total = 0
+b = format(num, 'b')    # 0b 2진수라는 것을 알려주는 문자 생략
 
-board = list(map(int, input().split()))
-
-for i in range(problem):
-    if board[i] == 1:
-        score += 1
-        total += score
-
-    else:
-        score = 0
-
-print(total)
+print(b)
