@@ -1,7 +1,23 @@
 # Baekjoon
 ## 백준 도전 中  
 *************
-# 2021-02-22 Wednesday(1)
+# 2023-02-23 Thursday(1)
+* 1547 '공' 문제
++ 공은 첫번째에 고정되어 있을 때 컵 3개를 여러번 순서를 바꾸고 마지막에 공을 덮고 있는 컵을 맞추는 문제이다.
++ 파이썬 스와은 C처럼 할 필요 없이 a,b = b,a로 바로 할 수 있다.
+```
+arr = [1, 2, 3]
+
+for _ in range(repetiton):
+    x, y = map(int, input().split())
+
+    xi = arr.index(x)
+    yi = arr.index(y)
+
+    arr[xi], arr[yi] = arr[yi], arr[xi]
+```
+***
+# 2023-02-22 Wednesday(1)
 * 1212 '8진수 2진수' 문제
 + 8진수로 입력 받아서 2진수로 출력하는 문제이다.
 + num = int(input(), 8)   # 입력을 8진수로 받기
