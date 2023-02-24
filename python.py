@@ -1,11 +1,47 @@
-repetition = int(input())
+import sys
+input = sys.stdin.readline
 
-for i in range(repetition):
-    r,e,c = map(int, input().split())
+def merge_sort(L):
+    if len(L)  == 1:
+        return L
 
-    if (e - c) > r:
-        print('advertise')
-    elif (e - c) < r:
-        print('do not advertise')
-    else:
-        print('does not matter')
+    mid = (len(L) + 1) // 2
+
+    left = merge_sort(L[:mid])  #mid 전 까지 슬라이싱
+    right = merge_sort(L[mid:]) #mid이후 전부 슬라이싱
+
+    i, j = 0, 0
+    L2 = []
+
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            L2.append(left[i])
+            ans.append(left[i])
+            i += 1
+
+        else:
+            L2.append(right[j])
+            ans.append(right[j])
+            j += 1
+
+    while i < len(left):
+        L2.append(left[i])
+        ans.append(left[i])
+        i += 1
+
+    while j < len(right):
+        L2.append(right[j])
+        ans.append(right[j])
+        j += 1
+
+    return L2
+
+n, k = map(int, input().split())
+a = list(map(int, input().split()))
+ans = []
+merge_sort(a)
+
+if len(ans) >= k:
+    print(ans[k - 1])
+else:
+    print(-1)
