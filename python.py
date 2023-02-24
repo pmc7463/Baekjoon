@@ -1,5 +1,10 @@
-num = int(input(), 8)   # 입력을 8진수로 받기
+arr = []
 
-b = format(num, 'b')    # 0b 2진수라는 것을 알려주는 문자 생략
+arr = list(map(int, input().split()))
 
-print(b)
+remainder = sum(arr) - (min(arr) + max(arr))    #최소값과 최댓값을 뺀 나머지 항목들의 합
+
+mentor = max(arr) + min(arr)
+
+
+print(abs(remainder - mentor))
