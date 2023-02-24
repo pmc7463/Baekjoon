@@ -1,10 +1,11 @@
-arr = []
+repetition = int(input())
 
-arr = list(map(int, input().split()))
+for i in range(repetition):
+    r,e,c = map(int, input().split())
 
-remainder = sum(arr) - (min(arr) + max(arr))    #최소값과 최댓값을 뺀 나머지 항목들의 합
-
-mentor = max(arr) + min(arr)
-
-
-print(abs(remainder - mentor))
+    if (e - c) > r:
+        print('advertise')
+    elif (e - c) < r:
+        print('do not advertise')
+    else:
+        print('does not matter')
