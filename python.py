@@ -1,6 +1,8 @@
 import sys
 input = sys.stdin.readline
 
-N, M = map(int, input().split())
+star = int(input())
 
-print(N * M // 2)
+for i in range(star):
+    print(('*'+' ')*(star - star//2))
+    print((' ' + '*')*(star//2))
