@@ -1,8 +1,8 @@
-import sys
-input = sys.stdin.readline
+color = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey', 'white']
 
-star = int(input())
+first = color.index(input())
+second = color.index(input())
+third = color.index(input())
 
-for i in range(star):
-    print(('*'+' ')*(star - star//2))
-    print((' ' + '*')*(star//2))
+resistance = int(str(first) + str(second)) * (10**third)
+print(resistance)
