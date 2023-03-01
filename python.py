@@ -1,22 +1,9 @@
-from sys import stdin
+repetition = int(input())
 
-keyboard = "`1234567890-=QWERTYUIOP[]\\ASDFGHJKL;\'ZXCVBNM,./"
+sum = 0
 
-while True:
-    sentence = stdin.readline().rstrip()
-    if sentence == '':
-        break
+for _ in range(repetition):
+    school, apple = map(int, input().split())
+    sum += apple % school
 
-    sentence_len = len(sentence)
-
-    result =''
-
-    for idx in range(sentence_len):
-        if sentence[idx] != ' ':
-            keyboard_idx = keyboard.index(sentence[idx])
-            result += keyboard[keyboard_idx - 1]
-
-        else:
-            result += ' '
-
-    print(result)
+print(sum)
