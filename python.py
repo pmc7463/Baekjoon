@@ -1,9 +1,5 @@
-repetition = int(input())
+re = int(input())
 
-sum = 0
-
-for _ in range(repetition):
-    school, apple = map(int, input().split())
-    sum += apple % school
-
-print(sum)
+for _ in range(re):
+    a = str(input())
+    print(a.lower())
