@@ -1,12 +1,19 @@
-hamburger = []
-beverage = []
+re = int(input())
 
-for i in range(0,3):
-    a = int(input())
-    hamburger.append(a)
+B = list(map(int, input().split()))
 
-for i in range(0,2):
-    b = int(input())
-    beverage.append(b)
+sumY = 0
+sumM = 0
 
-print(min(hamburger) + min(beverage) - 50)
+for i in range(re):
+    Y = ((B[i] // 30) + 1) * 10
+    M = ((B[i] // 60) + 1) * 15
+    sumY += Y
+    sumM += M
+
+if sumY > sumM:
+    print('M', sumM)
+elif sumY < sumM:
+    print('Y', sumY)
+else:
+    print('Y M', sumY)
