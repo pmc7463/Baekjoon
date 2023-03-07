@@ -1,19 +1,6 @@
-re = int(input())
+kangaroo = list(map(int, input().split()))
 
-B = list(map(int, input().split()))
+A = kangaroo[2] - kangaroo[1]
+B = kangaroo[1] - kangaroo[0]
 
-sumY = 0
-sumM = 0
-
-for i in range(re):
-    Y = ((B[i] // 30) + 1) * 10
-    M = ((B[i] // 60) + 1) * 15
-    sumY += Y
-    sumM += M
-
-if sumY > sumM:
-    print('M', sumM)
-elif sumY < sumM:
-    print('Y', sumY)
-else:
-    print('Y M', sumY)
+print(max(A,B) - 1)
