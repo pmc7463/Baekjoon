@@ -1,6 +1,8 @@
-kangaroo = list(map(int, input().split()))
+moneyA, moneyB = map(int, input().split())
+chicken = int(input())
 
-A = kangaroo[2] - kangaroo[1]
-B = kangaroo[1] - kangaroo[0]
+if moneyA + moneyB  >= chicken * 2:
+    print((moneyA + moneyB) - chicken * 2)
 
-print(max(A,B) - 1)
+else:
+    print(moneyA + moneyB)
