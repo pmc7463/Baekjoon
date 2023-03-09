@@ -1,8 +1,16 @@
-moneyA, moneyB = map(int, input().split())
-chicken = int(input())
+dwarf = []
 
-if moneyA + moneyB  >= chicken * 2:
-    print((moneyA + moneyB) - chicken * 2)
+for i in range(9):
+    dwarf.append(int(input()))
 
-else:
-    print(moneyA + moneyB)
+for i in range(9):
+    for j in range(i+1, 9):
+        if sum(dwarf) - dwarf[i] - dwarf[j] == 100:
+            A, B = i, j
+            break
+
+dwarf.pop(A)
+dwarf.pop(B-1)
+
+for i in dwarf:
+    print(i)
