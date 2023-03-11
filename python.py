@@ -1,4 +1,2 @@
-for _ in range(int(input())):
-    re = int(input())
-    plus = list(map(int,input().split()))
-    print(sum(plus))
+A, B, C = map(int, input().split())
+print(A+B+C)
