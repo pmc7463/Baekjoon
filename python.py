@@ -1,22 +1,14 @@
-import sys
+re = int(input())   # 전체 반복 횟수, 입력 받을 횟수
+aSum = 100
+bSum = 100
 
-while True:
-    st = sys.stdin.readline().rstrip('\n')
+for i in range(re): # 반복
+    a,b = map(int, input().split())
+    if a > b:
+        bSum -= a
+    elif a < b:
+        aSum -= b
+    else:
+        continue
 
-    if not st:
-        break
-
-    small, capital, num, blank = 0, 0, 0, 0
-
-    for i in range(len(st)):
-        if st[i].islower():
-            small += 1
-        elif st[i].isupper():
-            capital += 1
-        elif st[i].isdigit():
-            num += 1
-        else:
-            blank += 1
-
-    print(small, capital, num, blank)
-
+print(aSum, bSum)
