@@ -1,14 +1,13 @@
-re = int(input())   # 전체 반복 횟수, 입력 받을 횟수
-aSum = 100
-bSum = 100
+re = int(input())
 
-for i in range(re): # 반복
-    a,b = map(int, input().split())
-    if a > b:
-        bSum -= a
-    elif a < b:
-        aSum -= b
-    else:
-        continue
+money = [25, 10, 5, 1]
+count = [0, 0, 0, 0]
 
-print(aSum, bSum)
+for i in range(re):
+    put = int(input())
+
+    for j in range(len(money)):
+        count[j] = put // money[j]
+        put %= money[j]
+
+    print(' '.join(map(str, count)))
