@@ -1,12 +1,10 @@
-n = input()
-n = sorted(n, reverse = True)
-sum = 0
-if '0' not in n:
-    print(-1)
-else:
-    for i in n:
-        sum += int(i)
-    if sum % 3 != 0:
-        print(-1)
-    else:
-        print(''.join(n))
+sentence = input()
+answer = []
+
+for i in range(len(sentence)):
+    answer.append(sentence[i:])
+
+answer.sort()
+
+for i in answer:
+    print(i)
