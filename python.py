@@ -1,11 +1,7 @@
-amount = 0
+re, k = map(int, input().split())
 
-while True:
-    gambling = int(input())
+temp = list(map(int, input().split()))
 
-    if gambling == -1:
-        break
-    else:
-        amount += gambling
+temp.sort()
 
-print(amount)
+print(temp[k - 1])
