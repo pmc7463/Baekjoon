@@ -1,9 +1,11 @@
-N, b = input().split()
-ary = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+import math
+inch, h, w = map(int, input().split())  #대각선, 높이 비율, 너비 비율
 
-N = N[::-1]
-result = 0
+b = ((inch**2)/(((w/h)**2) + 1))**0.5   #피타고라스 비율 구하는 공식
 
-for i, n in enumerate(N):
-    result += (int(b)**i)*(ary.index(n))
-print(result)
+a = (b*w)/h
+
+#print(f"{b:.0f} {a:.0f}")
+#print(b, a)
+#print(round(b), round(a))
+print(math.floor(b), math.floor(a)) # math.floor = 소수점 이하 버리기는 함수
