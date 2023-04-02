@@ -1,8 +1,6 @@
-re = int(input())
-for _ in range(re):
-    car = int(input())
-    option = int(input())
-    for _ in range(option):
-        amount, price = map(int, input().split())
-        car += amount * price
-    print(car)
+S, A = map(int, input().split())
+
+if (S // 2) >= (A // 2):
+    print(A//2)
+else:
+    print(S//2)
