@@ -1,17 +1,9 @@
-T = int(input())
+N, B = map(int, input().split())
+s = ''
+arr = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-for _ in range(T):
-    semester = int(input())
-    C = 0
-    G = 0
-    sum1 = 0
-    sum2 = 0
-    average = 0
-    for _ in range(semester):
-        C, G = map(float, input().split())
-        sum1 += C
-        sum2 += C * G
+while N:
+    s += str(arr[N%B])  # arr[N%B]는 나머지 문자를 추가하고 N을 N//B로 초기화 한다.
+    N //= B
 
-        average = sum2 / sum1
-
-    print(int(sum1), round(average,1))
+print(s[::-1])  # 오른쪽이 옛날 문자니까 뒤접어서 출력한다.
