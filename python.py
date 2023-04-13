@@ -1,6 +1,10 @@
-N = int(input())
+words = []
+for i in range(5):
+    input_a = input()
+    words.append(input_a)
 
-for i in range(N):
-    V, E = map(int, input().split())
-    print(abs(V-E-2))
+for j in range(15):
+    for i in range(5):
+        if  j < len(words[i]):
+            print(words[i][j], end = '' )
 
