@@ -1,10 +1,10 @@
-words = []
-for i in range(5):
-    input_a = input()
-    words.append(input_a)
-
-for j in range(15):
-    for i in range(5):
-        if  j < len(words[i]):
-            print(words[i][j], end = '' )
-
+s = list(map(int, input().split()))
+abc = list(input())
+s.sort()
+for i in abc:
+    if i == "A":
+        print(s[0], end=" ")
+    elif i == "B":
+        print(s[1], end=" ")
+    else:
+        print(s[2], end=" ")
