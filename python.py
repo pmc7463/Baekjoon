@@ -1,10 +1,5 @@
-s = list(map(int, input().split()))
-abc = list(input())
-s.sort()
-for i in abc:
-    if i == "A":
-        print(s[0], end=" ")
-    elif i == "B":
-        print(s[1], end=" ")
-    else:
-        print(s[2], end=" ")
+re = int(input())
+
+for i in range(re):
+    str1 = input()
+    print(str1[0].upper() + str1[1:])
