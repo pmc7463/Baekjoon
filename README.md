@@ -1,6 +1,19 @@
 # Baekjoon
 ## 백준 도전 中  
 *************
+# 2023-04-18 Tuesday(1)
+* 5073 '삼각형과 세 변' 문제
++ 세 변의 값을 주어졌을 때 삼각형을 만들 수 있는가 확인하고 된다면 무슨 형태인지 출력하는 문제이다.
+```
+maxTemp = max(T1, T2, T3)
+minTemp = min(T1, T2, T3)
+midTemp = T1 + T2 + T3 - maxTemp - minTemp
+
+if maxTemp >= minTemp + midTemp:
+    print("Invalid")
+```
++ maxTemp >= minTemp + midTemp 이 조건에서 많이 틀렸다. 각 변에 제곱을 하고 비교하는 것으로 착각하고 있었다.
+***
 # 2023-04-17 Monday(1)
 * 3034 '앵그리 창영' 문제
 + 사각형 안에 막대기가 들어갈 수 있는가 확인하는 문제이다.
