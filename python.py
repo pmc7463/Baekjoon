@@ -1,19 +1,22 @@
-while True:
-    T1, T2, T3 = map(int, input().split())
+def summer(a,b,c):
+    sum = 0
+    sum += a * 3
+    sum += b * 2
+    sum += c
+    return sum
 
-    maxTemp = max(T1, T2, T3)
-    minTemp = min(T1, T2, T3)
-    midTemp = T1 + T2 + T3 - maxTemp - minTemp
+A3 = int(input())
+A2 = int(input())
+A1 = int(input())
 
-    if T1 == T2 == T3 == 0:
-        break
+B3 = int(input())
+B2 = int(input())
+B1 = int(input())
 
-    if maxTemp >= minTemp + midTemp:
-        print("Invalid")
-    else:
-        if T1 == T2 == T3:
-            print("Equilateral")
-        elif T1 == T2 or T1 == T3 or T2 == T3:
-            print("Isosceles")
-        elif T1 != T2 != T3:
-            print("Scalene")
+if summer(A3,A2,A1) > summer(B3,B2,B1):
+    print("A")
+elif summer(A3,A2,A1) < summer(B3,B2,B1):
+    print("B")
+else:
+    print("T")
+
