@@ -1,22 +1,24 @@
-def summer(a,b,c):
-    sum = 0
-    sum += a * 3
-    sum += b * 2
-    sum += c
-    return sum
+time, start, maxPulse, train, rest = map(int, input().split())
 
-A3 = int(input())
-A2 = int(input())
-A1 = int(input())
+counter = 0
 
-B3 = int(input())
-B2 = int(input())
-B1 = int(input())
+total = 0
 
-if summer(A3,A2,A1) > summer(B3,B2,B1):
-    print("A")
-elif summer(A3,A2,A1) < summer(B3,B2,B1):
-    print("B")
+temp = start
+
+if start + train > maxPulse:
+    print(-1)
+
 else:
-    print("T")
+    while counter < time :
+        if start + train <= maxPulse:
+            total += 1
+            counter += 1
+            start += train
+        else:
+            start -= rest
+            if start < temp:
+                start = temp
+            total += 1
 
+    print(total)
