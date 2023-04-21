@@ -1,24 +1,11 @@
-time, start, maxPulse, train, rest = map(int, input().split())
+count = [0] * (1000 + 1) # 개수를 셀 0 ~ 1000까지의 리스트를 0으로 초기화
 
-counter = 0
+Sum = 0
 
-total = 0
+for _ in range(10):
+    num = int(input())
+    Sum += num
+    count[num] += 1 # 해당 num의 개수를 +1 씩 해준다.
 
-temp = start
-
-if start + train > maxPulse:
-    print(-1)
-
-else:
-    while counter < time :
-        if start + train <= maxPulse:
-            total += 1
-            counter += 1
-            start += train
-        else:
-            start -= rest
-            if start < temp:
-                start = temp
-            total += 1
-
-    print(total)
+print(Sum // 10)
+print(count.index(max(count)))
