@@ -1,17 +1,16 @@
-repetition = int(input())
+import sys
 
-line = list(map(int, input().split())) # [0, 1, 2, 3, 4, 5]
+for _ in range(3):
+    repetiton = 0
+    sum = 0
+    repetiton = int(sys.stdin.readline())
+    for i in range(repetiton):
+        number = int(sys.stdin.readline())
+        sum += number
 
-food = []
-
-for i in range(repetition):
-    if line[i] == 0:
-        food.insert(0,i+1) # insert 함수의 첫번째 인수는 삽입할 위치를 지정하는 인덱스, 두 번째는 인수는 삽입할 요소
+    if sum == 0:
+        print(0)
+    elif sum > 0:
+        print("+")
     else:
-        food.insert(line[i], i+1) # insert 함수의 첫번째 인수는 삽입할 위치를 지정하는 인덱스, 두 번째는 인수는 삽입할 요소
-
-reverse = food[::-1]
-
-reverse1 = " ".join(str(i) for i in reverse) # join() 함수는 문자열을 연결하는 메서드이다. 문자열을 이용하여 리스트나 튜플을 하나의 문자열로 합칩니다.
-
-print(reverse1)
+        print("-")
