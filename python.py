@@ -1,16 +1,7 @@
-import sys
+rec = list(map(int, input().split()))
 
-for _ in range(3):
-    repetiton = 0
-    sum = 0
-    repetiton = int(sys.stdin.readline())
-    for i in range(repetiton):
-        number = int(sys.stdin.readline())
-        sum += number
+S_rec = sorted((rec)) # 4개의 수를 정렬
 
-    if sum == 0:
-        print(0)
-    elif sum > 0:
-        print("+")
-    else:
-        print("-")
+M_rec = S_rec[:-1]  # 가장 큰수 빼기
+
+print(max(M_rec)*min(M_rec))    # 두번째로 긴 선분 * 가장 짧은 선분
