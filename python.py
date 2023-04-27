@@ -1,7 +1,10 @@
-rec = list(map(int, input().split()))
+N,M = map(int, input().split())
 
-S_rec = sorted((rec)) # 4개의 수를 정렬
+basket = [i for i in range(1,N+1)]
 
-M_rec = S_rec[:-1]  # 가장 큰수 빼기
+for i in range(M):
+    i,j = map(int, input().split())
+    basket[i-1], basket[j-1] = basket[j-1], basket[i-1]
 
-print(max(M_rec)*min(M_rec))    # 두번째로 긴 선분 * 가장 짧은 선분
+for i in range(N):
+    print(basket[i], end = ' ')
