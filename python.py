@@ -1,10 +1,6 @@
-N,M = map(int, input().split())
+repetition = int(input())
 
-basket = [i for i in range(1,N+1)]
-
-for i in range(M):
-    i,j = map(int, input().split())
-    basket[i-1], basket[j-1] = basket[j-1], basket[i-1]
-
-for i in range(N):
-    print(basket[i], end = ' ')
+for i in range(1, repetition + 1):
+    dice1, dice2 = map(int, input().split())
+    if dice1 >= 1 and dice1 <=  6 and dice2 >= 1 and dice2 <=  6:
+        print(f"Case {i}: {dice1 + dice2}")
