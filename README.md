@@ -1,6 +1,14 @@
 # Baekjoon
 ## 백준 도전 中  
 ************
+# 2023-05-01 Monday(1)
+* 2857 'FBI' 문제
++ 5개의 문자열이 주워졌을 때 "FBI" 단어가 들어가 문자열을 찾아 해당 인덱스 번호를 출력하면 되는 문제이다.
++ for i, string in enumerate(input_list):     # enumerate() 함수는 인덱스의 번호를 알고 싶을 때 사용
++ 사실 enumerate 잘 모르겠다.
++ print(' '.join(map(str, result_list)))  # [1, 3, 5] --> 1 3 5 로 출력
++ 이거는 기억하고 있어야겠다.
+***
 # 2023-04-30 Sunday(1)
 * 2903 '중앙 이동 알고리즘' 문제
 + ![2903](./img/2903.png)
