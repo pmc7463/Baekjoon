@@ -1,11 +1,15 @@
-number, number_of_times = map(int, input().split())
+while True:
+    num = list(map(int, input()))
+    count = 0
+    if num[0] == 0:
+        break
+    else:
+        for i in range(len(num)):
+            if num[i] == 0:
+                count += 4
+            elif num[i] == 1:
+                count += 2
+            else:
+                count += 3
 
-arr = []
-
-for i in range(1, number + 1):
-    arr.append(i)
-
-for i in range(number_of_times):
-    a, b = map(int, input().split())
-    arr[a-1:b] = reversed(arr[a-1:b])   # reversed함수는 인자로 전달된 시퀀스 자료형을 뒤집어서 반환하는 함수
-print(' '.join(map(str, arr)))  # [3, 4, 1, 2, 5] --> 3 4 1 2 5
+        print(count + len(num) + 1)
