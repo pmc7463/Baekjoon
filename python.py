@@ -1,10 +1,8 @@
-repetition = int(input())
-arr = []
-for _ in range(repetition):
-    num = int(input())
-    if num == 0:
-        arr.pop(len(arr) - 1)
-    else:
-        arr.append(num)
+password = input()
 
-print(sum(arr))
+for i in password:
+    if ord(i) < 68: #ord('A') --> 65 
+        print(chr(ord(i) + 23), end = "")   #char(65) --> A
+
+    else:
+        print(chr(ord(i) - 3), end = "")
