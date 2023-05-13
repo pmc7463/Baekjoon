@@ -1,11 +1,11 @@
-A, B, C, D = map(int, input().split())
-hate = list(map(int, input().split()))
+t = int(input())
+stack = []
 
-for i in hate:
-    attacked = 0
-    if 0 < i % (A+B) <= A:
-        attacked += 1
-    if 0 < i % (C+D) <= C:
-        attacked += 1
-    print(attacked)
+for _ in range(t):
+    bar = int(input())
 
+    while stack and stack[-1] <= bar:
+        stack.pop()
+    stack.append(bar)
+
+print(len(stack))
