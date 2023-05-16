@@ -1,9 +1,11 @@
-a = "CAMBRIDGE"
-s = list(input())
-for i in a:
-    for j in range(len(s)):
-        if i == s[j]:
-            s[j] = ''
-for i in s:
-    print(i, end='')
+binary = input();
 
+decimal = int(binary,2)
+
+decimal *= 17
+
+binary = bin(decimal)
+
+binary = binary[2:]
+
+print(binary)
