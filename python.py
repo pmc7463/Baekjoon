@@ -1,14 +1,16 @@
-re = int(input())
+student = int(input())
+array = []
 
-for _ in range(re):
-    case, eat = map(int, input().split())
+for i in range(1, student + 1):
+    array.append(i)
 
-    candy_Sum = 0
+num = input()
+num_list = list(map(int, num.split()))
 
-    candy = input()
-    candy_list = list(map(int, candy.split()))
+count = 0
 
-    for i in range(case):
-        candy_Sum += candy_list[i] // eat
+for i in range(student):
+    if array[i] != num_list[i]:
+        count += 1
 
-    print(candy_Sum)
+print(count)
