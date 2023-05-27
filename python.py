@@ -1,16 +1,10 @@
-student = int(input())
-array = []
+import math
 
-for i in range(1, student + 1):
-    array.append(i)
+A, B = map(int, input().split(":"))
 
-num = input()
-num_list = list(map(int, num.split()))
+gcd = math.gcd(A, B)
 
-count = 0
+reduced_A = A//gcd
+reduced_B = B//gcd
 
-for i in range(student):
-    if array[i] != num_list[i]:
-        count += 1
-
-print(count)
+print(f"{reduced_A}:{reduced_B}")
