@@ -1,6 +1,21 @@
 # Baekjoon
 ## 백준 도전 中  
 ************
+# 2023-05-29 Monday(1)
+* 3036 '링' 문제
++ 톱니바퀴의 반지름이 주워지고 첫번째 톱니바퀴가 1바퀴 돌면 다른 톱니바퀴는 몇바퀴는 도는지 분수형태로 출력하는 문제이다.
++ 입력을 8 4 2 공백 포함 받아서 리스트 형태로 저장 [8, 4, 2]
+```
+ring = input()
+ring_list = list(map(int, ring.split()))
+```
++ 최대공약수 사용하기 위해서는 math의 gcd
+```
+import math
+    gcd = math.gcd(ring_list[0], ring_list[i])
+    print(f"{ring_list[0]//gcd}/{ring_list[i]//gcd}")
+```
+***
 # 2023-05-28 Sunday(1)
 * 24264 '알고리즘 수업-알고리즘의 수행시간 3' 문제
 + 반복문이 중첩된 알고리즘이 있을 때 빅-O를 묻는 문제이다.
