@@ -1,6 +1,17 @@
 # Baekjoon
 ## 백준 도전 中  
 ************
+# 2023-06-08 Thursday(1)
+* 11098 '첼시를 도와줘' 문제
++ 가장 큰 몸값을 가진 선수를 찾아 출력하는 문제이다.
++ 공백을 기준으로 나누는 방법 
+```
+    soccer_player = input()
+    money = int(soccer_player.split()[0])
+    name = list(soccer_player.split()[1])
+```
++ ['M', 'a', 'r', 'a', 'd', 'o', 'n', 'a'] 이런 리스트를 result = ''.join(max_name) 한 문장으로 연결해주는 방법
+***
 # 2023-06-07 Wednesday(1)
 * 3059 '등장하지 않는 문자의 합' 문제
 + 대문자 문자열을 받는데 이 중에서 없는 대문자의 아스키 코드값의 총 합을 출력 하는 문제이다.
