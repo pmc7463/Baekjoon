@@ -1,19 +1,10 @@
-re = int(input())
+input_str = input()
+x = list(input_str.split()[0])
+y = list(input_str.split()[1])
 
-for _ in range(re):
+x = ''.join(x)
+y = ''.join(y)
 
-    player = int(input())
+Finish_reversed = str(int(x[::-1]) + int(y[::-1]))
 
-    max_temp = 0
-
-    for _ in range(player):
-        soccer_player = input()
-        money = int(soccer_player.split()[0])
-        name = list(soccer_player.split()[1])
-
-        if money > max_temp:
-            max_temp = money
-            max_name = name
-
-    result = ''.join(max_name)
-    print(result)
+print(int(Finish_reversed[::-1]))
