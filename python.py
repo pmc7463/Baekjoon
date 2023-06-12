@@ -1,6 +1,9 @@
-jump = int(input())
+stick = int(input())
+cnt = 0
 
-if jump == 1:
-    print(2 * jump)
-else:
-    print(2 ** jump)
+while stick != 0:
+    if stick % 2 == 1:
+        cnt += 1
+    stick = stick // 2
+
+print(cnt)
