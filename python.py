@@ -1,16 +1,13 @@
-A_x, A_y = map(int, input().split())
-A = [list(map(int, input().split())) for _ in range(A_x)]
+i = 1 # 케이스 순서 저장 변수
 
-B_x, B_y = map(int, input().split())
-B = [list(map(int, input().split())) for _ in range(B_x)]
+while True:
+    result = 0
+    L, P, V = map(int, input().split())
 
-AxB = [[0] * B_y for _ in range(A_x)]
-for row in range(A_x):
-    for col in range(B_y):
-        e = 0
-        for i in range(A_y):
-            e += A[row][i] * B[i][col]
-        AxB[row][col] = e
+    if L + P + V == 0:
+        break
 
-for r in AxB:
-    print(*r)
+    # 위의 설명한 수식으로 계산하기
+    result = ((V//P) * L) + min((V % P), L)
+    print("Case {}: {}".format(i, result))
+    i += 1
