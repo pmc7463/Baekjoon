@@ -1,13 +1,9 @@
-i = 1 # 케이스 순서 저장 변수
+A = list(input())
+B = list(input())
 
-while True:
-    result = 0
-    L, P, V = map(int, input().split())
+A1, B1 = A[:], B[:]
 
-    if L + P + V == 0:
-        break
+remove_A = [x for x in A if not x in B1 or B1.remove(x)]
+remove_B = [x for x in B if not x in A1 or A1.remove(x)]
 
-    # 위의 설명한 수식으로 계산하기
-    result = ((V//P) * L) + min((V % P), L)
-    print("Case {}: {}".format(i, result))
-    i += 1
+print(len(remove_A) + len(remove_B))
