@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import sys
 
 input = sys.stdin.readline
@@ -12,3 +13,16 @@ for _ in range(10):
     result = max(result, num)   #최댓값 찾기
 
 print(result)
+=======
+m = []
+score = 0
+for i in range(10):
+    m.append(int(input()))
+for j in m:
+    score += j
+    if score >= 100:
+        if score - 100 > 100 - (score - j):
+            score -= j
+        break
+print(score)
+>>>>>>> origin/main
