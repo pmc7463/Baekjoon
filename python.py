@@ -1,28 +1,12 @@
-<<<<<<< HEAD
-import sys
 
-input = sys.stdin.readline
+n = int(input())
 
-result = 0 #최댓값
-num = 0 #사람들의 일시적인 값
+milk_list = list(map(int, input().split()))
 
-for _ in range(10):
-    a, b = map(int, input().split())    #내린 사람, 탄 사람
-    num -= a    #내리다
-    num += b    #타다
-    result = max(result, num)   #최댓값 찾기
+count = 0
 
-print(result)
-=======
-m = []
-score = 0
-for i in range(10):
-    m.append(int(input()))
-for j in m:
-    score += j
-    if score >= 100:
-        if score - 100 > 100 - (score - j):
-            score -= j
-        break
-print(score)
->>>>>>> origin/main
+for i in range(n):
+    if milk_list[i] == count % 3:
+        count += 1
+
+print(count)
