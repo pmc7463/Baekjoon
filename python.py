@@ -1,4 +1,4 @@
-n = int(input())
-
-print(n**3)
-print(3)
+N = input()
+A = list(map(int, input().split()))
+A.sort()
+print(A[-1])
