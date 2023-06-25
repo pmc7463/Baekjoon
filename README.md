@@ -1,6 +1,21 @@
 # Baekjoon
 ## 백준 도전 中  
 ************
+# 2023-06-25 Sunday(1)
+* 12605 '단어순서 뒤집기' 문제
++ 주어진 문장을 띄어쓰기 기준으로 거꾸로 출력하면 되는 문제이다.
+```
+for k in range(1, repetition+1):
+    sentence = list(input().split(" ")) # 띄어쓰기 기준으로 나누고 리스트 저장
+    temp = []
+    for i in range(len(sentence)):
+        element = sentence[i]
+        temp.append(element)
+
+    temp = ' '.join(temp[::-1]) # 뒤집고 리스트 형태를 탈출
+    print(f"Case #{k}: {temp}")
+```
+***
 # 2023-06-24 Saturday(1)
 * 2783 '삼각 김밥' 문제
 + 1000g 램 기준 가격이 최소인 값을 출력하는 문제이다.
