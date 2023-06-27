@@ -1,6 +1,32 @@
 # Baekjoon
 ## 백준 도전 中  
 ************
+# 2023-06-27 Tuesday(1)
+* 2846 '오르막길' 문제
++ 주어진 숫자들 중에 증가하는 구간이 가장 큰 값을 출력하는 문제이다.
++ 아래 코드는 리스트를 0으로 초기화 하는 코드, 없어도 에러는 안뜨는데 밑줄로 크다고 뜸
+```
+height = []
+
+for i in range(repetition):
+    temp = 0
+    height.append(temp)
+```
++ climb리스트를 이용해서 수가 증가하다가 끊기면 해당 숫자를 저장하고, 해당 리스트를 max 함수를 이용해서 max 값을 구했다.
+```
+for i in range(repetition-1):
+    if height[i] < height[i + 1]:
+        temp += height[i + 1] - height[i]
+
+    else:
+        climb.append(temp)
+        temp = 0
+
+climb.append(temp)
+
+print(max(climb))
+```
+***
 # 2023-06-26 Monday(1)
 * 11170 '0의 개수' 문제
 + 주워진 두 숫자 범위 사이에서 0의 개수가 몇개인지 출력하는 문제이다.
