@@ -1,25 +1,13 @@
-repetition = int(input())
+N = int(input())
 
-height = []
-
-for i in range(repetition):
-    temp = 0
-    height.append(temp)
-
-height = list(map(int,input().split()))
-
-temp = 0
-height_max = 0
-
-climb = []
-for i in range(repetition-1):
-    if height[i] < height[i + 1]:
-        temp += height[i + 1] - height[i]
-
+i = 1
+cnt = 0
+while N != 0:
+    if N >= i:
+        N -= i
+        i += 1
+        cnt += 1
     else:
-        climb.append(temp)
-        temp = 0
+        i = 1
 
-climb.append(temp)
-
-print(max(climb))
+print(cnt)
