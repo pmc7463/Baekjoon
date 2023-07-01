@@ -1,13 +1,19 @@
-N = int(input())
+import sys
 
-i = 1
-cnt = 0
-while N != 0:
-    if N >= i:
-        N -= i
-        i += 1
-        cnt += 1
-    else:
-        i = 1
+repetition = int(sys.stdin.readline())
 
-print(cnt)
+A_cnt = 0
+B_cnt = 0
+
+for _ in range(repetition):
+    A, B = map(int, sys.stdin.readline().split())
+
+    if A > 100 or B > 100:
+        break
+
+    if A > B:
+        A_cnt += 1
+    elif A < B:
+        B_cnt += 1
+
+print(A_cnt, B_cnt)
