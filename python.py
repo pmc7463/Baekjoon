@@ -1,11 +1,12 @@
-tree = list(map(int, input().split()))
-answer = [1, 2, 3, 4, 5]
+a = int(input())
+b = int(input())
+c = int(input())
+d = int(input())
+e = int(input())
 
-while True:
-    for i in range(len(tree)-1):
-        if tree[i] > tree[i+1]:
-            tree[i], tree[i+1] = tree[i+1], tree[i]
-            print(" ".join(map(str, tree)))
+if a < 0:
+    time = -a * c + d + b * e
+else:
+    time = (b - a) * e
 
-    if tree == answer:
-        break
+print(time)
