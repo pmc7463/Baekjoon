@@ -1,15 +1,9 @@
-number = int(input())
+import sys
 
-sticker = [0] * 10  # initialization
+number = int(sys.stdin.readline())
 
-for i in str(number):
-    if i == "6" or i == "9":
-        if sticker[6] == sticker[9]:    # [...0...0]
-            sticker[6] += 1             # [...1...0]
-        else:
-            sticker[9] += 1             # [...1...1]
+s_sum = 0
+for i in range(1, number):
+    s_sum += i * number + i
 
-    else:
-        sticker[int(i)] += 1            # 비어 있는 곳 1로 채우기
-
-print(max(sticker))                     # 가장 큰 수가 세트 수
+print(s_sum)
