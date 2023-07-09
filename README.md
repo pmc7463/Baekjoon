@@ -1,6 +1,31 @@
 # Baekjoon
 ## 백준 도전 中  
 ************
+# 2023-07-09 Sunday(1)
+* 2167 '2차원 배열의 합' 문제
++ 2차원 행렬이 있을 때 주워진 범위에 들어있는 행렬의 모든 값을 더해서 출력하는 문제이다.
++ python3로 하면 시간초과라 뜨고 PyP3로 제출했다. --> 수정이 필요하다.
+
+* 2차원 행렬 초기화 하는 방법이다.
+```
+arr = [[0 for _ in range(B+1)] for _ in range(A+1)] # 열 3 |||, 행 2 --
+```
+*  2차원 행렬 입력하는 방법이다.
+```
+for i in range(1, A+1):
+    temp = list(map(int, sys.stdin.readline().split()))
+    for j in range(1, B+1):
+        arr[i][j] = temp[j-1]
+```
+* 해당 범위 만큼 더하는 방법이다.
+```
+    for u in range(i, x+1):
+        for w in range(j, y+1):
+            result += arr[u][w]
+```
+***
+<br>
+
 # 2023-07-08 Saturday(1)
 * 1843 '나머지와 몫이 같은 수' 문제
 + 주워진 수로 나눴을 때 몫과 나머지 값이 같은 어떤 수를 모두 더해서 출력하는 문제이다.
