@@ -1,22 +1,41 @@
+from collections import deque
 import sys
 
-A, B = map(int, sys.stdin.readline().split())
+sys_input = sys.stdin.readline
 
-arr = [[0 for _ in range(B+1)] for _ in range(A+1)] # 열 3 |||, 행 2 --
+n = int(sys_input())
 
-for i in range(1, A+1):
-    temp = list(map(int, sys.stdin.readline().split()))
-    for j in range(1, B+1):
-        arr[i][j] = temp[j-1]
+q = deque([])
 
-k = int(sys.stdin.readline())
+for _ in range(n):
+    query = sys_input().split()
 
-for _ in range(k):
-    i,j,x,y = map(int, sys.stdin.readline().split())
-    result = 0
+    if query[0] == 'push':
+        q.append(query[1])
 
-    for u in range(i, x+1):
-        for w in range(j, y+1):
-            result += arr[u][w]
+    elif query[0] =='pop':
+        if len(q):
+            print(q.popleft())
+        else:
+            print(-1)
 
-    print(result)
+    elif query[0] == 'size':
+        print(len(q))
+
+    elif query[0] == 'empty':
+        if len(q):
+            print(0)
+        else:
+            print(1)
+
+    elif query[0] == 'front':
+        if len(q):
+            print(q[0])
+        else:
+            print(-1)
+
+    elif query[0] == 'back':
+        if len(q):
+            print(q[-1])
+        else:
+            print(-1)
