@@ -1,41 +1,15 @@
-from collections import deque
 import sys
 
-sys_input = sys.stdin.readline
+repetition, Time = map(int, sys.stdin.readline().split())
 
-n = int(sys_input())
+temp = list(map(int, sys.stdin.readline().split()))
 
-q = deque([])
+s_sum = 0
 
-for _ in range(n):
-    query = sys_input().split()
-
-    if query[0] == 'push':
-        q.append(query[1])
-
-    elif query[0] =='pop':
-        if len(q):
-            print(q.popleft())
-        else:
-            print(-1)
-
-    elif query[0] == 'size':
-        print(len(q))
-
-    elif query[0] == 'empty':
-        if len(q):
-            print(0)
-        else:
-            print(1)
-
-    elif query[0] == 'front':
-        if len(q):
-            print(q[0])
-        else:
-            print(-1)
-
-    elif query[0] == 'back':
-        if len(q):
-            print(q[-1])
-        else:
-            print(-1)
+for i in temp:
+    Time -= i
+    if Time >= 0:
+        s_sum += 1
+    else:
+        break
+print(s_sum)
