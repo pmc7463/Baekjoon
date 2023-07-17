@@ -1,20 +1,17 @@
-import sys
-input = sys.stdin.readline()
+from collections import deque
 
-num = int(input)
+n, k = map(int, input().split())
 
-arr = []
+people = deque()
 
-for i in range(1, num + 1):
-    arr.append(i)
+for i in range(1, n+1):
+    people.append(i)
 
-temp = []
+result = []
 
-while len(arr) != 0:
-    temp.append(arr.pop(0))
+while people:
+    for _ in range(k-1):
+        people.append(people.popleft())
+    result.append(people.popleft())
 
-    if len(arr) != 0:
-        arr.append(arr.pop(0))
-
-for i in temp:
-    print(i, end = " ")
+print(str(result).replace('[','<').replace(']','>'))
