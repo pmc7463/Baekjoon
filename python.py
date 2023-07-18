@@ -1,17 +1,33 @@
+import sys
 from collections import deque
 
-n, k = map(int, input().split())
+check = [False] * 300001
+check_box = 0
 
-people = deque()
+ABC = sys.stdin.readline().strip()
 
-for i in range(1, n+1):
-    people.append(i)
+b = deque()
 
-result = []
+cnt = 0
 
-while people:
-    for _ in range(k-1):
-        people.append(people.popleft())
-    result.append(people.popleft())
+for i in range(len(ABC)):
+    if ABC[i] == "B":
+        b.append(i)
+    elif ABC[i] == "C":
+        if b:
+            check[b[0]] = True
+            b.popleft()
+            cnt += 1
 
-print(str(result).replace('[','<').replace(']','>'))
+b = deque()
+
+for j in range(len(ABC)):
+    if ABC[j] == "A":
+        check_box += 1
+    elif ABC[j] == "B":
+        if check_box and not check[j]:
+            check[j] == True
+            check_box -= 1
+            cnt += 1
+
+print(cnt)
