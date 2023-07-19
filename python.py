@@ -1,33 +1,26 @@
 import sys
 from collections import deque
 
-check = [False] * 300001
-check_box = 0
+def pizza(repetition, eat):
+    queue = deque(enumerate(eat))
+    answer = [0] * repetition
+    cnt = 0
 
-ABC = sys.stdin.readline().strip()
+    while queue:
+        index, left = queue.popleft()
+        cnt += 1
+        answer[index] = cnt
+        left -= 1
 
-b = deque()
+        if left == 0:
+            continue
+        else:
+            queue.append((index, left))
 
-cnt = 0
+    print(" ".join(str(answer[i]) for i in range(repetition)))
 
-for i in range(len(ABC)):
-    if ABC[i] == "B":
-        b.append(i)
-    elif ABC[i] == "C":
-        if b:
-            check[b[0]] = True
-            b.popleft()
-            cnt += 1
+repetition = int(sys.stdin.readline())
 
-b = deque()
+eat = list(map(int, sys.stdin.readline().strip().split()))
 
-for j in range(len(ABC)):
-    if ABC[j] == "A":
-        check_box += 1
-    elif ABC[j] == "B":
-        if check_box and not check[j]:
-            check[j] == True
-            check_box -= 1
-            cnt += 1
-
-print(cnt)
+pizza(repetition, eat)

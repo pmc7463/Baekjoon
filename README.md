@@ -1,5 +1,47 @@
 # Baekjoon
 ## 백준 도전 中  
+# 2023-07-19 Wednesday(1)
+* 15235 'Olympiad Pizza' 문제
+    + 줄을 서서 피자를 한 조각씩 받아 갈 수 있다. 주워진 만큼 피자를 먹기 위해 줄을 선다.
+    + 다 먹으면 줄에서 빠진다.
+    + 몇 차례를 기다려야 모든 피자를 다 먹을 수 있는지 구하는 문제이다.
+
++ enumerate() 함수는 반복 가능한 객체(리스트, 튜플, 문자열 등)를 순회하면서 각 원속의 인덱스와 값을 함께 반환하는 내장 함수이다.
++ 예시)
+```
+for index, value in enumerate(iterable):
+    # 인덱스와 값에 대한 작업 수행
+    # index 변수에는 현재 요소의 인덱스가 저장되고, value 변수에는 현재 요소의 값이 저장됨 
+fruits = ['apple', 'banana', 'orange']
+
+for index, fruit in enumerate(fruits):
+    print(index, fruit)
+```
++ 결과 값
+```
+0 apple
+1 banana
+2 orange
+```
++ 적용)
+```
+    while queue:
+        index, left = queue.popleft()
+        cnt += 1
+        answer[index] = cnt
+        left -= 1
+
+        if left == 0:
+            continue
+        else:
+            queue.append((index, left))
+```
++ [1, 2, 3, 4] --> 1 2 3 4
+```
+print(" ".join(str(answer[i]) for i in range(repetition)))
+```
+***
+<br>
 
 # 2023-07-18 Tuesday(1)
 * 25381 'ABBC' 문제
