@@ -1,26 +1,29 @@
 import sys
 from collections import deque
 
-def pizza(repetition, eat):
-    queue = deque(enumerate(eat))
-    answer = [0] * repetition
-    cnt = 0
+N, W, L = map(int, sys.stdin.readline().strip().split())
 
-    while queue:
-        index, left = queue.popleft()
-        cnt += 1
-        answer[index] = cnt
-        left -= 1
+truck = list(map(int, sys.stdin.readline().strip().split()))
 
-        if left == 0:
-            continue
+bridge = [0] * W
+time = 0
+weight = 0
+
+while True:
+    out = bridge.pop(0)
+    weight -= out
+
+    if truck:
+        if weight + truck[0] <= L:
+            bridge.append(truck[0])
+            weight += truck[0]
+            truck.pop(0)
         else:
-            queue.append((index, left))
+            bridge.append(0)
 
-    print(" ".join(str(answer[i]) for i in range(repetition)))
+    time += 1
 
-repetition = int(sys.stdin.readline())
+    if not bridge:
+        break
 
-eat = list(map(int, sys.stdin.readline().strip().split()))
-
-pizza(repetition, eat)
+print(time)
