@@ -1,29 +1,40 @@
 import sys
-from collections import deque
 
-N, W, L = map(int, sys.stdin.readline().strip().split())
+repetition = int(sys.stdin.readline())
 
-truck = list(map(int, sys.stdin.readline().strip().split()))
+for _ in range(repetition):
+    win = int(sys.stdin.readline())
+    P1_cnt = 0
+    P2_cnt = 0
+    for _ in range(win):
+        P1, P2 = map(str, input().split())
+        if P1 == "R" and P2 == "S":
+            P1_cnt += 1
+        elif P1 == "R" and P2 == "P":
+            P2_cnt += 1
+        elif P1 == "R" and P2 == "R":
+            P1_cnt += 1
+            P2_cnt += 1
 
-bridge = [0] * W
-time = 0
-weight = 0
+        elif P1 == "S" and P2 == "R":
+            P2_cnt += 1
+        elif P1 == "S" and P2 == "P":
+            P1_cnt += 1
+        elif P1 == "S" and P2 == "S":
+            P1_cnt += 1
+            P2_cnt += 1
 
-while True:
-    out = bridge.pop(0)
-    weight -= out
+        elif P1 == "P" and P2 == "R":
+            P1_cnt += 1
+        elif P1 == "P" and P2 == "S":
+            P2_cnt += 1
+        elif P1 == "P" and P2 == "P":
+            P1_cnt += 1
+            P2_cnt += 1
 
-    if truck:
-        if weight + truck[0] <= L:
-            bridge.append(truck[0])
-            weight += truck[0]
-            truck.pop(0)
-        else:
-            bridge.append(0)
-
-    time += 1
-
-    if not bridge:
-        break
-
-print(time)
+    if P1_cnt > P2_cnt:
+        print("Player 1")
+    elif P1_cnt < P2_cnt:
+        print("Player 2")
+    else:
+        print("TIE")
