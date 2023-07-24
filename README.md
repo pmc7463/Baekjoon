@@ -1,6 +1,34 @@
 # Baekjoon
 ## 백준 도전 中  
 
+# 2023-07-24 Monday(1)
+* 15828 'Router' 문제
+    + 라우터의 버퍼 용량과 패킷을 순서대로 주워질 때 마지막에 버퍼에 남아있는 패킷을 출력하거나 없으면 없다는 표시를 하는 문제이다.
+    + 패킷 값으로 0이 들어오면 먼저 들어왔던 큐를 처리한다.
+    
++ 아쉬운것은 큐에서 꺼내는 과정을 두번 반복해서 작성했다. 
++ 하나로 할 수 있을 것 같은데 그냥 하고 보니까 되어서 제출 하였다.
+```
+    if len(queue) < buffer:
+        if packet != 0:
+            queue.append(packet)
+        elif packet == 0:
+            queue.popleft()
+
+    elif packet == 0:
+        queue.popleft()
+```
++ deque([]) --> [] : 출력이 큐 형식에서 리스트로 바꾸고
++ [] --> 1 2 3 : 리스트 형식을 정수만 표시되게 바꾸었다.
+```
+    temp = list(queue)
+    temp = map(str, temp)
+    result = ' '.join(temp)
+    print(result)
+```
+***
+<br>
+
 # 2023-07-23 Sunday(1)
 * 3190 '뱀' 문제
     + 길이가 1인 뱀이 한 칸 씩 이동할 때 사과를 먹으면 길이가 1 증가한다.
