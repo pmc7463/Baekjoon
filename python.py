@@ -1,32 +1,28 @@
 import sys
 from collections import deque
 
-buffer = int(sys.stdin.readline())
+repetition = int(sys.stdin.readline())
 
-queue = deque()
+balloon = []
 
-while True:
-    packet = int(sys.stdin.readline())
+for i in range(repetition):
+    balloon.append(i)
 
-    if packet == -1:
-        break
+order = list(map(int, sys.stdin.readline().split()))
 
-    if len(queue) < buffer:
-        if packet != 0:
-            queue.append(packet)
-        elif packet == 0:
-            queue.popleft()
+zipped = zip(balloon, order)
+zip_dict = dict(zipped)
 
-    elif packet == 0:
-        queue.popleft()
+queue = deque(zip_dict.items())
+#print(queue)
 
+while queue:
+    balloon_num, shift_amount = queue.popleft()
+    balloon_num += 1
+
+    if shift_amount > 0:
+        queue.rotate(-(shift_amount-1))
     else:
-        continue
+        queue.rotate(-shift_amount)
 
-if not queue:
-    print("empty")
-else:
-    temp = list(queue)
-    temp = map(str, temp)
-    result = ' '.join(temp)
-    print(result)
+    print(balloon_num, end = " ")

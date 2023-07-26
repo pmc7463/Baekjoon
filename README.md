@@ -1,6 +1,37 @@
 # Baekjoon
 ## 백준 도전 中  
 
+# 2023-07-26 Wednesday(1)
+* 2346 'Bursting balloons' 문제
+    + 1부터 주워진 숫자 까지 풍선이 있고, 어떤 풍선을 터트려야 할지 알려주는 숫자들이 있다.
+    + 이 숫자들은 양수와 음수로 이루어져 있으며 이동해야하는 값을 알려준다.
+
++ 두 리스트를 묶는 작업을 하는 함수가 zip함수이다.
+```
+balloon = []
+
+for i in range(repetition):
+    balloon.append(i)
+
+order = list(map(int, sys.stdin.readline().split()))
+
+zipped = zip(balloon, order)
+zip_dict = dict(zipped)
+
+queue = deque(zip_dict.items())
+print(queue)
+```
++ deque.rotate(-1)은 반시계 방향으로 1칸 회전, rotate(1)는 시계방향으로 1칸 회전 
+```
+if shift_amount > 0:
+    queue.rotate(-(shift_amount-1))
+else:
+    queue.rotate(-shift_amount)
+```
++ deque를 이용해서 원형 큐처럼 한것이다.
+***
+<br>
+
 # 2023-07-25 Tuesday(1)
 * 1526 '가장 큰 금민수' 문제
     + 4와 7의 숫자만 사용가능 할 때
