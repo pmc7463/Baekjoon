@@ -1,21 +1,47 @@
 import sys
 from collections import deque
 
-student, interval = map(int, sys.stdin.readline().split())
+def possible(sentence, arr):
+    j = 0
+    misscnt = 0
 
-cnt = 0
-name = [0] * student
-data = [0] * 21
+    while sentence:
+        if arr[j] and sentence[0] == arr[j][0]:
+            arr[j].popleft()
+            sentence.popleft()
+            misscnt = 0
+        else:
+            if misscnt == N:
+                return False
+            misscnt += 1
 
-for i in range(student):
-    length = len(sys.stdin.readline().rstrip())
-    name[i] = length
+        j = (j + 1) % N
 
-    if i > interval:
-        data[name[i - interval - 1]] -= 1
+    empty = 0
 
-    cnt += data[length]
+    for a in range(N):
+        if len(arr[a]) == 0:
+            empty += 1
 
-    data[length] += 1
+    if not sentence and empty == N:
+        return True
+    else:
+        return False
 
-print(cnt)
+N = int(input())
+
+arr = list()
+
+for i in range(N):
+    arr.append(deque(map(str, input().split())))
+
+#print(arr)
+
+sentence = deque(map(str, input().split()))
+
+#print(sentence)
+
+if possible(sentence, arr):
+    print("Possible")
+else:
+    print("Impossible")
