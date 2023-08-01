@@ -1,10 +1,15 @@
-n = int(input())
-mirror = [input() for _ in range(n)]
-k = int(input())
+import sys
 
-if k == 1:    # 원본 출력
-    print(*mirror, sep='\n')
-elif k == 2:    # 좌우 반전
-    print(*[i[::-1] for i in mirror], sep='\n')
-else:    # 상하 반전
-    print(*mirror[::-1], sep='\n')
+repetition = int(sys.stdin.readline())
+
+for _ in range(repetition):
+    n, m = map(int, sys.stdin.readline().split())
+    cnt = 0
+
+    for i in range(1, n+1):
+        for j in range(i+1, n):
+            if (i ** 2 + j ** 2 + m) % (i * j) == 0:
+                cnt += 1
+
+    print(cnt)
+
