@@ -1,15 +1,12 @@
-import sys
+P, K = map(int, input().split())
+number = K 
 
-repetition = int(sys.stdin.readline())
+for i in range(2, K):
+    if P % i == 0: 
+        if number > i:
+            number = i 
 
-for _ in range(repetition):
-    n, m = map(int, sys.stdin.readline().split())
-    cnt = 0
-
-    for i in range(1, n+1):
-        for j in range(i+1, n):
-            if (i ** 2 + j ** 2 + m) % (i * j) == 0:
-                cnt += 1
-
-    print(cnt)
-
+if number != K: 
+    print('BAD', number)
+else:
+    print('GOOD')
