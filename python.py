@@ -1,12 +1,31 @@
-P, K = map(int, input().split())
-number = K 
+import sys
+from collections import deque
 
-for i in range(2, K):
-    if P % i == 0: 
-        if number > i:
-            number = i 
+member = int(sys.stdin.readline())
 
-if number != K: 
-    print('BAD', number)
-else:
-    print('GOOD')
+arr = []
+
+for i in range(1, member+1):
+    arr.append(i)
+
+#print(arr)
+
+queue = deque(arr)
+
+#print(queue)
+
+i = 1
+
+while queue:
+    if len(queue) == 1:
+        print(queue.popleft())
+        break
+
+    cut = (i ** 3) % member
+
+    queue.rotate(-cut+1)
+    temp = queue.popleft()
+#    print(queue)
+#    print(temp)
+    i += 1
+    member -= 1

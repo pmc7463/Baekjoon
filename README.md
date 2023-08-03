@@ -1,6 +1,38 @@
 # Baekjoon
 ## 백준 도전 中  
 
+# 2023-08-03 Thursday(1)
+* 12873 '기념품' 문제
+    + 1부터 주워진 숫자까지 원형 큐가 있을 때
+    + 시계방향으로 돌면서 단계마다 사람을 탈락시칸다.
+    + 탈락시키는 기준은 단계^3 값으로 원형큐를 돌면서 걸린 사람을 탈락
+    + 최종 남은 사람을 출력한다.
+
++ 탈락시키는 기준 코드화
+```
+cut = (i ** 3) % member
+```
++ rotate 개념을 오늘 자세히 알아보고 사용했는데 너무 편하다.
+```
+i = 1
+
+while queue:
+    if len(queue) == 1:
+        print(queue.popleft())
+        break
+
+    cut = (i ** 3) % member
+
+    queue.rotate(-cut+1)
+    temp = queue.popleft()
+#    print(queue)
+#    print(temp)
+    i += 1
+    member -= 1
+```
+***
+<br>
+
 # 2023-08-02 Wednesday(1)
 * 1837 '암호제작' 문제
     + 두 소수의 곱이 주워질 때 
