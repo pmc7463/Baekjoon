@@ -1,31 +1,24 @@
 import sys
 from collections import deque
 
-member = int(sys.stdin.readline())
+chair = int(sys.stdin.readline())
 
-arr = []
+human = list(input())
 
-for i in range(1, member+1):
-    arr.append(i)
+#print(human)
 
-#print(arr)
+cnt = 0
 
-queue = deque(arr)
+flag = 0
 
-#print(queue)
+for i in range(chair):
+    if human[i] == "L":
+        cnt += 1
+        flag = 1
+#print(cnt)
 
-i = 1
 
-while queue:
-    if len(queue) == 1:
-        print(queue.popleft())
-        break
-
-    cut = (i ** 3) % member
-
-    queue.rotate(-cut+1)
-    temp = queue.popleft()
-#    print(queue)
-#    print(temp)
-    i += 1
-    member -= 1
+if flag == 1:
+    print(chair - int(cnt / 2) + 1)
+else:
+    print(chair - int(cnt / 2))
