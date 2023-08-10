@@ -1,31 +1,35 @@
-import heapq
-import sys
-from collections import deque
+i = 1
 
-N = int(sys.stdin.readline())
+while True:
+    n0 = int(input())
 
-arr = []
+    if n0 == 0:
+        break
 
-for i in range(N):
-    arr.append(0)
+    n1 = 3 * n0
+#    print(n1)
 
-for i in range(N):
-    arr[i] = int(sys.stdin.readline())
+    flag = 0
 
-arr = sorted(arr)
+    if n1 % 2 == 1:
+        n2 = int((n1+1) / 2)
+        flag = 1
+    else:
+        n2 = int(n1 / 2)
+        flag = 0
+#    print(n2)
 
-#print(arr)
+    n3 = 3 * n2
+#    print(n3)
 
-result = 0
+    n4 = int(n3/9)
+#    print(n4)
 
-if len(arr) == 1:
-    print(result)
+    if flag == 1:
+        print(f"{i}. odd {n4}")
+        i += 1
+    else:
+        print((f"{i}. even {n4}"))
+        i += 1
 
-else:
-    for i in range(N-1):
-        pre = heapq.heappop(arr)
-        cur = heapq.heappop(arr)
 
-        result += pre + cur
-        heapq.heappush(arr, pre + cur)
-    print(result)
