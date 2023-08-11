@@ -1,35 +1,57 @@
-i = 1
+import sys
+input = sys.stdin.readline
 
-while True:
-    n0 = int(input())
+class Node(object):
+    def __init__(self, key, data=None):
+        self.key = key
+        self.data = data
+        self.children = {}
 
-    if n0 == 0:
-        break
+class Trie(object):
+    def __init__(self):
+        self.head = Node(None)
 
-    n1 = 3 * n0
-#    print(n1)
+    def insert(self, string):
+        curr_node = self.head
 
-    flag = 0
+        for s in string:
+            if s not in curr_node.children:
+                curr_node.children[s] = Node(s)
+            curr_node = curr_node.children[s]
 
-    if n1 % 2 == 1:
-        n2 = int((n1+1) / 2)
-        flag = 1
+        curr_node.data = string
+
+    def search_prefix(self, string):
+        curr_node = self.head
+
+        for s in string:
+            curr_node = curr_node.children[s]
+
+        if curr_node.children:
+            return False
+        else:
+            return True
+
+t = int(input())
+
+for _ in range(t):
+    n = int(input())
+    trie = Trie()
+    nums = []
+
+    for _ in range(n):
+        num = input().rstrip()
+        nums.append(num)
+        trie.insert(num)
+
+    flag = True
+    nums.sort()
+
+    for num in nums:
+        if not trie.search_prefix(num):
+            flag = False
+            break
+    if flag:
+        print("YES")
     else:
-        n2 = int(n1 / 2)
-        flag = 0
-#    print(n2)
-
-    n3 = 3 * n2
-#    print(n3)
-
-    n4 = int(n3/9)
-#    print(n4)
-
-    if flag == 1:
-        print(f"{i}. odd {n4}")
-        i += 1
-    else:
-        print((f"{i}. even {n4}"))
-        i += 1
-
-
+        print("NO")
