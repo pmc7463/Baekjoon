@@ -1,57 +1,30 @@
 import sys
 input = sys.stdin.readline
 
-class Node(object):
-    def __init__(self, key, data=None):
-        self.key = key
-        self.data = data
-        self.children = {}
+repetition = int(input())
 
-class Trie(object):
-    def __init__(self):
-        self.head = Node(None)
+arr = []
 
-    def insert(self, string):
-        curr_node = self.head
+for i in range(repetition):
+    a, b = map(int, input().split())
+    arr.append((a,b))
 
-        for s in string:
-            if s not in curr_node.children:
-                curr_node.children[s] = Node(s)
-            curr_node = curr_node.children[s]
+arr.sort(key= lambda x:(x[1], x[0]))
 
-        curr_node.data = string
+cnt = 0
 
-    def search_prefix(self, string):
-        curr_node = self.head
+#print(arr)
+#print(arr[0][0])
+#print(arr[0][1])
 
-        for s in string:
-            curr_node = curr_node.children[s]
+cnt = 0
 
-        if curr_node.children:
-            return False
-        else:
-            return True
+temp = 0
 
-t = int(input())
-
-for _ in range(t):
-    n = int(input())
-    trie = Trie()
-    nums = []
-
-    for _ in range(n):
-        num = input().rstrip()
-        nums.append(num)
-        trie.insert(num)
-
-    flag = True
-    nums.sort()
-
-    for num in nums:
-        if not trie.search_prefix(num):
-            flag = False
-            break
-    if flag:
-        print("YES")
-    else:
-        print("NO")
+for i in range(0,repetition):
+    if arr[i][0] >= temp:
+        if arr[i][0] <= arr[i][1]:
+            cnt += 1
+            temp = arr[i][1]
+            #print("temp : ",temp)
+print(cnt)
