@@ -1,12 +1,18 @@
-arr = list(map(int, input().split()))
+def backtracking(N, M, arr, check):
+    if len(arr) == M:
+        print(" ".join(map(str, arr)))
+        return
 
-#print(arr)
+    for i in range(1,N+1):
+        if not check[i]:
+            check[i] = True
+            arr.append(i)
+            backtracking(N, M, arr, check)
+            arr.pop()
+            check[i] = False
 
-arr = sorted(arr)
+N, M = map(int, input().split())
 
-#print(arr)
+check = [False] * (N+1)
 
-if arr[1] + (arr[1] - arr[0]) == arr[2]:
-    print(arr[2] + (arr[1] - arr[0]))
-else:
-    print(arr[2] - (arr[1] - arr[0]))
+backtracking(N, M, [], check)
