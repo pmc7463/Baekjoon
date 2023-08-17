@@ -1,22 +1,26 @@
-stick = list(map(str, input()))
+arr = list(input())
 
-# print(stick)
+#print(arr)
 
 check = []
 
-result = 0
+cnt = 0
 
-for i in range(len(stick)):
-    if stick[i] == "(":
+for i in range(len(arr)):
+    if arr[i] == "(":
         check.append("(")
 
+    elif arr[i] == "*":
+        check.append("*")
+
+    elif arr[i-1] == "(" and arr[i] == ")":
+        check.pop()
+
     else:
-        if stick[i-1] == "(":
+        if check[len(check)-2] == "(" and check[len(check)-1] == "*" and arr[i] == ")":
             check.pop()
-            result += len(check)
-
-        else:
             check.pop()
-            result += 1
-
-print(result)
+            check.append("*")
+            cnt += 1
+#print(check)
+print(cnt)

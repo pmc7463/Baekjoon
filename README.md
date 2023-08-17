@@ -1,5 +1,37 @@
 # Baekjoon
 ## 백준 도전 中  
+
+# 2023-08-17 Thursday(1)
+* 16815 'Star in Parentheses' 문제
+    + 문자열 구조과 (*) 이렇게 되어있을 때 마다 카운트 하여 출력하는 문제이다.
++ 문자열 리스트로 받아서 반복문을 활용한다.
++ ( 와 * 는 스택에 담는다.
++ ( ) 연속으로 드러오는 경우 ( 스택에서 뺀다.
++ 스택에 ( * 있을 때 ) 들어오면 카운트 하고, * , ( 순으로 스택에서 빼고 다시 * 스택에 넣는다.
+
+```
+for i in range(len(arr)):
+    if arr[i] == "(":
+        check.append("(")
+
+    elif arr[i] == "*":
+        check.append("*")
+
+    elif arr[i-1] == "(" and arr[i] == ")":
+        check.pop()
+
+    else:
+        if check[len(check)-2] == "(" and check[len(check)-1] == "*" and arr[i] == ")":
+            check.pop()
+            check.pop()
+            check.append("*")
+            cnt += 1
+```
++ *을 끝 까지 남겨야 한다는게 가장 중요한 포인트이다.
+***
+
+<br>
+ 
 # 2023-08-16 Wednesday(1)
 * 10799 '쇠막대기' 문제
     + ()(((()())(())()))(()) 이런 형식으로 입력을 받는다.
