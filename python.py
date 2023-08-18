@@ -1,26 +1,12 @@
-arr = list(input())
+repetition = int(input())
 
-#print(arr)
+for _ in range(repetition):
+    num = int(input())
 
-check = []
+    arr = [0] * num
 
-cnt = 0
+    arr = list(map(int, input().split()))
 
-for i in range(len(arr)):
-    if arr[i] == "(":
-        check.append("(")
+    #print(arr)
 
-    elif arr[i] == "*":
-        check.append("*")
-
-    elif arr[i-1] == "(" and arr[i] == ")":
-        check.pop()
-
-    else:
-        if check[len(check)-2] == "(" and check[len(check)-1] == "*" and arr[i] == ")":
-            check.pop()
-            check.pop()
-            check.append("*")
-            cnt += 1
-#print(check)
-print(cnt)
+    print(min(arr), max(arr))
