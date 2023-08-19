@@ -1,12 +1,36 @@
 repetition = int(input())
 
 for _ in range(repetition):
-    num = int(input())
 
-    arr = [0] * num
+    enter = list(input().rstrip())
 
-    arr = list(map(int, input().split()))
+    #print(enter)
 
-    #print(arr)
+    letter = []
+    symbol = []
+    temp = []
 
-    print(min(arr), max(arr))
+    for I in enter:
+        if I == "<":
+            if letter:
+                symbol.append(letter.pop())
+                #print(letter)
+                #print(symbol)
+        
+        elif I == ">":
+            if symbol:
+                letter.append(symbol.pop())
+
+        elif I == "-":
+            if letter:
+                letter.pop()
+
+        else:
+            letter.append(I)
+    #print(letter)
+
+    letter.extend(reversed(symbol))
+
+    #print(letter)
+
+    print("".join(letter))

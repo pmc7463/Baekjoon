@@ -1,5 +1,36 @@
 # Baekjoon
 ## 백준 도전 中  
+# 2023-08-19 Saturday(1)
+* 5397 '키로거' 문제
+    + "<<BP<A>>Cd-" 이런 문자열을 줄때 <, > 이거는 커서이고 - 는 문자를 빼는 기호이다.
+    + 최종적으로 나오는 문자열을 출력하는 문제이다.
+
++ 커서이동은 pop과 append를 잘 활용하면 된다.
+```
+    for I in enter:
+        if I == "<":
+            if letter:
+                symbol.append(letter.pop())
+                #print(letter)
+                #print(symbol)
+        
+        elif I == ">":
+            if symbol:
+                letter.append(symbol.pop())
+
+        elif I == "-":
+            if letter:
+                letter.pop()
+
+        else:
+            letter.append(I)
+``` 
++ 연결 리스트를 공부하고 풀려고 했는데 스택으로 풀었다.
++ 이렇게 푸는건지 모르겠다.
+***
+
+<br>
+
 # 2023-08-18 Friday(1)
 * 20053 '최소, 최대2' 문제
     + 주워진 숫자들 중에서 최솟값과 최댓값을 출력하면되는 문제이다.
