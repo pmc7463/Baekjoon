@@ -1,5 +1,36 @@
 # Baekjoon
 ## 백준 도전 中  
+# 2023-08-20 Sunday(1)
+* 1991 '트리순회' 문제
+    + 트리가 주워지고 전위, 중위, 후위 순회하여 출력하는 문제이다.
+
++ 트리의 구조체를 만드는 방법이다.
+```
+typedef struct Node
+{
+    char ele;
+    struct Node *left;
+    struct Node *right;
+}Node;
+```
++ 전위 순회 할 수 있게 하는 코드이다. 다른 순회는 전위의 순서를 바꿔서 구성하면 된다.
+```
+void print_pre(Node *H)
+{
+    if (H != NULL)
+        printf("%c", H -> ele);
+    if (H -> left != NULL)
+        print_pre(H -> left);
+    if (H -> right != NULL)
+        print_pre(H -> right);
+}
+```
++ 트리 공부를 하고 C언어로 제출 하였다.
++ C언어가 기억나지 않고, 어려워서 코드를 참고하였다. [코드참고](https://evga7.tistory.com/35)
+***
+
+<br>
+
 # 2023-08-19 Saturday(1)
 * 5397 '키로거' 문제
     + "<<BP<A>>Cd-" 이런 문자열을 줄때 <, > 이거는 커서이고 - 는 문자를 빼는 기호이다.
