@@ -1,113 +1,42 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-typedef struct Node
+int main(void)
 {
-    char ele;
-    struct Node *left;
-    struct Node *right;
-}Node;
+    int N, M;
 
-Node *NewNode(char ele)
-{
-    Node *New;
-    New = (Node*)malloc(sizeof(Node));
-    New -> ele = ele;
-    New -> left = NULL;
-    New -> right = NULL;
-    return New;
-}
+    scanf("%d %d", &N, &M);
 
-Node *search_Node(Node *H, char ele)
-{
-    if (H != NULL) 
+    int halmet[1000];
+    int vest[1000];
+
+    int H_max = 0;
+    int V_max = 0;
+
+    for (int i = 0; i < N; i++)
     {
-        if (H -> ele == ele)
-        {
-            return H;
-        }
-        else
-        {
-            Node *tmp = search_Node(H -> left, ele);
-            if (tmp != NULL)
-            {
-                return tmp;
-            }
-            return search_Node(H -> right, ele);
-        }
+        scanf("%d", &halmet[i]);
+        //getchar();
     }
-    return NULL;
-}
 
-void insert_Node(Node *H, char A, char B, char C)
-{
-    H -> ele = A;
-    
-    if (B != '.')
+    for (int j = 0; j < M; j++)
     {
-        H -> left = NewNode(B);
+        scanf("%d", &vest[j]);
+        //getchar();
     }
-    if (C != '.')
+
+    for (int H = 0; H < N; H++)
     {
-        H -> right = NewNode(C);
+        if (halmet[H] > H_max)
+            H_max = halmet[H];
     }
-}
 
-void print_pre(Node *H)
-{
-    if (H != NULL)
-        printf("%c", H -> ele);
-    if (H -> left != NULL)
-        print_pre(H -> left);
-    if (H -> right != NULL)
-        print_pre(H -> right);
-}
-
-void print_in(Node *H)
-{
-    if (H -> left != NULL)
-        print_in(H -> left);
-    if (H != NULL)
-        printf("%c", H -> ele);
-    if (H -> right != NULL)
-        print_in(H -> right);
-}
-
-void print_post(Node *H)
-{
-    if (H -> left != NULL)
-        print_post(H -> left);
-    if (H -> right != NULL)
-        print_post(H -> right);
-    if (H != NULL)
-        printf("%c", H -> ele);
-}
-
-int main()
-{
-    Node *H = NewNode(' ');
-    Node *tmp;
-    int N;
-    int i;
-
-    scanf("%d", &N);
-    getchar();
-    for (i = 0; i < N; i++)
+    for (int V = 0; V < M; V++)
     {
-        char A, B, C;
-        scanf("%c %c %c", &A, &B, &C);
-        getchar();
-        tmp = search_Node(H, A);
-        
-        if (tmp != NULL)
-            insert_Node(tmp, A, B, C);
-        else
-            insert_Node(H, A, B, C);
+        if (vest[V] > V_max)
+            V_max = vest[V];
     }
-        
-    print_pre(H);
-    printf("\n");
-    print_in(H);
-    printf("\n");
-    print_post(H);
+
+    printf("%d", H_max + V_max);
+
+    return 0;
 }
