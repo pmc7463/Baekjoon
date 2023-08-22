@@ -2,35 +2,19 @@ repetition = int(input())
 
 for _ in range(repetition):
 
-    enter = list(input().rstrip())
+    n = int(input())
 
-    #print(enter)
+    def dp(n):
 
-    letter = []
-    symbol = []
-    temp = []
+        arr = [0] * 11
 
-    for I in enter:
-        if I == "<":
-            if letter:
-                symbol.append(letter.pop())
-                #print(letter)
-                #print(symbol)
-        
-        elif I == ">":
-            if symbol:
-                letter.append(symbol.pop())
+        arr[0] = 1
+        arr[1] = 2
+        arr[2] = 4
 
-        elif I == "-":
-            if letter:
-                letter.pop()
+        for i in range(3, n):
+            arr[i] = arr[i-1] + arr[i-2] + arr[i-3]
 
-        else:
-            letter.append(I)
-    #print(letter)
+        return arr[n-1]
 
-    letter.extend(reversed(symbol))
-
-    #print(letter)
-
-    print("".join(letter))
+    print(dp(n))
