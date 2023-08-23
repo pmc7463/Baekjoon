@@ -1,20 +1,13 @@
-repetition = int(input())
+h1, m1, s1 = map(int, input().split(":"))
+h2, m2, s2 = map(int, input().split(":"))
 
-for _ in range(repetition):
+time = h2 * 3600 + m2 * 60 + s2 - (h1 * 3600 + m1 * 60 + s1);
 
-    n = int(input())
+if time < 0:
+    time += 3600 * 24
 
-    def dp(n):
+h = time // 3600
+m = (time % 3600) // 60
+s = time % 60
 
-        arr = [0] * 11
-
-        arr[0] = 1
-        arr[1] = 2
-        arr[2] = 4
-
-        for i in range(3, n):
-            arr[i] = arr[i-1] + arr[i-2] + arr[i-3]
-
-        return arr[n-1]
-
-    print(dp(n))
+print(f"{h:02d}:{m:02d}:{s:02d}")

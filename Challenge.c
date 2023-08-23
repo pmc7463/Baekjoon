@@ -1,42 +1,31 @@
 #include <stdio.h>
 
 int main(void)
-{
-    int N, M;
+{   
+    char input[9];
+    int a, b, c;
+    int d, e, f;
+    int g, h ,i;
 
-    scanf("%d %d", &N, &M);
+    int time = 0;
 
-    int halmet[1000];
-    int vest[1000];
+    scanf("%8s", input);
+    sscanf(input, "%d:%d:%d", &a, &b, &c);
 
-    int H_max = 0;
-    int V_max = 0;
+    scanf("%8s", input);
+    sscanf(input, "%d:%d:%d", &d, &e, &f);
 
-    for (int i = 0; i < N; i++)
+    time = d * 3600 + e * 60 + f - (a * 3600 + b * 60 + c);
+
+    if (time < 0)
     {
-        scanf("%d", &halmet[i]);
-        //getchar();
+        time += 3600 * 24;
     }
 
-    for (int j = 0; j < M; j++)
-    {
-        scanf("%d", &vest[j]);
-        //getchar();
-    }
+    g = (int)time / 3600;
+    h = (int)(time % 3600) / 60;
+    i = time % 60;
 
-    for (int H = 0; H < N; H++)
-    {
-        if (halmet[H] > H_max)
-            H_max = halmet[H];
-    }
-
-    for (int V = 0; V < M; V++)
-    {
-        if (vest[V] > V_max)
-            V_max = vest[V];
-    }
-
-    printf("%d", H_max + V_max);
-
+    printf("%02d:%02d:%02d", g, h, i);
     return 0;
 }
