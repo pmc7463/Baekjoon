@@ -1,4 +1,4 @@
-/*
+
 {
     // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
     // 기존 특성에 대한 설명을 보려면 가리킵니다.
@@ -28,7 +28,8 @@
         }
     ]
 }
-*/
+
+/*
 {
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
@@ -63,3 +64,4 @@
       }
     ]
   }
+  */
