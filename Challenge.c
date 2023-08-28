@@ -1,18 +1,32 @@
 #include <stdio.h>
 
-double func(double a, double b) 
-{
-    return (a + b) * (a - b);
-}
-
 int main(void)
 {   
-    double A;
-    double B;
+    int Test;
+    int N;
 
-    scanf("%lf %lf", &A, &B);
+    int fibonacci[41][2];
 
-    printf("%0.lf\n", func(A, B));
+    fibonacci[0][0] = 1;
+    fibonacci[0][1] = 0;
+
+    
+    fibonacci[1][0] = 0;
+    fibonacci[1][1] = 1;
+
+    for (int i = 2; i < 41; i++)
+    {
+        fibonacci[i][0] = fibonacci[i-1][0] + fibonacci[i-2][0];
+        fibonacci[i][1] = fibonacci[i-1][1] + fibonacci[i-2][1];
+    }
+
+    scanf("%d", &Test);
+
+    for (int j = 0; j < Test; j++)
+    {
+        scanf("%d", &N);
+        printf("%d %d\n", fibonacci[N][0], fibonacci[N][1]);
+    }
 
     return 0;
 }
