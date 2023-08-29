@@ -1,11 +1,10 @@
-antenna = int(input())
-eye = int(input())
+bread, meat = map(int, input().split())
 
-if antenna >= 3 and eye <= 4:
-    print("TroyMartian")
+bread //= 2
 
-if antenna <= 6 and eye >= 2:
-    print("VladSaturnian")
-    
-if antenna <= 2 and eye <= 3:
-    print("GraemeMercurian")
+#print(bread)
+
+if bread >= meat:
+    print(meat)
+else:
+    print(bread)
