@@ -1,6 +1,48 @@
 # Baekjoon
 ## 백준 도전 中  
-# 2023-08-30 Thursday(1)
+# 2023-08-31 Thursday(1)
+* 5635 '생일' 문제
+    + "이름 dd mm yyyy" 이런 형식으로 여러 명을 줄 때
+    + 가장 나이 많은 사람과 나이가 적은 사람을 출력하는 문제이다.
+
++ 이름과 생년월일을 구분했다.
+```
+    temp1 = input()
+    temp2 = temp1.split()
+
+    Name = temp2[0]
+    year = temp2[3]
+    month = temp2[2]
+    day = temp2[1]
+```
++ 1월을 01로 1일을 01로 수정한다.
+```
+    if len(month) == 1:
+        month = '0' + month
+    if len(day) == 1:
+        day = '0' + day
+```
++ 문자열을 다 더해서 하나의 값 처럼 활용한다.
+```
+Number = year + month + day
+```
++ 딕셔너리를 활용하여 이름과 생년월일을 같이 묶어서 활용하였다.
+```
+data = {}
+
+data[Number] = Name
+
+max_data = max(data.keys())
+min_data = min(data.keys())
+
+max_name = data[max_data]
+min_name = data[min_data]
+```
+***
+
+<br>
+
+# 2023-08-30 Wednesday(1)
 * 1389 '케빈 베이컨의 6단계 법칙' 문제
     + 사람 6명을 거치면 지구에 있는 모든 사람을 연결할 수 있다. 라는 문제이다.
     + 두 수가 주워지는 데 두 수는 서로 친구이다.

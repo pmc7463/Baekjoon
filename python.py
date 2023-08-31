@@ -1,31 +1,31 @@
-import sys
-from collections import deque
+repetition = int(input())
 
-def bfs(v):
-    queue = deque([v])
-    visited[v] = 1
+data = {}
 
-    while queue:
-        target = queue.popleft()
+for i in range(repetition):
+    temp1 = input()
+    temp2 = temp1.split()
 
-        for i in graph[target]:
-            if not visited[i]:
-                visited[i] = visited[target] + 1
-                queue.append(i)
+    Name = temp2[0]
+    year = temp2[3]
+    month = temp2[2]
+    day = temp2[1]
 
-n, m = map(int, sys.stdin.readline().split())
+    if len(month) == 1:
+        month = '0' + month
+    if len(day) == 1:
+        day = '0' + day
 
-graph = [[] for _ in range(n + 1)]
-for i in range(m):
-    a, b = map(int, sys.stdin.readline().split())
-    graph[a].append(b)
-    graph[b].append(a)
+    Number = year + month + day
+    
+    data[Number] = Name
 
-res = []
+max_data = max(data.keys())
+min_data = min(data.keys())
 
-for i in range(1, n + 1):
-    visited = [0] * (n + 1)
-    bfs(i)
-    res.append(sum(visited))
+max_name = data[max_data]
+min_name = data[min_data]
 
-print(res.index(min(res)) + 1)
+print(max_name)
+print(min_name)
+    
