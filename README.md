@@ -1,5 +1,23 @@
 # Baekjoon
 ## 백준 도전 中  
+# 2023-09-01 Friday(1)
+* 2526 '싸이클' 문제
+    + N, P 두 수를 준다.
+    + N * N % P = temp를 반복해서 N * temp % P를 한다.
+    + 여러번 하다 보면 싸이클이 생길건데 몇번 만에 나오는지 출력하는 문제이다.
+
++ 배열안에 나머지 값을 넣어서 같은 값이 올 때 반복문을 종료하고 출력하는 코드이다.
+```
+    if N_temp in arr:
+        print(len(arr) - arr.index(N_temp))
+        break
+
+    arr.append(N_temp)
+```
+***
+
+<br>
+
 # 2023-08-31 Thursday(1)
 * 5635 '생일' 문제
     + "이름 dd mm yyyy" 이런 형식으로 여러 명을 줄 때
