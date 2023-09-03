@@ -1,46 +1,15 @@
-listening, view = map(int, input().split())
+import sys
+input = sys.stdin.readline
 
-L = [0] * listening
-V = [0] * view
+N = int(input())
 
-for i in range(listening):
-    L[i] = input()
+A = list(map(int, input().split()))
 
-for i in range(view):
-    V[i] = input()
+dp = [1] * N
 
-#print("************")
+for i in range(1, N):
+    for j in range(i):
+        if A[i] > A[j]:
+            dp[i] = max(dp[i], dp[j]+1)
 
-#print(L)
-#print(V)
-"""
-cnt = 0
-
-save = [0] * (listening + view)
-
-for i in range(len(L)):
-    for j in range(len(V)):
-        if L[i] == V[j]:
-            cnt += 1
-            save[i] = V[j]
-
-print(cnt)
-#print(save)
-
-filtered_list = sorted([item for item in save if isinstance(item, str)])
-
-#print(filtered_list)
-
-for i in filtered_list:
-    print(i)
-"""
-#marge = set(L + V)
-
-#print(marge)
-
-result = sorted(list(set(L) & set(V)))
-print(len(result))
-#print(result)
-
-for i in result:
-    print(i)
+print(max(dp))
