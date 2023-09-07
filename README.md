@@ -1,5 +1,20 @@
 # Baekjoon
 ## 백준 도전 中  
+# 2023-09-07 Thursday(1)
+* 6996 "애너그램" 문제
+    + 두 문자열을 입력 받고 정렬 해준다.
+    + 정렬한 문자열을 같은지 비교하여 애너그램인지 판별하는 문제이다.
+
++ 두 리스트를 비교하면 된다.
+```
+    x = sorted(list(a))
+    y = sorted(list(b))
+
+    if x == y:
+        print("%s & %s are anagrams." %(a, b))
+    else:
+        print("%s & %s are NOT anagrams." %(a, b))
+```
 # 2023-09-06 Wednesday(1)
 * 2563 '색종이' 문제
     + 두 좌표를 통해 사각형을 그린다.
