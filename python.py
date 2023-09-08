@@ -1,12 +1,17 @@
-repetition = int(input())
+a, b = map(int, input().split())
 
-for i in range(repetition):
-    a, b = map(str, input().split())
+arr = []
+cnt = 0
+temp = 0
 
-    x = sorted(list(a))
-    y = sorted(list(b))
+if a > b:
+    temp = a
+    a = b
+    b = temp
 
-    if x == y:
-        print("%s & %s are anagrams." %(a, b))
-    else:
-        print("%s & %s are NOT anagrams." %(a, b))
+for i in range(a+1, b):
+    cnt += 1
+    arr.append(str(i))
+
+print(cnt)
+print(' '.join(arr))
