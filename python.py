@@ -1,13 +1,24 @@
-n = int(input())
+A, B = input().split()
+N, M = len(A), len(B)
 
-word = []
+arr = [['.'] * N for _ in range(M)]
 
-for _ in range(n):
-    word.append(input())
+for i in range(N):
+    flag = False
+    for j in range(M):
+        if A[i] == B[j]:
+            row = j
+            col = i
+            flag = True
+            break
+            
+    if flag == True:
+        break
+for i in range(N):
+    arr[row][i] = A[i]
 
-#print(word)
+for i in range(M):
+    arr[i][col] = B[i]
 
-for i in range(n):
-    for j in range(i, n):
-        if len(word[i]) == len(word[j]) and word[i][::-1] == word[j]:
-            print(len(word[i]), word[i][int(len(word[i])/2)])
+for i in range(M):
+    print(''.join(arr[i]))
