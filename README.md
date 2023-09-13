@@ -1,5 +1,52 @@
 # Baekjoon
 ## 백준 도전 中  
+# 2023-09-13 Wednesday(1)
+* 2606 '바이러스' 문제
+    + 그래프가 주워진다.
+    + 1번 그래프와 연결된 노드를 카운터해서 출력하는 문제이다.
++ 연결된 노드들은 1로 만든다.
+```
+scanf("%d %d", &x, &y); // 방문한 노드들은 1로 만들기
+a[x][y] = 1;
+a[y][x] = 1;
+```
++ 연결안된 노드들은 0으로 만든다.
+```
+for(int i = 1; i <= computer; i++){    
+    for(int j = 1; j <= computer; j++){
+        if (a[i][j] != 1)
+            a[i][j] = 0;    // 방문하지 않는 노드들은 0으로 만들기
+    }
+}
+```
++ 1번 컴퓨터는 제외한 노드들에 대해서 탐색한다.
+```
+for(int k = 2; k <= computer; k++){
+    if(visit[k] == 1)
+        ans++;
+}
+```
++ 연결되어있고 방문하지 않으면 dfs 탐색을 한다.
++ 탐색을 하면서 방문한 노드는 1로 처리한다.
+```
+int visit[SIZE];
+int a[SIZE][SIZE];
+
+void dfs(int start, int n){
+    if(visit[start] == 1)
+        return;
+    visit[start] = 1;
+
+    for(int i = 0; i <= n; i++){
+        if(a[start][i] == 1 && visit[i] != 1)
+            dfs(i, n);
+    }
+}
+```
+***
+
+<br>
+
 # 2023-09-12 Tuesday(1)
 * 11024 '더하기 4' 문제
     + 공백으로 띄워진 여러 숫자를 한 줄에 받는다.
