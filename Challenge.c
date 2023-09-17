@@ -1,59 +1,26 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-int n = 0;
-int count = 0;
-int sum = 0;
-
-int graph[26][26] = { 0 };
-int apart[26 * 26] = { 0 };
-
-int dx[4] = {-1, 1, 0, 0};
-int dy[4] = { 0, 0, -1, 1 };
-
-int dfs(int x, int y) {
-	if (x < 0 || y < 0 || x >= n || y >= n) {
-		return 0;
-	}
-	if (graph[x][y] == 1) {
-		graph[x][y] = 0;
-		count++;
-
-		for (int i = 0; i < 4; i++) {
-			dfs(x + dx[i], y + dy[i]);
-		}
-		return 1;
-	}
-	return 0;
-}
-
 int main(void) {
-	scanf("%d", &n);
+	float temperature = 0;
+	float temp = 0;
+	int cnt = 0;
 
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
-			scanf("%1d", graph[i] + j);
+	while (1) {
+		scanf("%f", &temperature);
+		if (temperature == 999) {
+			break;
 		}
-	}
-
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
-			if (dfs(i, j) == 1) {
-				apart[count]++;
-				count = 0;
-				sum++;
+		else {
+			if (cnt == 0) {
+				temp = temperature;
+			}
+			else {
+				printf("%.2f\n", temperature - temp);
+				temp = temperature;
 			}
 		}
-	}
-	printf("%d\n", sum);
-
-	for (int i = 0; i < 26 * 26; i++) {
-		if (apart[i] != 0) {
-			int k = apart[i];
-			for (int j = 0; j < k; j++) {
-				printf("%d\n", i);
-			}
-		}
+		cnt++;
 	}
 	return 0;
 }
