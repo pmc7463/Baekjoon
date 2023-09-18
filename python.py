@@ -1,16 +1,15 @@
 test = int(input())
 
-for i in range(test):
-    arr = sorted(map(int, input().split()))
+for _ in range(test):
+    number = input()
 
-    #print(arr)
+    A = int(len(number)/2 - 1)
+    B = int(len(number)/2)
 
-    if arr[0]**2 + arr[1]**2 == arr[2]**2:
-        print(f"Scenario #{i+1}:")
-        print("yes")
+    #print(number[A])
+    #print(number[B])
 
+    if (number[A] == number[B]):
+        print("Do-it")
     else:
-        print(f"Scenario #{i+1}:")
-        print("no")
-        
-    print("")
+        print("Do-it-Not")
