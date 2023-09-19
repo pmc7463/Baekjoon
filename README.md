@@ -1,5 +1,14 @@
 # Baekjoon
 ## 백준 도전 中  
+# 2023-09-20 Wednesday(1)
+* 13136 'Do Not Touch Anything' 문제
+	+ 가로, 세로, CCTV 수용 범위가 주워질 때 최소 몇개의 CCTV가 필요한지 출력하는 문제이다.
++ 구하는 공식이다.
+```
+a = R//N + 1 if R%N else R//N
+b = C//N + 1 if C%N else C//N
+```
+***
 # 2023-09-19 Tuesday(1)
 * 6378 '디지털 루트' 문제
     + 예를 들어 24 가 있을 때 2 + 4 = 6을 출력하고
