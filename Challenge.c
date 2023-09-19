@@ -1,26 +1,22 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-
-int main(void) {
-	float temperature = 0;
-	float temp = 0;
-	int cnt = 0;
-
-	while (1) {
-		scanf("%f", &temperature);
-		if (temperature == 999) {
-			break;
-		}
-		else {
-			if (cnt == 0) {
-				temp = temperature;
-			}
-			else {
-				printf("%.2f\n", temperature - temp);
-				temp = temperature;
-			}
-		}
-		cnt++;
-	}
-	return 0;
+#include <string.h>
+ 
+int main() {
+    char N[1001];
+    int root;
+    while (1) {
+        root = 0;
+        scanf("%s", N);
+        if (strcmp(N, "0") == 0) break;
+        //입력받은 숫자의 각 자리수를 모두 더함
+        for (int i = 0; i < strlen(N); i++) {
+            root += N[i] - '0';
+        }
+        //디지털 루트 구하기
+        while (root >= 10) {
+            root = root / 10 + root % 10;
+        }
+        printf("%d\n", root);
+    }
+    return 0;
 }
