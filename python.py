@@ -1,15 +1,4 @@
-test = int(input())
-
-for _ in range(test):
-    number = input()
-
-    A = int(len(number)/2 - 1)
-    B = int(len(number)/2)
-
-    #print(number[A])
-    #print(number[B])
-
-    if (number[A] == number[B]):
-        print("Do-it")
-    else:
-        print("Do-it-Not")
+R, C, N = map(int, input().split())
+a = R//N + 1 if R%N else R//N
+b = C//N + 1 if C%N else C//N
+print(a*b)
