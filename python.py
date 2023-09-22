@@ -1,4 +1,15 @@
-R, C, N = map(int, input().split())
-a = R//N + 1 if R%N else R//N
-b = C//N + 1 if C%N else C//N
-print(a*b)
+re = int(input())
+
+for _ in range(re):
+    number = int(input())
+    print(f"Pairs for {number}:", end = ' ')
+
+    cnt = 1
+
+    for i in range((number - 1)// 2):
+        if i != 0:
+            print(',', end = ' ')
+        print(cnt, number  - cnt, end = '')
+        cnt += 1
+    
+    print()
