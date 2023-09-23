@@ -1,15 +1,16 @@
-re = int(input())
+S = input()
 
-for _ in range(re):
-    number = int(input())
-    print(f"Pairs for {number}:", end = ' ')
+happy = S.count(":-)")
+sad = S.count(":-(")
 
-    cnt = 1
+#print(happy, sad)
 
-    for i in range((number - 1)// 2):
-        if i != 0:
-            print(',', end = ' ')
-        print(cnt, number  - cnt, end = '')
-        cnt += 1
-    
-    print()
+if happy == 0 and sad == 0:
+    print("none")
+else:
+    if happy > sad:
+        print("happy")
+    elif happy < sad:
+        print("sad")
+    else:
+        print("unsure")
