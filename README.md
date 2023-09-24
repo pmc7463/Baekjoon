@@ -1,5 +1,20 @@
 # Baekjoon
 ## 백준 도전 中
+# 2023-09-24 Sunday(1)
+* 13985 'Equality' 문제
+    + 1 + 2 = 3이라는 문자열이 주워질 때
+    + 이 식이 맞는지 판단하여 출력하는 문제이다.
++ fgets을 이용하여 버퍼 오버플로우를 방지하고
++ sscanf를 이용하여 입력을 쉽게 파싱하고 필요한 데이터를 추출 할 수 있다.
+```
+    fgets(input, sizeof(input), stdin);
+
+    sscanf(input, "%d + %d = %d", &a, &b, &c);
+```
+***
+
+<br>
+
 # 2023-09-23 Saturday(1)
 * 10769 '행복한지 슬픈지' 문제
     + 문자열에 :-) 와 :-( 의 개수 차이로 happy, sad, none, unsure 찾는 문제이다.

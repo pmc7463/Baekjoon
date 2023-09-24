@@ -1,12 +1,24 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
- 
+#include <string.h>
+
 int main() {
-    int a,  b;
-    float c;
-    scanf("%d %d", &a, &b);
+    char input[100];
+    int a, b, c;
+    int result;
 
-    c = ((float)a*b)/2;
+    fgets(input, sizeof(input), stdin);
 
-    printf("%.1f\n", c);
+    sscanf(input, "%d + %d = %d", &a, &b, &c);
+
+    result = a + b;
+
+    if (result == c) {
+        printf("YES\n");
+    }
+    else {
+        printf("NO\n");
+    }
+
     return 0;
 }
