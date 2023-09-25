@@ -1,24 +1,24 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <string.h>
 
 int main() {
-    char input[100];
-    int a, b, c;
-    int result;
+    int chicken = 0;
+    int a[3];
+    int sum = 0;
 
-    fgets(input, sizeof(input), stdin);
+    scanf("%d", &chicken);
+    scanf("%d %d %d", &a[0], &a[1], &a[2]);
 
-    sscanf(input, "%d + %d = %d", &a, &b, &c);
-
-    result = a + b;
-
-    if (result == c) {
-        printf("YES\n");
+    for (int i = 0; i < 3; i++) {
+        if (a[i] <= chicken) {
+            sum += a[i];
+        }
+        else {
+            sum += chicken;
+        }
     }
-    else {
-        printf("NO\n");
-    }
+
+    printf("%d\n", sum);
 
     return 0;
 }
