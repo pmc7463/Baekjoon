@@ -5,6 +5,8 @@
         "deque": "cpp",
         "list": "cpp",
         "vector": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "stdbool.h": "c",
+        "stdio.h": "c"
     }
 }
