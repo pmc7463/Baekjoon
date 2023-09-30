@@ -1,16 +1,9 @@
 S = input()
 
-happy = S.count(":-)")
-sad = S.count(":-(")
+S = S.replace('XXXX','AAAA')
+S = S.replace('XX', 'BB')
 
-#print(happy, sad)
-
-if happy == 0 and sad == 0:
-    print("none")
+if 'X' in S:
+    print(-1)
 else:
-    if happy > sad:
-        print("happy")
-    elif happy < sad:
-        print("sad")
-    else:
-        print("unsure")
+    print(S)
