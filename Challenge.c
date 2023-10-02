@@ -1,37 +1,57 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <math.h>
+
+int B_distance(Bx, By, Jx, Jy) {
+	int x, y;
+	
+	if (Bx >= Jx)
+		x = Bx - Jx;
+	else
+		x = Jx - Bx;
+
+	if (By >= Jy)
+		y = By - Jy;
+	else
+		y = Jy - By;
+	
+	return (x >= y) ? x : y;
+}
+
+int D_distance(Dx, Dy, Jx, Jy) {
+	int sum = 0;
+
+	if (Dx >= Jx)
+		sum += Dx - Jx;
+	else
+		sum += Jx - Dx;
+
+	if (Dy >= Jy)
+		sum += Dy - Jy;
+	else
+		sum += Jy - Dy;
+		
+	return sum;
+}
 
 int main(void) {
-	int na[3] = { 0,0,0 };
-	int now[3] = {0, 0, 0};
-	int time[3];
-	int cnt = 0;
-	scanf("%d:%d:%d", &now[0], &now[1], &now[2]);
-	scanf("%d:%d:%d", &na[0], &na[1], &na[2]);
+	int Bx, By, Dx, Dy, Jx, Jy;
+	int B, D;
 
-	for (int j = 0; j <= 2; j++) {
-		if (now[j] == na[j])
-			cnt++;
-	}
-	if (cnt == 3) {
-		na[0] += 24;
-	}
+	scanf("%d %d", &Bx, &By);
+	scanf("%d %d", &Dx, &Dy);
+	scanf("%d %d", &Jx, &Jy);
 
-	for (int i = 2; i >= 0; i--) {
-		if (na[i] - now[i] >= 0)
-			time[i] = na[i] - now[i];
-		else {
-			if (i == 0) {
-				time[0] = na[0] + 24 - now[0];
-			}
-			else {
-				na[i - 1] = na[i - 1] - 1;
-				time[i] = na[i] + 60 - now[i];
-			}
-		}
-	}
-	
-	printf("%02d:%02d:%02d", time[0], time[1], time[2]);
+	D = D_distance(Dx, Dy, Jx, Jy);
+	B = B_distance(Bx, By, Jx, Jy);
+
+	if (D > B)
+		printf("bessie");
+	else if (B > D)
+		printf("daisy");
+	else
+		printf("tie");
+
 
 	return 0;
 }
