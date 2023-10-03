@@ -1,57 +1,32 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <math.h>
-
-int B_distance(Bx, By, Jx, Jy) {
-	int x, y;
-	
-	if (Bx >= Jx)
-		x = Bx - Jx;
-	else
-		x = Jx - Bx;
-
-	if (By >= Jy)
-		y = By - Jy;
-	else
-		y = Jy - By;
-	
-	return (x >= y) ? x : y;
-}
-
-int D_distance(Dx, Dy, Jx, Jy) {
-	int sum = 0;
-
-	if (Dx >= Jx)
-		sum += Dx - Jx;
-	else
-		sum += Jx - Dx;
-
-	if (Dy >= Jy)
-		sum += Dy - Jy;
-	else
-		sum += Jy - Dy;
-		
-	return sum;
-}
+#include <string.h>
 
 int main(void) {
-	int Bx, By, Dx, Dy, Jx, Jy;
-	int B, D;
+	char str[51];
+	char save[51];
+	int test;
 
-	scanf("%d %d", &Bx, &By);
-	scanf("%d %d", &Dx, &Dy);
-	scanf("%d %d", &Jx, &Jy);
+	scanf("%d", &test);
 
-	D = D_distance(Dx, Dy, Jx, Jy);
-	B = B_distance(Bx, By, Jx, Jy);
+	for (int t = 0; t < test; t++) {
 
-	if (D > B)
-		printf("bessie");
-	else if (B > D)
-		printf("daisy");
-	else
-		printf("tie");
+		scanf("%s", str);
 
+		size_t length = strlen(str);
 
+		for (int i = 0; i < length; i++) {			
+			if (str[i] == 90)
+				save[i] = str[i] - 25;
+			else
+				save[i] = str[i] + 1;
+		}
+		printf("String #%d\n", t + 1);
+
+		for (int j = 0; j < length; j++) {
+			printf("%c", save[j]);
+		}
+		printf("\n\n");
+	}
 	return 0;
 }
