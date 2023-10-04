@@ -1,9 +1,5 @@
-S = input()
+test = int(input())
 
-S = S.replace('XXXX','AAAA')
-S = S.replace('XX', 'BB')
-
-if 'X' in S:
-    print(-1)
-else:
-    print(S)
+for _ in range(test):
+    A, B = map(int, input().split())
+    print("yes")
