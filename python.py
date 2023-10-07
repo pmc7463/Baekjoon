@@ -1,5 +1,7 @@
-test = int(input())
-
-for _ in range(test):
-    A, B = map(int, input().split())
-    print("yes")
+t = input()
+cnt = 0
+for _ in range(int(input())):
+    s = input()
+    if t in s*2:
+        cnt += 1
+print(cnt)
