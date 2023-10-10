@@ -1,17 +1,13 @@
 #include <stdio.h>
 
 int main() {
-    int star;
-    int res = 5;
-    int plus = 7;
+    int A, B, C;
 
-    scanf("%d", &star);
+    scanf("%d", &A);
+    scanf("%d", &B);
+    scanf("%d", &C);
 
-    for (int i = 2; i <= star; i++) {
-        res += plus;
-        plus += 3;
-        res %= 45678;
-    }
-    printf("%d",res);
+    printf("The 1-3-sum is %d", 91 + A*1 + B*3 + C*1);
+
     return 0;
 }
