@@ -1,5 +1,47 @@
 # Baekjoon
 ## 백준 도전 中
+# 2023-10-14 Sunday(1)
+* 9076 '점수 집계' 문제
+    + 5명의 심판의 점수가 주워진다.
+    + 이때 최고점과 최저점을 뺀 3명의 심판중에서 최고점과 최저점의 차가 4이상이면 총점대신 KIN을 출력하고
+    + 4점 미만이면 최고점과 최저점만 빼고 3명의 점수를 더한 값을 출력하는 문제이다.
+
++ 5명의 심판을 각각 배열로 받았다.
++ 줄일 수 있는 방법이 있을것 같은데
+```
+scanf("%d %d %d %d %d", &arr[0], &arr[1], &arr[2], &arr[3], &arr[4]);
+```
++ 선택정렬 알고리즘을 활용했다.
+```
+int seletionSort(int arr[], int size) {
+    int min, temp;
+
+    for (int i = 0; i < size - 1; i++) {
+        min = i;
+        for (int j = i + 1; j < size; j++) {
+            if (arr[j] < arr[min]) {
+                min = j;
+            }
+        }
+
+        temp = arr[i];
+        arr[i] = arr[min];
+        arr[min] = temp;
+    }
+    return 0;
+}
+```
++ 문제의 조건을 코드로 작성했다.
+```
+    if (arr[3] - arr[1] >= 4)
+        printf("KIN\n");
+    else
+        printf("%d\n", arr[1] + arr[2] + arr[3]);
+```
+***
+
+<br>
+
 # 2023-10-13 Saturday(1)
 * 1551 '수열의 변화' 문제
     + 배열(리스트)의 크기와 반복횟수가 주워지고

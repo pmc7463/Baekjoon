@@ -1,61 +1,55 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <malloc.h>
+
+int seletionSort(int arr[], int size) {
+    int min, temp;
+
+    for (int i = 0; i < size - 1; i++) {
+        min = i;
+        for (int j = i + 1; j < size; j++) {
+            if (arr[j] < arr[min]) {
+                min = j;
+            }
+        }
+
+        temp = arr[i];
+        arr[i] = arr[min];
+        arr[min] = temp;
+    }
+    //printf("정렬 : ");
+    /*
+    for (int k = 0; k < 5; k++) {
+        printf("%d ", arr[k]);
+    }
+    */
+    //printf("\n");
+
+    //printf("arr[0] : %d, arr[4] : %d\n", arr[0], arr[4]);
+
+    if (arr[3] - arr[1] >= 4)
+        printf("KIN\n");
+    else
+        printf("%d\n", arr[1] + arr[2] + arr[3]);
+
+    return 0;
+}
 
 int main(void) {
-	int a;
-	int test;
-	int F, E;
-	int max = 0;
-	int cnt = 0;
-	int flag = 0;
-	int E_F = 0;
-	int flag2;
-	scanf("%d", &a);
-	scanf("%d", &test);
+    int test;
+    int arr[5];
+    
+    scanf("%d", &test);
 
-	int* arr = malloc(sizeof(int) * a);
-	
-	for (int i = 0; i < a; i++) {
-		arr[i] = 0;
-	}
+    for (int i = 0; i < test; i++) {
+        scanf("%d %d %d %d %d", &arr[0], &arr[1], &arr[2], &arr[3], &arr[4]);
 
-	for (int j = 1; j <= test; j++) {
-		cnt = 0;
-		scanf("%d %d", &F, &E);
-		if (E - F > E_F) {
-			E_F = E - F;
-			flag2 = j;
-		}
-		for (int p = F-1; p < E; p++) {
-			if (arr[p] == 0)
-				arr[p] = j;
-		}
-		for (int k = 0; k < a; k++) {
+        /*
+        for (int i = 0; i < 5; i++) {
+            printf("%d ", arr[i]);
+        }
+        */
+        seletionSort(arr, 5);
+    }
 
-			if (arr[k] == j) {
-				cnt++;
-			}
-		}
-
-		if (cnt > max) {
-			max = cnt;
-			flag = j;
-		}
-		
-	}
-	/*
-	for (int i = 0; i < a; i++) {
-		printf("%d\n", arr[i]);
-	}
-	*/
-	//printf("E-F : %d\n", E_F);
-	//printf("flag : %d\n", flag);
-
-	printf("%d\n", flag2);
-	printf("%d\n", flag);
-
-	free(arr);
-
-	return 0;
+    return 0;
 }
