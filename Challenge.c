@@ -1,55 +1,37 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-int seletionSort(int arr[], int size) {
-    int min, temp;
+int main() {
+	int sum[200];
+	int arr[200][3];
+	int test;
+	int check;
 
-    for (int i = 0; i < size - 1; i++) {
-        min = i;
-        for (int j = i + 1; j < size; j++) {
-            if (arr[j] < arr[min]) {
-                min = j;
-            }
-        }
+	scanf("%d", &test);
 
-        temp = arr[i];
-        arr[i] = arr[min];
-        arr[min] = temp;
-    }
-    //printf("정렬 : ");
-    /*
-    for (int k = 0; k < 5; k++) {
-        printf("%d ", arr[k]);
-    }
-    */
-    //printf("\n");
+	for (int i = 0; i < test; i++) {
+		scanf("%d %d %d", &arr[i][0], &arr[i][1], &arr[i][2]);
+	}
 
-    //printf("arr[0] : %d, arr[4] : %d\n", arr[0], arr[4]);
+	for (int n = 0; n < 3; n++) {
+		for (int j = 0; j < test; j++) {
+			check = 0;
+			for (int p = j + 1; p < test; p++) {
+				if (arr[j][n] == arr[p][n]) {
+					check = 1;
+					arr[p][n] = 0;
+				}
+			}
+			if (check) {
+				arr[j][n] = 0;
+			}
+		}
+	}
 
-    if (arr[3] - arr[1] >= 4)
-        printf("KIN\n");
-    else
-        printf("%d\n", arr[1] + arr[2] + arr[3]);
+	for (int k = 0; k < test; k++) {
+		sum[k] = arr[k][0] + arr[k][1] + arr[k][2];
+		printf("%d\n", sum[k]);
+	}
 
-    return 0;
-}
-
-int main(void) {
-    int test;
-    int arr[5];
-    
-    scanf("%d", &test);
-
-    for (int i = 0; i < test; i++) {
-        scanf("%d %d %d %d %d", &arr[0], &arr[1], &arr[2], &arr[3], &arr[4]);
-
-        /*
-        for (int i = 0; i < 5; i++) {
-            printf("%d ", arr[i]);
-        }
-        */
-        seletionSort(arr, 5);
-    }
-
-    return 0;
+	return 0;
 }
