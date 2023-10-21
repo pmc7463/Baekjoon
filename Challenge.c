@@ -2,19 +2,22 @@
 #include <stdio.h>
 
 int main() {
-	int f;
-	int check = 0;
+	char MBTI[5];
+	char type[5];
+	int test;
+	int cnt = 0;
 
-	scanf("%d", &f);
-	f -= 1;
+	scanf("%s", MBTI);
+	scanf("%d", &test);
 
-	while (1) {
-		if (check * check + check == f)
-			break;
-		check++;
+	for (int i = 0; i < test; i++) {
+		scanf("%s", type);
+		//printf("출력 확인 %s\n", type);
+		if (MBTI[0] == type[0]&& MBTI[1] == type[1]&& MBTI[2] == type[2]&& MBTI[3] == type[3])
+			cnt++;
 	}
-	
-	printf("%d", check);
+
+	printf("%d", cnt);
 
 	return 0;
 }
