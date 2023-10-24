@@ -2,22 +2,21 @@
 #include <stdio.h>
 
 int main() {
-	char MBTI[5];
-	char type[5];
+	int day;
+	int eat;
 	int test;
-	int cnt = 0;
 
-	scanf("%s", MBTI);
 	scanf("%d", &test);
 
 	for (int i = 0; i < test; i++) {
-		scanf("%s", type);
-		//printf("출력 확인 %s\n", type);
-		if (MBTI[0] == type[0]&& MBTI[1] == type[1]&& MBTI[2] == type[2]&& MBTI[3] == type[3])
-			cnt++;
-	}
+		scanf("%d %d", &day, &eat);
 
-	printf("%d", cnt);
+		if ((day % eat) > 0 && (day % eat) < eat)
+			printf("%d\n", day / eat + 1);
+
+		else
+			printf("%d\n", day / eat);
+	}
 
 	return 0;
 }
