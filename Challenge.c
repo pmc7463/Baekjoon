@@ -2,20 +2,24 @@
 #include <stdio.h>
 
 int main() {
-	int day;
-	int eat;
 	int test;
+	int N, d;
+	float v, f, cost;
+	int cnt = 0;
+	float temp;
 
 	scanf("%d", &test);
-
 	for (int i = 0; i < test; i++) {
-		scanf("%d %d", &day, &eat);
+		cnt = 0;
+		scanf("%d %d", &N, &d);
 
-		if ((day % eat) > 0 && (day % eat) < eat)
-			printf("%d\n", day / eat + 1);
-
-		else
-			printf("%d\n", day / eat);
+		for (int j = 0; j < N; j++) {
+			scanf("%f %f %f", &v, &f, &cost);
+			temp = v * (f / cost);
+			if (d <= temp)
+				cnt++;
+		}
+		printf("%d\n", cnt);
 	}
 
 	return 0;
