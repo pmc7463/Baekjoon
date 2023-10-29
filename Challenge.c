@@ -1,26 +1,24 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <math.h>
 
 int main() {
-	int test;
-	int N, d;
-	float v, f, cost;
-	int cnt = 0;
-	float temp;
+    int N;
+    int cnt = 0;
 
-	scanf("%d", &test);
-	for (int i = 0; i < test; i++) {
-		cnt = 0;
-		scanf("%d %d", &N, &d);
+    scanf("%d", &N);
 
-		for (int j = 0; j < N; j++) {
-			scanf("%f %f %f", &v, &f, &cost);
-			temp = v * (f / cost);
-			if (d <= temp)
-				cnt++;
-		}
-		printf("%d\n", cnt);
-	}
+    for (int i = 1; i <= 1000; i++) {
+        for (int j = 1; j <= 1000; j++) {
+            if (pow(i,2) + N == pow(j,2)) {
+                cnt++;
+                break;           
+            }
+            else if (pow(i,2) + N == pow(j,2)) {
+                break;
+            }
+        }
+    } 
+    printf("%d\n", cnt);
 
-	return 0;
+    return 0;
 }
