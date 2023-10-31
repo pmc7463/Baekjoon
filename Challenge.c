@@ -1,30 +1,44 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
-    int arr[81] = {0,};
-    int a, b, c;
-    int temp, flag;
-    int max = 0;
+    int* arr;
+    int size = 1000000;
+    int num;
+    int i = 0;
+    int left = 0, mid, right = 0;
 
-    scanf("%d %d %d", &a, &b, &c);
+    arr = (int*)malloc(size * sizeof(int));
 
-    for (int i = 1; i <= a; i++) {
-        for (int j = 1; j <= b; j++) {
-            for (int k = 1; k <= c; k++) {
-                temp = i + j+ k;
-                arr[temp] += 1;            
-            }
-        }
+    scanf("%d", &num);
+
+    while (num > 0) {
+        arr[i] = num % 10;
+        num /= 10;
+        i++;
     }
 
-    for (int p = 1; p <= 80; p++) {
-        if (arr[p] > max) {
-            max = arr[p];
-            flag = p;
-        }
+    mid = (i + 1) / 2;
+
+    for (int j = 0; j < mid; j++) {
+        left += arr[j];
     }
+
+    //printf("\n");
+
+    for (int k = mid; k < mid*2; k++) {
+        right += arr[k];
+    }
+
+    if (left == right) {
+        printf("LUCKY");
+    }
+    else {
+        printf("READY");
+    }
+
+    free(arr);
     
-    printf("%d\n", flag);
-
     return 0;
 }
