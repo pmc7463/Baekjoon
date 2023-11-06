@@ -1,28 +1,23 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
-}
-
 int main() {
-    int a, b;
+    int arr[3];
     int temp;
-    int test;
 
-    scanf("%d", &test);
+    scanf("%d %d %d", &arr[0], &arr[1], &arr[2]);
+    temp = arr[0];
 
-    for (int i = 0; i < test; i++) {
-
-        scanf("%d %d", &a, &b);
-
-        temp = gcd(a, b);
-
-        printf("%d %d\n", (a * b) / temp, temp);
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 2; j++) {
+            if (arr[j] > arr[j+1]) {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
     }
+    printf("%d\n", arr[1]);
 
     return 0;
 }
