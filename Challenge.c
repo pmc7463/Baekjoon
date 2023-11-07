@@ -1,23 +1,25 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <math.h>
 
 int main() {
-    int arr[3];
-    int temp;
+    int arr[5];
+    int sum = 0;
+    int num;
 
-    scanf("%d %d %d", &arr[0], &arr[1], &arr[2]);
-    temp = arr[0];
+    scanf("%d", &num);
 
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 2; j++) {
-            if (arr[j] > arr[j+1]) {
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
+    for (int j = 4; j >= 0; j--) {
+        arr[j] = num % 10;
+        num /= 10;
     }
-    printf("%d\n", arr[1]);
+
+
+    for (int i = 0; i < 5; i++) {
+        sum += pow(arr[i], 5);
+    }
+
+    printf("%d\n", sum);
 
     return 0;
 }
