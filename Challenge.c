@@ -1,25 +1,28 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <math.h>
+#include <stdlib.h>
 
-int main() {
-    int arr[5];
-    int sum = 0;
-    int num;
+int main()
+{
+    int n, m, i, j, temp;
+    int beg, mid, end;
+    int *arr;
 
-    scanf("%d", &num);
-
-    for (int j = 4; j >= 0; j--) {
-        arr[j] = num % 10;
-        num /= 10;
+    scanf("%d %d", &n, &m);
+    arr = malloc(sizeof(int) * n);
+    for (i = 0; i < n; i++)
+        arr[i] = i + 1;
+    for (i = 0; i < m; i++)
+    {
+        scanf("%d %d %d", &beg, &end, &mid);
+        for (; beg - 1 < mid - 1; mid--, end--)
+        {
+            temp = arr[mid - 2];
+            for (j = mid - 1; j <= end - 1; j++)
+                arr[j - 1] = arr[j];
+            arr[end - 1] = temp;
+        }
     }
-
-
-    for (int i = 0; i < 5; i++) {
-        sum += pow(arr[i], 5);
-    }
-
-    printf("%d\n", sum);
-
-    return 0;
+    for (int j = 0; j < n; j++)
+        printf("%d ", arr[j]);
+    free(arr);
 }
