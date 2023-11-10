@@ -1,28 +1,27 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> //malloc 함수가 포함된 헤더 파일
+#include <string.h> //strlen(), strcpy(), strcat(), strcmp()...
 
-int main()
-{
-    int n, m, i, j, temp;
-    int beg, mid, end;
-    int *arr;
+int main() {
+    char str[10000];
+    int length;
+    int JOI = 0;
+    int IOI = 0;
+    scanf("%s", str);
 
-    scanf("%d %d", &n, &m);
-    arr = malloc(sizeof(int) * n);
-    for (i = 0; i < n; i++)
-        arr[i] = i + 1;
-    for (i = 0; i < m; i++)
-    {
-        scanf("%d %d %d", &beg, &end, &mid);
-        for (; beg - 1 < mid - 1; mid--, end--)
-        {
-            temp = arr[mid - 2];
-            for (j = mid - 1; j <= end - 1; j++)
-                arr[j - 1] = arr[j];
-            arr[end - 1] = temp;
-        }
+    length = strlen(str);
+
+    //printf("%s\n", str);
+
+    //printf("%d\n", length);
+
+    for (int i = 0; i < length; i++) {
+        if (str[i] == 'J' && str[i+1] == 'O' && str[i+2] == 'I') 
+            JOI++;
+        else if (str[i] == 'I' && str[i+1] == 'O' && str[i+2] == 'I') 
+            IOI++;        
     }
-    for (int j = 0; j < n; j++)
-        printf("%d ", arr[j]);
-    free(arr);
+    printf("%d\n%d\n", JOI, IOI);
+
+    return 0;
 }
