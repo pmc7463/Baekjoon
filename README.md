@@ -1,5 +1,31 @@
 # Baekjoon
 ## 백준 도전 中
+# 2023-11-10 Friday(1)
+* 5586 'JOI와IOI' 문제
+  + 문자열 안에 JOI와IOI가 몇개 포함되어있는지 카운터해서 출력하는 문제이다.
++ 문자열을 받는 방법
+```
+char str[10000];
+scanf("%s", str);
+```
++ 문자열 길아 알아보는 법
+```
+#include <string.h> //strlen(), strcpy(), strcat(), strcmp()...
+length = strlen(str);
+```
++ JOI와IOI 카운터 하는 법
+```
+    for (int i = 0; i < length; i++) {
+        if (str[i] == 'J' && str[i+1] == 'O' && str[i+2] == 'I') 
+            JOI++;
+        else if (str[i] == 'I' && str[i+1] == 'O' && str[i+2] == 'I') 
+            IOI++;        
+    }
+```
+***
+
+<br>
+
 # 2023-11-09 Thusday(1)
 * 5691 '평균 중앙값 문제' 문제
     + 두 정수를 받고 주워진 조건에 맞는 세번째 정수를 출력하는 문제이다.
