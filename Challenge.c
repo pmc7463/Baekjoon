@@ -2,15 +2,13 @@
 #include <stdio.h>
 
 int main() {
-    int a, b, c;
-
-    do {
-        scanf("%d %d", &a, &b);
-
-        c = a * 3 - a - b;
-        if (a != 0 && b != 0) 
-            printf("%d\n", c);
-    } while (a != 0 && b != 0);
-
+    int S, M, L;
+    int total;
+    scanf("%d %d %d", &S, &M, &L);
+    total = 1 * S + 2 * M + 3 * L;
+    if (total < 10)
+        printf("sad");
+    else
+        printf("happy");
     return 0;
-} 
+}
