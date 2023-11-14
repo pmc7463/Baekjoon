@@ -1,14 +1,22 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <math.h>
 
 int main() {
-    int S, M, L;
-    int total;
-    scanf("%d %d %d", &S, &M, &L);
-    total = 1 * S + 2 * M + 3 * L;
-    if (total < 10)
-        printf("sad");
-    else
-        printf("happy");
+    float row, col, x, y;
+    int cnt = 0;
+
+    int a, b;
+
+    scanf("%f %f %f %f", &col , &row, &x, &y);
+
+    a = ceil(col / (x + 1));
+    b = ceil(row / (y + 1));
+
+    //printf("%d\n", a);
+    //printf("%d\n", b);
+    printf("%d\n", a * b);
+    
+
     return 0;
 }
