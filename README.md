@@ -1,5 +1,22 @@
 # Baekjoon
 ## 백준 도전 中
+# 2023-11-15 Thusday(1)
+* 16170 '오늘의 날짜는?' 문제
+    + UTC+0(세계 표준시)에 따라 현재 년, 월, 일을 구하는 문제이다.
++ 파이썬으로 하였고, datetime 라이브러리를 이용하였다.
+```
+from datetime import datetime
+
+now = datetime.now()
+
+print(now.year)
+print(now.month)
+print(now.day)
+```
+***
+
+<br>
+
 # 2023-11-15 Wednesday(1)
 * 16394 '홍익대학교' 문제
     + 주워진 년도에서 홍익대 개교년도를 빼면 되는 문제이다.
