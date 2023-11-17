@@ -1,12 +1,7 @@
-sentence = input()
+from datetime import datetime
 
-vowels = ['a', 'e', 'i', 'o', 'u']
+now = datetime.now()
 
-i = 0
-while i < len(sentence):
-    print(sentence[i], end='')
-    if sentence[i] in vowels:
-        i += 2
-    i += 1
-
-
+print(now.year)
+print(now.month)
+print(now.day)
