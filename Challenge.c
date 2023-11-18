@@ -1,11 +1,17 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main() {
-    int year;
+    int N, M , K;
 
-    scanf("%d", &year);
+    int n, m;
 
-    printf("%d\n", year - 1946);
+    scanf("%d %d %d", &N, &M, &K);
+
+    n = K % M;
+
+    m = K / M;
+
+    printf("%d %d", m, n);
+
     return 0;
 }
