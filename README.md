@@ -1,5 +1,47 @@
 # Baekjoon
 ## 백준 도전 中
+# 2023-11-19 Sunday(1)
+* 10163 '색종이' 문제
+    + 색종이를 여러개 겹친다.
+    + 각 색종이가 보이는 넓이를 구하는 문제이다.
++ 그리드 설정
+```
+grid = [[0 for _ in range(1001)] for _ in range(1001)]
+```
++ 색종이의 값을 그리드 범위에 표시
+```
+for p in range(1, num_of_papers+1):
+    p_x, p_y, width, height = map(int, input().split())
+    for y in range(p_y, p_y+height):
+        grid[y][p_x:(p_x+width)] = [p]*width
+      
+```
++ 넓이를 구해서 출력
+```
+for p in range(1, num_of_papers+1):
+    result = 0
+    for cnt in range(1001):
+        result += grid[cnt].count(p)
+    print(result)
+```
+***
+
+<br>
+
+# 2023-11-18 Saturday(1)
+* 14652 '나는 행복합니다~' 문제
+  + x, y좌표가 주워지고 k 번째 자리가 주워질 때
+  + k번째 좌표를 출력하는 문제이다.
++ 나누기 연산자와 나머지 연산자를 사용해서 풀었다.
+```
+n = K % M;
+
+m = K / M;
+```
+***
+
+<br>
+
 # 2023-11-16 Friday(1)
 * 18411 '試験 (Exam)' 문제
     + 3개의 정수가 주워진다.

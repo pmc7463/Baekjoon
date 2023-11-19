@@ -1,16 +1,17 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main() {
-    int a, b, c;
-    int max, mid, min;
+    int N, M , K;
 
-    scanf("%d %d %d", &a, &b, &c);
+    int n, m;
 
-    max = (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);
-    min = (a < b) ? ((a < c) ? a : c) : ((b < c) ? b : c);
-    mid = (a + b + c) - max - min;
-    printf("%d\n", max + mid);
-    
+    scanf("%d %d %d", &N, &M, &K);
+
+    n = K % M;
+
+    m = K / M;
+
+    printf("%d %d", m, n);
+
     return 0;
 }
