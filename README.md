@@ -1,5 +1,28 @@
 # Baekjoon
 ## 백준 도전 中
+# 2023-11-21 Tuesday(1)
+* 2712 '미국 스타일' 문제
+    + 4가지 단위 kg, lb, l, g을 변환하는 문제이다.
++ 단위의 단어를 보고 경우를 4가지로 나누고 각 각 변환하여 출력하였다.
+```
+		if (unit[0] == 'k') {	// 킬로그램
+			printf("%.4f lb\n", weight * 2.2046);
+		}
+		else if (unit[0] == 'g') {	// 갤런
+			printf("%.4f l\n", weight * 3.7854);
+		}
+		else if (unit[0] == 'l' && unit[1] == 'b') {	// 파운드
+			printf("%.4f kg\n", weight * 0.4536);
+		}
+		else if (unit[0] == 'l') {	// 리터
+			printf("%.4f g\n", weight * 0.2642);
+		}
+
+```
+***
+
+<br>
+
 # 2023-11-20 Monday(1)
 * 1252 '이진수 덧셈' 문제
     + 2개의 이진수가 주워진다.
