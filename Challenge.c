@@ -2,31 +2,17 @@
 #include <stdio.h>
 
 int main() {
-	int test;
-	float weight;
-	char unit[3];
-
-	scanf("%d", &test);
-
-	for (int i = 0; i < test; i++) {
-		scanf("%f %s", &weight, unit);
-
-		//printf("%c\n", unit[0]);
-
-		if (unit[0] == 'k') {	// 킬로그램
-			printf("%.4f lb\n", weight * 2.2046);
-		}
-		else if (unit[0] == 'g') {	// 갤런
-			printf("%.4f l\n", weight * 3.7854);
-		}
-		else if (unit[0] == 'l' && unit[1] == 'b') {	// 파운드
-			printf("%.4f kg\n", weight * 0.4536);
-		}
-		else if (unit[0] == 'l') {	// 리터
-			printf("%.4f g\n", weight * 0.2642);
-		}
-
-	}
+	printf("    8888888888  888    88888\n");
+	printf("   88     88   88 88   88  88\n");
+	printf("    8888  88  88   88  88888\n");
+	printf("       88 88 888888888 88   88\n");
+	printf("88888888  88 88     88 88    888888\n");
+	printf("\n");
+	printf("88  88  88   888    88888    888888\n");
+	printf("88  88  88  88 88   88  88  88\n");
+	printf("88 8888 88 88   88  88888    8888\n");
+	printf(" 888  888 888888888 88  88      88\n");
+	printf("  88  88  88     88 88   88888888\n");
 
 	return 0;
 }
