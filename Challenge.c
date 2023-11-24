@@ -1,18 +1,18 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
+#include<stdio.h>
+#include<string.h>
 
 int main() {
-	printf("    8888888888  888    88888\n");
-	printf("   88     88   88 88   88  88\n");
-	printf("    8888  88  88   88  88888\n");
-	printf("       88 88 888888888 88   88\n");
-	printf("88888888  88 88     88 88    888888\n");
-	printf("\n");
-	printf("88  88  88   888    88888    888888\n");
-	printf("88  88  88  88 88   88  88  88\n");
-	printf("88 8888 88 88   88  88888    8888\n");
-	printf(" 888  888 888888888 88  88      88\n");
-	printf("  88  88  88     88 88   88888888\n");
+    long long int sum = 0;
+    char a[10001], b[10001];
 
-	return 0;
+    scanf("%s %s", a, b);
+
+    for (int i = 0; i < strlen(a); i++)
+        for (int j = 0; j < strlen(b); j++)
+            sum += (a[i] - '0') * (b[j] - '0');
+
+    printf("%lld", sum);
+
+    return 0;
 }
