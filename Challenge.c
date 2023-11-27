@@ -1,8 +1,7 @@
-#define _CRT_SECURE_NO_WARNINGS
-#include<stdio.h>
-#include<string.h>
+#include <stdio.h>
 
 int main() {
+<<<<<<< HEAD
     char str[5001];
 	int length = 0;
 	int flag;
@@ -64,3 +63,13 @@ int main() {
 	}
 	return 0;
 }
+=======
+    int UR, TR, UO, TO; 
+    
+    scanf("%d %d %d %d", &UR, &TR, &UO, &TO);
+    
+    printf("%d", 56*UR + 24*TR + 14*UO + 6*TO);
+    
+return 0;
+}
+>>>>>>> 30ab3c51a702e7ca5e4ad5738f6ba21f2310be69
