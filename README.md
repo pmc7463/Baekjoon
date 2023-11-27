@@ -20,7 +20,7 @@ else if (str[i] == 'c') {
     else {
         flag = 2;
         break;
-    }
+    } 
     i += 2;
 }
 ```
